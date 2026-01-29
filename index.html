@@ -2,7 +2,6 @@
 <!--
   Massively by HTML5 UP
   html5up.net | @ajlkn
-  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
   <head>
@@ -12,60 +11,32 @@
     <link rel="stylesheet" href="assets/css/main.css" />
     <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 
-    <!-- Custom color palette overrides -->
     <style>
-      /* Page background */
       body.is-preload #wrapper,
-      body #wrapper {
-        background-color: #020617; /* very dark navy */
-      }
+      body #wrapper { background-color: #020617; }
 
-      /* Intro gradient background */
       #intro:before {
         background-image: linear-gradient(135deg, #020617 0%, #0f172a 40%, #1e293b 100%);
         opacity: 0.95;
       }
 
-      /* Global text color tweaks */
-      body,
-      input,
-      select,
-      textarea {
-        color: #e5e7eb; /* soft light gray */
-      }
+      body, input, select, textarea { color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f9fafb; }
 
-      /* Headings */
-      h1,
-      h2,
-      h3,
-      h4,
-      h5,
-      h6 {
-        color: #f9fafb; /* near white */
-      }
+      a { color: #22c55e; }
+      a:hover { color: #4ade80; }
 
-      /* Primary accent (links, highlights) */
-      a {
-        color: #22c55e; /* teal/green accent */
-      }
-      a:hover {
-        color: #4ade80;
-      }
-
-      /* Nav bar background */
       #nav {
-        background-color: rgba(15, 23, 42, 0.98); /* dark slate */
+        background-color: rgba(15, 23, 42, 0.98);
         box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.3);
       }
 
-      /* Active nav link */
       #nav .links li a:hover,
       #nav .links li.active a {
         color: #22c55e;
         border-color: #22c55e;
       }
 
-      /* Buttons */
       .button,
       .button.large,
       .actions.special .button {
@@ -75,32 +46,13 @@
         border: none;
       }
 
-      .button:hover,
-      .button.large:hover,
-      .actions.special .button:hover {
-        background-color: #16a34a;
-      }
+      .button:hover { background-color: #16a34a; }
 
-      /* Contact section background */
       #footer {
         background-color: #020617;
         border-top: 1px solid rgba(148, 163, 184, 0.35);
       }
 
-      #footer h2,
-      #footer h3 {
-        color: #f9fafb;
-      }
-
-      #footer a {
-        color: #22c55e;
-      }
-
-      #footer a:hover {
-        color: #4ade80;
-      }
-
-      /* Project cards background */
       .post,
       .post.featured,
       section.posts > article {
@@ -110,46 +62,33 @@
         border: 1px solid rgba(148, 163, 184, 0.25);
       }
 
-      /* Images rounded */
       .image.main img,
-      .image.fit img {
-        border-radius: 1rem;
-      }
+      .image.fit img { border-radius: 1rem; }
     </style>
   </head>
-  <body class="is-preload">
 
-    <!-- Wrapper -->
+  <body class="is-preload">
     <div id="wrapper" class="fade-in">
 
       <!-- Intro -->
       <div id="intro">
         <h1>Olamide Bankole</h1>
         <h2>Data Scientist &amp; AI Engineer</h2>
-        <p>
-          I build intelligent, automated, and data-driven solutions that power real-world business
-          transformation and deliver measurable impact.
-        </p>
 
         <h2>About Me</h2>
         <p>
           I’m a Data Scientist &amp; AI Engineer with experience developing end-to-end machine
           learning systems, automation workflows, and data-driven tools across sectors including
-          network automation, fintech, and proptech. I specialize in building intelligent solutions
-          that improve performance, streamline operations, and support digital transformation.
+          network automation, fintech, and proptech.
         </p>
 
         <p>
           My expertise spans machine learning, deep learning, NLP, computer vision, time-series
-          forecasting, and survival analysis. I enjoy transforming complex datasets into actionable
-          insights and building AI-driven systems that integrate into real-world workflows and
-          deliver measurable impact.
+          forecasting, and survival analysis.
         </p>
 
         <ul class="actions">
-          <li>
-            <a href="#projects" class="button icon solid solo fa-arrow-down scrolly">Continue</a>
-          </li>
+          <li><a href="#projects" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
         </ul>
       </div>
 
@@ -166,232 +105,137 @@
           <li><a href="#contact">Contact</a></li>
         </ul>
         <ul class="icons">
-          <li>
-            <a href="https://github.com/olamide-ds" class="icon brands fa-github"
-              ><span class="label">GitHub</span></a
-            >
-          </li>
-          <li>
-            <a
-              href="https://linkedin.com/in/olamide-bankole-b68640203/"
-              class="icon brands fa-linkedin"
-              ><span class="label">LinkedIn</span></a
-            >
-          </li>
+          <li><a href="https://github.com/olamide-ds" class="icon brands fa-github"></a></li>
+          <li><a href="https://linkedin.com/in/olamide-bankole-b68640203/" class="icon brands fa-linkedin"></a></li>
         </ul>
       </nav>
 
       <!-- Main -->
       <div id="main">
 
-        <!-- Featured Project -->
+        <!-- FEATURED PROJECT -->
         <article class="post featured" id="projects">
           <header class="major">
             <h2>
-              <a
-                href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis"
-              >
-                Multi-Modal Survival Prediction for Skin Cancer
+              <a href="https://github.com/Olamide-ds/anomaly-detection-api">
+                Time-Series Anomaly Detection API
               </a>
             </h2>
             <p>
-              Developed multi-modal survival prediction models using clinical, genomic, and imaging
-              data with CoxPH, DeepSurv, and DeepHit, plus SHAP-based explainability and C-index /
-              Brier score evaluation.
+              Time-series anomaly detection system built with rolling
+              statistical features and an Isolation Forest model, exposed through a FastAPI
+              service with careful warm-up handling and Dockerized deployment.
             </p>
           </header>
-          <a
-            href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis"
-            class="image main"
-            ><img src="images/pexels-tara-winstead-8384513.jpg" alt="Skin cancer survival prediction project"
-          /></a>
+          <a href="https://github.com/Olamide-ds/anomaly-detection-api" class="image main">
+            <img src="images/anomaly.jpg" alt="Time-series anomaly detection system" />
+          </a>
           <ul class="actions special">
-            <li>
-              <a
-                href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis"
-                class="button large"
-                >View on GitHub</a
-              >
-            </li>
+            <li><a href="https://github.com/Olamide-ds/anomaly-detection-api" class="button large">View on GitHub</a></li>
+            <li><a href="https://anomaly-detection-api-z41e.onrender.com/docs" class="button large" target="_blank">Live API Docs</a></li>
           </ul>
         </article>
 
         <!-- Other Projects -->
         <section class="posts">
+
+          <!-- Multi-Modal Survival -->
           <article>
             <header>
               <h2>
-                <a href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model">
-                  Emergency Vehicle Image Classification (CNN)
+                <a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis">
+                  Multi-Modal Survival Prediction for Skin Cancer
                 </a>
               </h2>
             </header>
-            <a
-              href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model"
-              class="image fit"
-              ><img src="images/luke-madziwa-rY_ggq2SdvU-unsplash.jpg" alt="Emergency vehicle classification"
-            /></a>
+            <a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis" class="image fit">
+              <img src="images/pexels-tara-winstead-8384513.jpg" alt="Skin cancer survival prediction" />
+            </a>
             <p>
-              Built a convolutional neural network to classify emergency vs. non-emergency vehicles
-              using image data, achieving 90% accuracy after preprocessing and model optimization.
+              Developed multi-modal survival prediction models using clinical, genomic, and imaging
+              data with CoxPH, DeepSurv, and DeepHit, plus SHAP-based explainability.
             </p>
             <ul class="actions special">
-              <li>
-                <a
-                  href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model"
-                  class="button"
-                  >View on GitHub</a
-                >
-              </li>
+              <li><a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis" class="button">View on GitHub</a></li>
             </ul>
           </article>
 
+          <!-- Emergency Vehicle CNN -->
           <article>
             <header>
-              <h2>
-                <a href="https://github.com/olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series">
-                  UK Road Accident Analysis &amp; Forecasting
-                </a>
-              </h2>
+              <h2><a href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model">Emergency Vehicle Image Classification (CNN)</a></h2>
             </header>
-            <a
-              href="https://github.com/olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series"
-              class="image fit"
-              ><img src="images/clark-van-der-beken-CSkriQWeTVs-unsplash.jpg" alt="UK road accident forecasting"
-            /></a>
-            <p>
-              Used SQL and time-series models on UK accident data to clean, analyze, and forecast
-              accident trends, and applied the Apriori algorithm to uncover association patterns.
-            </p>
-            <ul class="actions special">
-              <li>
-                <a
-                  href="https://github.com/olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series"
-                  class="button"
-                  >View on GitHub</a
-                >
-              </li>
-            </ul>
+            <a href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model" class="image fit">
+              <img src="images/luke-madziwa-rY_ggq2SdvU-unsplash.jpg" alt="Emergency vehicle classification" />
+            </a>
+            <p>Built a CNN to classify emergency vs non-emergency vehicles, achieving 90% accuracy.</p>
+            <ul class="actions special"><li><a href="#" class="button">View on GitHub</a></li></ul>
           </article>
 
+          <!-- UK Accidents -->
           <article>
             <header>
-              <h2>
-                <a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis">
-                  Mock Census Data analysis
-                </a>
-              </h2>
+              <h2><a href="https://github.com/olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series">UK Road Accident Analysis &amp; Forecasting</a></h2>
             </header>
-            <a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis" class="image fit"
-              ><img src="images/muhammad-abdul-majid-1lt13LckuR4-unsplash.jpg" alt="Mock Census Data Analysis"
-            /></a>
-            <p>
-			Analyzed a mock census dataset to reveal demographic trends and community needs, using data cleaning and exploratory visualizations to support planning decisions.
-            </p>
-            <ul class="actions special">
-              <li>
-                <a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis" class="button"
-                  >View on GitHub</a
-                >
-              </li>
-            </ul>
+            <a href="#" class="image fit"><img src="images/clark-van-der-beken-CSkriQWeTVs-unsplash.jpg" alt="" /></a>
+            <p>Time-series analysis and forecasting of UK road accident trends.</p>
+            <ul class="actions special"><li><a href="#" class="button">View on GitHub</a></li></ul>
           </article>
 
+          <!-- Mock Census -->
           <article>
             <header>
-              <h2>
-                <a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN">
-                  Video Games Sales Performance Analysis
-                </a>
-              </h2>
+              <h2><a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis">Mock Census Data Analysis</a></h2>
             </header>
-            <a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN" class="image fit"
-              ><img src="images/jeshoots-com-eCktzGjC-iU-unsplash.jpg" alt="Video Games Performance Analysis"
-            /></a>
-            <p>
-              Developed regression models to predict video game performance
-            </p>
-            <ul class="actions special">
-              <li>
-                <a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN" class="button"
-                  >View on GitHub</a
-                >
-              </li>
-            </ul>
+            <a href="#" class="image fit"><img src="images/muhammad-abdul-majid-1lt13LckuR4-unsplash.jpg" alt="" /></a>
+            <p>Demographic analysis and visualization of census-style data.</p>
+            <ul class="actions special"><li><a href="#" class="button">View on GitHub</a></li></ul>
           </article>
 
+          <!-- Games -->
           <article>
             <header>
-              <h2>
-                <a
-                  href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU"
-                >
-                  Disaster Tweet Classification (NLP)
-                </a>
-              </h2>
+              <h2><a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN">Video Games Sales Performance Analysis</a></h2>
             </header>
-            <a
-              href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU"
-              class="image fit"
-              ><img src="images/viktor-hesse-L139Wt_mr9g-unsplash.jpg" alt="Disaster tweet classification"
-            /></a>
-            <p>
-              Built NLP models (Logistic Regression, Random Forest, BiLSTM, GRU) to classify tweets
-              as disaster vs. non-disaster, evaluated with F1-score and accuracy.
-            </p>
-            <ul class="actions special">
-              <li>
-                <a
-                  href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU"
-                  class="button"
-                  >View on GitHub</a
-                >
-              </li>
-            </ul>
+            <a href="#" class="image fit"><img src="images/jeshoots-com-eCktzGjC-iU-unsplash.jpg" alt="" /></a>
+            <p>Regression models to predict video game sales performance.</p>
+            <ul class="actions special"><li><a href="#" class="button">View on GitHub</a></li></ul>
           </article>
+
+          <!-- Disaster Tweets -->
+          <article>
+            <header>
+              <h2><a href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU">Disaster Tweet Classification (NLP)</a></h2>
+            </header>
+            <a href="#" class="image fit"><img src="images/viktor-hesse-L139Wt_mr9g-unsplash.jpg" alt="" /></a>
+            <p>NLP models for disaster tweet classification using BiLSTM &amp; GRU.</p>
+            <ul class="actions special"><li><a href="#" class="button">View on GitHub</a></li></ul>
+          </article>
+
         </section>
-
       </div>
 
-      <!-- Footer / Contact -->
+      <!-- Footer -->
       <footer id="footer">
         <section id="contact">
           <h2>Contact</h2>
-          <p>
-            If you’d like to collaborate, discuss a role, or learn more about my work, feel free to
-            reach out.
-          </p>
           <ul class="contact">
-            <li>
-              <h3>Email</h3>
-              <p><a href="mailto:bankolee.olamide@gmail.com">bankolee.olamide@gmail.com</a></p>
-            </li>
-            <li>
-              <h3>GitHub</h3>
-              <p><a href="https://github.com/olamide-ds">github.com/olamide-ds</a></p>
-            </li>
-            <li>
-              <h3>LinkedIn</h3>
-              <p>
-                <a href="https://linkedin.com/in/olamide-bankole-b68640203/">
-                  linkedin.com/in/olamide-bankole-b68640203/
-                </a>
-              </p>
-            </li>
+            <li><strong>Email:</strong> <a href="mailto:bankolee.olamide@gmail.com">bankolee.olamide@gmail.com</a></li>
+            <li><strong>GitHub:</strong> <a href="https://github.com/olamide-ds">github.com/olamide-ds</a></li>
+            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/olamide-bankole-b68640203/">linkedin.com/in/olamide-bankole-b68640203/</a></li>
           </ul>
         </section>
       </footer>
 
-      <!-- Copyright -->
       <div id="copyright">
         <ul>
-          <li>&copy; Olamide Bankole</li>
-          <li>Design: <a href="https://html5up.net">HTML5 UP</a></li>
+          <li>&copy; Olamide Bankole 2026</li>
+    
         </ul>
       </div>
+
     </div>
 
-    <!-- Scripts -->
     <script src="assets/js/jquery.min.js"></script>
     <script src="assets/js/jquery.scrollex.min.js"></script>
     <script src="assets/js/jquery.scrolly.min.js"></script>
