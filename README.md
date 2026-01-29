@@ -1,5 +1,3 @@
-# Olamide Bankole — Data Portfolio
-
 Welcome to my data science & AI portfolio. This site showcases selected projects across machine learning, deep learning, NLP, computer vision, time-series forecasting, and applied analytics.
 
 ## Live Site
@@ -8,8 +6,6 @@ Welcome to my data science & AI portfolio. This site showcases selected projects
 ## Featured Projects
 - **Time-Series Anomaly Detection API** — Rolling statistical features + Isolation Forest, served via FastAPI and Dockerized for deployment.
 - **Multi-Modal Survival Prediction for Skin Cancer** — Survival modeling with clinical/genomic/imaging data (CoxPH, DeepSurv, DeepHit) + explainability.
-
-## More Projects
 - **Emergency Vehicle Image Classification (CNN)** — Image classification for emergency vs non-emergency vehicles.
 - **UK Road Accident Analysis & Forecasting** — SQL + time-series analysis and forecasting on accident trends.
 - **Mock Census Data Analysis** — Data cleaning + EDA + visual storytelling for demographic insights.
@@ -28,3 +24,4 @@ Python • FastAPI • Scikit-learn • TensorFlow/PyTorch • SQL • Docker �
 Portfolio theme adapted from **Massively by HTML5 UP** (html5up.net) and uses:
 - Font Awesome icons
 - jQuery + Scrollex
+
