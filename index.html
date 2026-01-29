@@ -64,6 +64,24 @@
 
       .image.main img,
       .image.fit img { border-radius: 1rem; }
+
+      /* ✅ FIX: make action buttons clickable (prevent image overlays from stealing clicks) */
+      section.posts > article { position: relative; }
+
+      section.posts > article > .image { 
+        position: relative; 
+        z-index: 1; 
+      }
+
+      section.posts > article > .actions {
+        position: relative;
+        z-index: 5;
+      }
+
+      section.posts > article > .image::before,
+      section.posts > article > .image::after {
+        pointer-events: none;
+      }
     </style>
   </head>
 
@@ -131,8 +149,8 @@
             <img src="images/anomaly.jpg" alt="Time-series anomaly detection system" />
           </a>
           <ul class="actions special">
-            <li><a href="https://github.com/Olamide-ds/anomaly-detection-api" class="button large">View on GitHub</a></li>
-            <li><a href="https://anomaly-detection-api-z41e.onrender.com/docs" class="button large" target="_blank">Live API Docs</a></li>
+            <li><a href="https://github.com/Olamide-ds/anomaly-detection-api" class="button large" target="_blank" rel="noopener">View on GitHub</a></li>
+            <li><a href="https://anomaly-detection-api-z41e.onrender.com/docs" class="button large" target="_blank" rel="noopener">Live API Docs</a></li>
           </ul>
         </article>
 
@@ -156,7 +174,7 @@
               data with CoxPH, DeepSurv, and DeepHit, plus SHAP-based explainability.
             </p>
             <ul class="actions special">
-              <li><a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis" class="button">View on GitHub</a></li>
+              <li><a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
             </ul>
           </article>
 
@@ -176,7 +194,7 @@
               Built a CNN to classify emergency vs non-emergency vehicles, achieving 90% accuracy.
             </p>
             <ul class="actions special">
-              <li><a href="https://github.com/Olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model" class="button">View on GitHub</a></li>
+              <li><a href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
             </ul>
           </article>
 
@@ -186,9 +204,12 @@
               <h2><a href="https://github.com/Olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series">UK Road Accident Analysis &amp; Forecasting</a></h2>
             </header>
             <a href="https://github.com/Olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series" class="image fit">
-              <img src="images/clark-van-der-beken-CSkriQWeTVs-unsplash.jpg" alt="" /></a>
+              <img src="images/clark-van-der-beken-CSkriQWeTVs-unsplash.jpg" alt="" />
+            </a>
             <p>Time-series analysis and forecasting of UK road accident trends.</p>
-            <ul class="actions special"><li><a href="#" class="button">View on GitHub</a></li></ul>
+            <ul class="actions special">
+              <li><a href="https://github.com/Olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
+            </ul>
           </article>
 
           <!-- Mock Census -->
@@ -196,9 +217,13 @@
             <header>
               <h2><a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis">Mock Census Data Analysis</a></h2>
             </header>
-            <a href="#" class="image fit"><img src="images/muhammad-abdul-majid-1lt13LckuR4-unsplash.jpg" alt="" /></a>
+            <a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis" class="image fit">
+              <img src="images/muhammad-abdul-majid-1lt13LckuR4-unsplash.jpg" alt="" />
+            </a>
             <p>Demographic analysis and visualization of census-style data.</p>
-            <ul class="actions special"><li><a href="#" class="button">View on GitHub</a></li></ul>
+            <ul class="actions special">
+              <li><a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
+            </ul>
           </article>
 
           <!-- Games -->
@@ -206,9 +231,13 @@
             <header>
               <h2><a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN">Video Games Sales Performance Analysis</a></h2>
             </header>
-            <a href="#" class="image fit"><img src="images/jeshoots-com-eCktzGjC-iU-unsplash.jpg" alt="" /></a>
+            <a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN" class="image fit">
+              <img src="images/jeshoots-com-eCktzGjC-iU-unsplash.jpg" alt="" />
+            </a>
             <p>Regression models to predict video game sales performance.</p>
-            <ul class="actions special"><li><a href="#" class="button">View on GitHub</a></li></ul>
+            <ul class="actions special">
+              <li><a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
+            </ul>
           </article>
 
           <!-- Disaster Tweets -->
@@ -216,9 +245,13 @@
             <header>
               <h2><a href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU">Disaster Tweet Classification (NLP)</a></h2>
             </header>
-            <a href="#" class="image fit"><img src="images/viktor-hesse-L139Wt_mr9g-unsplash.jpg" alt="" /></a>
+            <a href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU" class="image fit">
+              <img src="images/viktor-hesse-L139Wt_mr9g-unsplash.jpg" alt="" />
+            </a>
             <p>NLP models for disaster tweet classification using BiLSTM &amp; GRU.</p>
-            <ul class="actions special"><li><a href="#" class="button">View on GitHub</a></li></ul>
+            <ul class="actions special">
+              <li><a href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
+            </ul>
           </article>
 
         </section>
@@ -239,7 +272,6 @@
       <div id="copyright">
         <ul>
           <li>&copy; Olamide Bankole 2026</li>
-    
         </ul>
       </div>
 
@@ -254,7 +286,3 @@
     <script src="assets/js/main.js"></script>
   </body>
 </html>
-
-
-
-
