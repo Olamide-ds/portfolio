@@ -1,42 +1,30 @@
-Portfolio Website
+# Olamide Bankole — Data Portfolio
 
-This is my personal data science and machine learning portfolio, built to showcase selected projects across machine learning, deep learning, computer vision, NLP, and time-series analysis.
+Welcome to my data science & AI portfolio. This site showcases selected projects across machine learning, deep learning, NLP, computer vision, time-series forecasting, and applied analytics.
 
-The site highlights end-to-end projects including:
+## Live Site
+- GitHub Pages: (add your portfolio URL here once it’s enabled)
 
-Model development and evaluation
+## Featured Projects
+- **Time-Series Anomaly Detection API** — Rolling statistical features + Isolation Forest, served via FastAPI and Dockerized for deployment.
+- **Multi-Modal Survival Prediction for Skin Cancer** — Survival modeling with clinical/genomic/imaging data (CoxPH, DeepSurv, DeepHit) + explainability.
 
-Feature engineering and experimentation
+## More Projects
+- **Emergency Vehicle Image Classification (CNN)** — Image classification for emergency vs non-emergency vehicles.
+- **UK Road Accident Analysis & Forecasting** — SQL + time-series analysis and forecasting on accident trends.
+- **Mock Census Data Analysis** — Data cleaning + EDA + visual storytelling for demographic insights.
+- **Video Games Sales Performance Analysis** — Regression/ANN-based performance prediction.
+- **Disaster Tweet Classification (NLP)** — Traditional ML + BiLSTM/GRU models for tweet classification.
 
-API-based machine learning systems
+## Tech Stack
+Python • FastAPI • Scikit-learn • TensorFlow/PyTorch • SQL • Docker • Pandas • NumPy • Git/GitHub
 
-Production-oriented deployment and documentation
+## Contact
+- **Email:** bankolee.olamide@gmail.com  
+- **GitHub:** https://github.com/olamide-ds  
+- **LinkedIn:** https://linkedin.com/in/olamide-bankole-b68640203/
 
-Each project links directly to its GitHub repository with detailed explanations, code, and results.
-
-Design & Credits
-
-Website design is based on Massively by HTML5 UP, used under the Creative Commons Attribution 3.0 License (CCA 3.0).
-
-Credits:
-
-Template: Massively — HTML5 UP (https://html5up.net
-)
-
-Icons: Font Awesome
-
-JavaScript Libraries:
-
-jQuery
-
-Scrollex (scroll animations)
-
-Images: Unsplash (royalty-free, CC0)
-
-Author
-
-Olamide Bankole
-Data Scientist & AI Engineer
-GitHub: https://github.com/olamide-ds
-
-LinkedIn: https://linkedin.com/in/olamide-bankole-b68640203/
+## Credits
+Portfolio theme adapted from **Massively by HTML5 UP** (html5up.net) and uses:
+- Font Awesome icons
+- jQuery + Scrollex
