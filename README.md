@@ -1,4 +1,4 @@
-Welcome to my data science & AI portfolio. This site showcases my projects across machine learning, deep learning, NLP, computer vision, time-series forecasting, and applied analytics.
+Welcome to my Data science & AI portfolio. This site showcases my projects across machine learning, deep learning, NLP, computer vision, time-series forecasting, and applied analytics.
 
 ## Live Site
 - Portfolio Link: https://olamide-ds.github.io/portfolio/
@@ -24,6 +24,7 @@ Python • FastAPI • Scikit-learn • TensorFlow/PyTorch • SQL • Docker �
 Portfolio theme adapted from **Massively by HTML5 UP** (html5up.net) and uses:
 - Font Awesome icons
 - jQuery + Scrollex
+
 
 
 
