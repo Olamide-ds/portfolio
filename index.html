@@ -1,300 +1,244 @@
-<!DOCTYPE HTML>
-<!--
-  Massively by HTML5 UP
-  html5up.net | @ajlkn
--->
-<html>
-  <head>
-    <title>Olamide Bankole</title>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
-    <link rel="stylesheet" href="assets/css/main.css" />
-    <noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <style>
-      body.is-preload #wrapper,
-      body #wrapper { background-color: #020617; }
+  <title>Work | Olamide Bankole</title>
 
-      #intro:before {
-        background-image: linear-gradient(135deg, #020617 0%, #0f172a 40%, #1e293b 100%);
-        opacity: 0.95;
-      }
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
-      body, input, select, textarea { color: #e5e7eb; }
-      h1, h2, h3, h4, h5, h6 { color: #f9fafb; }
+  <link rel="stylesheet" href="../assets/css/custom.css" />
+</head>
 
-      a { color: #22c55e; }
-      a:hover { color: #4ade80; }
+<body>
 
-      #nav {
-        background-color: rgba(15, 23, 42, 0.98);
-        box-shadow: 0 0 0 1px rgba(148, 163, 184, 0.3);
-      }
+  <header class="site-header">
+    <a href="../" class="logo">☕</a>
 
-      #nav .links li a:hover,
-      #nav .links li.active a {
-        color: #22c55e;
-        border-color: #22c55e;
-      }
+    <nav class="nav-links">
+      <a href="../">Home</a>
+      <a href="../about/">About me</a>
+      <a href="../work/">My work</a>
+      <a href="#contact">Contact me</a>
+    </nav>
+  </header>
 
-      .button,
-      .button.large,
-      .actions.special .button {
-        background-color: #22c55e;
-        color: #020617 !important;
-        border-radius: 999px;
-        border: none;
-      }
+  <section class="page-hero work-hero">
+    <p class="small-label">Featured work</p>
 
-      .button:hover { background-color: #16a34a; }
+    <h1>Projects where AI meets actual problems.</h1>
 
-      #footer {
-        background-color: #020617;
-        border-top: 1px solid rgba(148, 163, 184, 0.35);
-      }
+    <p>
+      A few things I’ve built, trained, tested, and deployed reframed through the lens
+      I care about most: what problem does this solve, how does it work, and how could it
+      become a useful product?
+    </p>
+  </section>
 
-      .post,
-      .post.featured,
-      section.posts > article {
-        background-color: #020617;
-        border-radius: 1.25rem;
-        box-shadow: 0 18px 40px rgba(15, 23, 42, 0.9);
-        border: 1px solid rgba(148, 163, 184, 0.25);
-      }
+  <section class="work">
+    <div class="project-list">
 
-      .image.main img,
-      .image.fit img { border-radius: 1rem; }
+      <article class="project-card">
+        <div class="project-image">
+          <img src="../images/API.png" alt="Time-Series Anomaly Detection API" />
+        </div>
 
-      /* ✅ FIX: make action buttons clickable (prevent image overlays from stealing clicks) */
-      section.posts > article { position: relative; }
+        <div class="project-info">
+          <p class="project-category">🚨 AI Operations / Anomaly Detection</p>
 
-      section.posts > article > .image {
-        position: relative;
-        z-index: 1;
-      }
+          <h3>Time-Series Anomaly Detection API</h3>
 
-      section.posts > article > .actions {
-        position: relative;
-        z-index: 5;
-      }
+          <p class="project-problem">
+            <strong>Problem:</strong> Operational teams need earlier warning signs when behavior starts looking unusual.
+          </p>
 
-      section.posts > article > .image::before,
-      section.posts > article > .image::after {
-        pointer-events: none;
-      }
-    </style>
-  </head>
+          <p>
+            I built a deployed anomaly detection API that identifies unusual time-series behavior using
+            rolling statistical features, Isolation Forest, FastAPI, Docker, and live API documentation.
+          </p>
 
-  <body class="is-preload">
-    <div id="wrapper" class="fade-in">
+          <p class="project-takeaway">
+            <strong>Product takeaway:</strong> This shows how a model can move beyond a notebook into a usable
+            product workflow that helps teams catch issues before they become expensive.
+          </p>
 
-      <!-- Intro -->
-      <div id="intro">
-        <h1>Olamide Bankole</h1>
+          <div class="project-meta">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>Docker</span>
+            <span>Isolation Forest</span>
+          </div>
 
-        <h2>About Me</h2>
-        <p>
-          My work spans machine learning and deep learning, with hands-on experience in NLP, computer vision, time-series modeling, and survival analysis.
-        </p>
+          <div class="project-links">
+            <a href="https://github.com/Olamide-ds/anomaly-detection-api" target="_blank" rel="noopener">View GitHub</a>
+            <a href="https://anomaly-detection-api-z41e.onrender.com/docs" target="_blank" rel="noopener">Live API Docs</a>
+          </div>
+        </div>
+      </article>
 
-        <ul class="actions">
-          <li><a href="#projects" class="button icon solid solo fa-arrow-down scrolly">Continue</a></li>
-        </ul>
-      </div>
+      <article class="project-card reverse">
+        <div class="project-image">
+          <img src="../images/pexels-tara-winstead-8384513.jpg" alt="Skin Cancer Survival Prediction" />
+        </div>
 
-      <!-- Header -->
-      <header id="header">
-        <a href="index.html" class="logo">Data Portfolio</a>
-      </header>
+        <div class="project-info">
+          <p class="project-category">🩺 AI / Healthcare</p>
 
-      <!-- Nav -->
-      <nav id="nav">
-        <ul class="links">
-          <li class="active"><a href="index.html">Home</a></li>
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-        <ul class="icons">
-          <li><a href="https://github.com/olamide-ds" class="icon brands fa-github"></a></li>
-          <li><a href="https://linkedin.com/in/olamide-bankole-b68640203/" class="icon brands fa-linkedin"></a></li>
-        </ul>
-      </nav>
+          <h3>Multi-Modal Survival Prediction for Skin Cancer</h3>
 
-      <!-- Main -->
-      <div id="main">
+          <p class="project-problem">
+            <strong>Problem:</strong> Healthcare prediction is only useful when the model is understandable, not just accurate.
+          </p>
 
-        <!-- FEATURED PROJECT -->
-        <article class="post featured" id="projects">
-          <header class="major">
-            <h2>
-              <a href="https://github.com/Olamide-ds/anomaly-detection-api">
-                Time-Series Anomaly Detection API
-              </a>
-            </h2>
-            <p>
-              Time-series anomaly detection system built with rolling
-              statistical features and an Isolation Forest model, exposed through a FastAPI
-              service with careful warm-up handling and Dockerized deployment.
-            </p>
-          </header>
-          <a href="https://github.com/Olamide-ds/anomaly-detection-api" class="image main">
-            <img src="images/Time-series anomaly detection workflow.jpg" alt="Time-series anomaly detection system" />
-          </a>
-          <ul class="actions special">
-            <li><a href="https://github.com/Olamide-ds/anomaly-detection-api" class="button large" target="_blank" rel="noopener">View on GitHub</a></li>
-            <li><a href="https://anomaly-detection-api-z41e.onrender.com/docs" class="button large" target="_blank" rel="noopener">Live API Docs</a></li>
-          </ul>
-        </article>
+          <p>
+            I built survival prediction models using clinical, genomic, and imaging data, combining survival
+            modelling, deep learning approaches, and SHAP-based explainability.
+          </p>
 
-        <!-- Other Projects -->
-        <section class="posts">
+          <p class="project-takeaway">
+            <strong>Product takeaway:</strong> In healthcare AI, trust matters. This project helped me think about
+            explainability, model risk, and how predictions could support decision-making without replacing judgment.
+          </p>
 
-          <!-- Multi-Modal Survival -->
-          <article>
-            <header>
-              <h2>
-                <a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis">
-                  Multi-Modal Survival Prediction for Skin Cancer
-                </a>
-              </h2>
-            </header>
-            <a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis" class="image fit">
-              <img src="images/pexels-tara-winstead-8384513.jpg" alt="Skin cancer survival prediction" />
-            </a>
-            <p>
-              Developed multi-modal survival prediction models using clinical, genomic, and imaging
-              data with CoxPH, DeepSurv, and DeepHit, plus SHAP-based explainability.
-            </p>
-            <ul class="actions special">
-              <li><a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
-            </ul>
-          </article>
+          <div class="project-meta">
+            <span>Survival Analysis</span>
+            <span>Deep Learning</span>
+            <span>SHAP</span>
+            <span>Healthcare AI</span>
+          </div>
 
-          <!-- Emergency Vehicle CNN -->
-          <article>
-            <header>
-              <h2>
-                <a href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model">
-                  Emergency Vehicle Image Classification (CNN)
-                </a>
-              </h2>
-            </header>
-            <a href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model" class="image fit">
-              <img src="images/luke-madziwa-rY_ggq2SdvU-unsplash.jpg" alt="Emergency vehicle classification" />
-            </a>
-            <p>
-              Built a CNN to classify emergency vs non-emergency vehicles, achieving 90% accuracy.
-            </p>
-            <ul class="actions special">
-              <li><a href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
-            </ul>
-          </article>
+          <div class="project-links">
+            <a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis" target="_blank" rel="noopener">View GitHub</a>
+          </div>
+        </div>
+      </article>
 
-          <!-- UK Accidents -->
-          <article>
-            <header>
-              <h2>
-                <a href="https://github.com/Olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series">
-                  UK Road Accident Analysis &amp; Forecasting
-                </a>
-              </h2>
-            </header>
-            <a href="https://github.com/Olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series" class="image fit">
-              <img src="images/clark-van-der-beken-CSkriQWeTVs-unsplash.jpg" alt="UK road accident analysis" />
-            </a>
-            <p>Time-series analysis and forecasting of UK road accident trends.</p>
-            <ul class="actions special">
-              <li><a href="https://github.com/Olamide-ds/2020-UK-Accident-Data-Analysis-Time-Series" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
-            </ul>
-          </article>
+      <article class="project-card">
+        <div class="project-image">
+          <img src="../images/Emergency.png" alt="Emergency Vehicle Classification" />
+        </div>
 
-          <!-- Mock Census -->
-          <article>
-            <header>
-              <h2>
-                <a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis">
-                  Mock Census Data Analysis
-                </a>
-              </h2>
-            </header>
-            <a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis" class="image fit">
-              <img src="images/muhammad-abdul-majid-1lt13LckuR4-unsplash.jpg" alt="Mock census data analysis" />
-            </a>
-            <p>Demographic analysis and visualization of census-style data.</p>
-            <ul class="actions special">
-              <li><a href="https://github.com/Olamide-ds/Mock-Census-Data-Analysis" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
-            </ul>
-          </article>
+        <div class="project-info">
+          <p class="project-category">🚑 Computer Vision</p>
 
-          <!-- Games -->
-          <article>
-            <header>
-              <h2>
-                <a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN">
-                  Video Games Sales Performance Analysis
-                </a>
-              </h2>
-            </header>
-            <a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN" class="image fit">
-              <img src="images/jeshoots-com-eCktzGjC-iU-unsplash.jpg" alt="Video games sales performance analysis" />
-            </a>
-            <p>Regression models to predict video game sales performance.</p>
-            <ul class="actions special">
-              <li><a href="https://github.com/Olamide-ds/Video-Games-Sales-Performance-Analysis--ANN" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
-            </ul>
-          </article>
+          <h3>Emergency Vehicle Image Classification</h3>
 
-          <!-- Disaster Tweets -->
-          <article>
-            <header>
-              <h2>
-                <a href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU">
-                  Disaster Tweet Classification (NLP)
-                </a>
-              </h2>
-            </header>
-            <a href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU" class="image fit">
-              <img src="images/viktor-hesse-L139Wt_mr9g-unsplash.jpg" alt="Disaster tweet classification NLP" />
-            </a>
-            <p>NLP models for disaster tweet classification using BiLSTM &amp; GRU.</p>
-            <ul class="actions special">
-              <li><a href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU" class="button" target="_blank" rel="noopener">View on GitHub</a></li>
-            </ul>
-          </article>
+          <p class="project-problem">
+            <strong>Problem:</strong> Visual classification can help teams identify critical objects faster in high-volume environments.
+          </p>
 
-        </section>
-      </div>
+          <p>
+            I trained a CNN-based image classification model to distinguish emergency and non-emergency
+            vehicles, with a focus on model performance, evaluation, and practical use cases.
+          </p>
 
-      <!-- Footer -->
-      <footer id="footer">
-        <section id="contact">
-          <h2>Contact</h2>
-          <ul class="contact">
-            <li><strong>Email:</strong> <a href="mailto:bankolee.olamide@gmail.com">bankolee.olamide@gmail.com</a></li>
-            <li><strong>GitHub:</strong> <a href="https://github.com/olamide-ds">github.com/olamide-ds</a></li>
-            <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/olamide-bankole-b68640203/">linkedin.com/in/olamide-bankole-b68640203/</a></li>
-          </ul>
-        </section>
-      </footer>
+          <p class="project-takeaway">
+            <strong>Product takeaway:</strong> This project connects computer vision to operational decision-making:
+            not just “can the model classify?”, but “where could this reduce response time or manual review?”
+          </p>
 
-      <div id="copyright">
-        <ul>
-          <li>&copy; Olamide Bankole 2026</li>
-        </ul>
-      </div>
+          <div class="project-meta">
+            <span>Computer Vision</span>
+            <span>CNN</span>
+            <span>Image Classification</span>
+            <span>Model Evaluation</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model" target="_blank" rel="noopener">View GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reverse">
+        <div class="project-image">
+          <img src="../images/viktor-hesse-L139Wt_mr9g-unsplash.jpg" alt="Disaster Tweet Classification" />
+        </div>
+
+        <div class="project-info">
+          <p class="project-category">🌍 NLP / Crisis Intelligence</p>
+
+          <h3>Disaster Tweet Classification</h3>
+
+          <p class="project-problem">
+            <strong>Problem:</strong> During emergencies, important signals can get buried inside noisy real-time text.
+          </p>
+
+          <p>
+            I built an NLP classification pipeline for identifying disaster-related tweets using deep learning
+            models including BiLSTM and GRU.
+          </p>
+
+          <p class="project-takeaway">
+            <strong>Product takeaway:</strong> This project made me think about AI as a triage layer: helping teams
+            surface urgent signals faster when every minute and every message matters.
+          </p>
+
+          <div class="project-meta">
+            <span>NLP</span>
+            <span>BiLSTM</span>
+            <span>GRU</span>
+            <span>Text Classification</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU" target="_blank" rel="noopener">View GitHub</a>
+          </div>
+        </div>
+      </article>
 
     </div>
+  </section>
 
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/js/jquery.scrollex.min.js"></script>
-    <script src="assets/js/jquery.scrolly.min.js"></script>
-    <script src="assets/js/browser.min.js"></script>
-    <script src="assets/js/breakpoints.min.js"></script>
-    <script src="assets/js/util.js"></script>
-    <script src="assets/js/main.js"></script>
-  </body>
+  <section id="contact" class="work-cta-section">
+    <div class="work-cta-visual">
+      <img
+        src="../images/contact-envelope.png"
+        alt="3D contact envelope illustration"
+        class="work-cta-image"
+      />
+    </div>
+
+    <div class="work-cta-text">
+      <p class="section-eyebrow">Contact me</p>
+
+      <h2>If you’re interested in working together, don’t be a stranger.</h2>
+
+      <p>
+        Want to talk about AI products, LLM workflows, messy operational problems,
+        football, fashion, or a very good coffee recommendation? I’m listening.
+      </p>
+
+      <a href="mailto:bankolee.olamide@gmail.com" class="secondary-button light-button">Say hi!</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <h3>Olamide Bankole</h3>
+      <p>AI Product Manager building useful, thoughtful, intelligent products.</p>
+    </div>
+
+    <div class="footer-nav">
+      <a href="../">Homepage</a>
+      <a href="../about/">About me</a>
+      <a href="../work/">Featured work</a>
+      <a href="#contact">Contact me</a>
+    </div>
+
+    <div class="socials">
+      <a href="https://github.com/olamide-ds" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/olamide-bankole-b68640203/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bankolee.olamide@gmail.com">Email</a>
+    </div>
+
+    <p class="copyright">
+      © Olamide Bankole 2026 — Visual icons/emojis used for styling.
+    </p>
+  </footer>
+
+</body>
 </html>
-
-
-
-
