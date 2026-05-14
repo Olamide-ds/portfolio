@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Work | Olamide Bankole</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="../assets/css/custom.css" />
+</head>
+
+<body>
+
+  <header class="site-header">
+    <a href="../" class="logo">☕</a>
+
+    <nav class="nav-links">
+      <a href="../">Home</a>
+      <a href="../about/">About me</a>
+      <a href="../work/">My work</a>
+      <a href="#contact">Contact me</a>
+    </nav>
+  </header>
+
+  <section class="page-hero work-hero">
+    <p class="small-label">Featured work</p>
+
+    <h1>Projects where AI meets actual problems.</h1>
+
+    <p>
+      A few things I’ve built, trained, tested, and deployed reframed through the lens
+      I care about most: what problem does this solve, how does it work, and how could it
+      become a useful product?
+    </p>
+  </section>
+
+  <section class="work">
+    <div class="project-list">
+
+      <article class="project-card">
+        <div class="project-image">
+          <img src="../images/API.png" alt="Time-Series Anomaly Detection API" />
+        </div>
+
+        <div class="project-info">
+          <p class="project-category">🚨 AI Operations / Anomaly Detection</p>
+
+          <h3>Time-Series Anomaly Detection API</h3>
+
+          <p class="project-problem">
+            <strong>Problem:</strong> Operational teams need earlier warning signs when behavior starts looking unusual.
+          </p>
+
+          <p>
+            I built a deployed anomaly detection API that identifies unusual time-series behavior using
+            rolling statistical features, Isolation Forest, FastAPI, Docker, and live API documentation.
+          </p>
+
+          <p class="project-takeaway">
+            <strong>Product takeaway:</strong> This shows how a model can move beyond a notebook into a usable
+            product workflow that helps teams catch issues before they become expensive.
+          </p>
+
+          <div class="project-meta">
+            <span>Python</span>
+            <span>FastAPI</span>
+            <span>Docker</span>
+            <span>Isolation Forest</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/Olamide-ds/anomaly-detection-api" target="_blank" rel="noopener">View GitHub</a>
+            <a href="https://anomaly-detection-api-z41e.onrender.com/docs" target="_blank" rel="noopener">Live API Docs</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reverse">
+        <div class="project-image">
+          <img src="../images/pexels-tara-winstead-8384513.jpg" alt="Skin Cancer Survival Prediction" />
+        </div>
+
+        <div class="project-info">
+          <p class="project-category">🩺 AI / Healthcare</p>
+
+          <h3>Multi-Modal Survival Prediction for Skin Cancer</h3>
+
+          <p class="project-problem">
+            <strong>Problem:</strong> Healthcare prediction is only useful when the model is understandable, not just accurate.
+          </p>
+
+          <p>
+            I built survival prediction models using clinical, genomic, and imaging data, combining survival
+            modelling, deep learning approaches, and SHAP-based explainability.
+          </p>
+
+          <p class="project-takeaway">
+            <strong>Product takeaway:</strong> In healthcare AI, trust matters. This project helped me think about
+            explainability, model risk, and how predictions could support decision-making without replacing judgment.
+          </p>
+
+          <div class="project-meta">
+            <span>Survival Analysis</span>
+            <span>Deep Learning</span>
+            <span>SHAP</span>
+            <span>Healthcare AI</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis" target="_blank" rel="noopener">View GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card">
+        <div class="project-image">
+          <img src="../images/Emergency.png" alt="Emergency Vehicle Classification" />
+        </div>
+
+        <div class="project-info">
+          <p class="project-category">🚑 Computer Vision</p>
+
+          <h3>Emergency Vehicle Image Classification</h3>
+
+          <p class="project-problem">
+            <strong>Problem:</strong> Visual classification can help teams identify critical objects faster in high-volume environments.
+          </p>
+
+          <p>
+            I trained a CNN-based image classification model to distinguish emergency and non-emergency
+            vehicles, with a focus on model performance, evaluation, and practical use cases.
+          </p>
+
+          <p class="project-takeaway">
+            <strong>Product takeaway:</strong> This project connects computer vision to operational decision-making:
+            not just “can the model classify?”, but “where could this reduce response time or manual review?”
+          </p>
+
+          <div class="project-meta">
+            <span>Computer Vision</span>
+            <span>CNN</span>
+            <span>Image Classification</span>
+            <span>Model Evaluation</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model" target="_blank" rel="noopener">View GitHub</a>
+          </div>
+        </div>
+      </article>
+
+      <article class="project-card reverse">
+        <div class="project-image">
+          <img src="../images/viktor-hesse-L139Wt_mr9g-unsplash.jpg" alt="Disaster Tweet Classification" />
+        </div>
+
+        <div class="project-info">
+          <p class="project-category">🌍 NLP / Crisis Intelligence</p>
+
+          <h3>Disaster Tweet Classification</h3>
+
+          <p class="project-problem">
+            <strong>Problem:</strong> During emergencies, important signals can get buried inside noisy real-time text.
+          </p>
+
+          <p>
+            I built an NLP classification pipeline for identifying disaster-related tweets using deep learning
+            models including BiLSTM and GRU.
+          </p>
+
+          <p class="project-takeaway">
+            <strong>Product takeaway:</strong> This project made me think about AI as a triage layer: helping teams
+            surface urgent signals faster when every minute and every message matters.
+          </p>
+
+          <div class="project-meta">
+            <span>NLP</span>
+            <span>BiLSTM</span>
+            <span>GRU</span>
+            <span>Text Classification</span>
+          </div>
+
+          <div class="project-links">
+            <a href="https://github.com/olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU" target="_blank" rel="noopener">View GitHub</a>
+          </div>
+        </div>
+      </article>
+
+    </div>
+  </section>
+
+  <section id="contact" class="work-cta-section">
+    <div class="work-cta-visual">
+      <img
+        src="../images/contact-envelope.png"
+        alt="3D contact envelope illustration"
+        class="work-cta-image"
+      />
+    </div>
+
+    <div class="work-cta-text">
+      <p class="section-eyebrow">Contact me</p>
+
+      <h2>If you’re interested in working together, don’t be a stranger.</h2>
+
+      <p>
+        Want to talk about AI products, LLM workflows, messy operational problems,
+        football, fashion, or a very good coffee recommendation? I’m listening.
+      </p>
+
+      <a href="mailto:bankolee.olamide@gmail.com" class="secondary-button light-button">Say hi!</a>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div>
+      <h3>Olamide Bankole</h3>
+      <p>AI Product Manager building useful, thoughtful, intelligent products.</p>
+    </div>
+
+    <div class="footer-nav">
+      <a href="../">Homepage</a>
+      <a href="../about/">About me</a>
+      <a href="../work/">Featured work</a>
+      <a href="#contact">Contact me</a>
+    </div>
+
+    <div class="socials">
+      <a href="https://github.com/olamide-ds" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/olamide-bankole-b68640203/" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="mailto:bankolee.olamide@gmail.com">Email</a>
+    </div>
+
+    <p class="copyright">
+      © Olamide Bankole 2026 — Visual icons/emojis used for styling.
+    </p>
+  </footer>
+
+</body>
+</html>
