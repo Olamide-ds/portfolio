@@ -1,31 +1,42 @@
-Welcome to my Data science & AI portfolio. This site showcases my projects across machine learning, deep learning, NLP, computer vision, time-series forecasting, and applied analytics.
+# Olamide Bankole — AI Product Portfolio
+
+Building AI-powered products, workflow systems, and data-driven experiences that solve real operational and user problems.
+
+This portfolio showcases projects across AI product strategy, machine learning systems, analytics, automation, and applied intelligence with a focus on usability, explainability, and deployment thinking.
 
 ## Live Site
-- Portfolio Link: https://olamide-ds.github.io/portfolio/
+- https://olamidebankole.com
 
-## Featured Projects
-- **Time-Series Anomaly Detection API** — Rolling statistical features + Isolation Forest, served via FastAPI and Dockerized for deployment, Gen AI for explanation.
-- **Multi-Modal Survival Prediction for Skin Cancer** — Survival modeling with clinical/genomic/imaging data (CoxPH, DeepSurv, DeepHit) + explainability.
-- **Emergency Vehicle Image Classification (CNN)** — Image classification for emergency vs non-emergency vehicles.
-- **UK Road Accident Analysis & Forecasting** — SQL + time-series analysis and forecasting on accident trends.
-- **Mock Census Data Analysis** — Data cleaning + EDA + visual storytelling for demographic insights.
-- **Video Games Sales Performance Analysis** — Regression/ANN-based performance prediction.
-- **Disaster Tweet Classification (NLP)** — Traditional ML + BiLSTM/GRU models for tweet classification.
+## Featured Work
+
+### Time-Series Anomaly Detection API
+Operational anomaly detection system using rolling statistical features, Isolation Forest, FastAPI, Docker, and AI-generated explanations to surface unusual system behavior earlier.
+
+### Multi-Modal Survival Prediction for Skin Cancer
+Healthcare AI project combining clinical, genomic, and imaging data for survival prediction using deep survival modeling and explainability techniques.
+
+### Emergency Vehicle Classification System
+Computer vision workflow for identifying emergency vs non-emergency vehicles using convolutional neural networks.
+
+### Disaster Tweet Classification
+NLP classification system for identifying disaster-related social content using traditional ML and deep learning architectures.
+
+## Areas of Focus
+- AI Product Strategy
+- Machine Learning Systems
+- Workflow Automation
+- Product Analytics
+- Applied AI
+- Explainable AI
+- Deployment Thinking
 
 ## Tech Stack
-Python • FastAPI • Scikit-learn • TensorFlow/PyTorch • SQL • Docker • Pandas • NumPy • Git/GitHub
+Python • FastAPI • Scikit-learn • TensorFlow • PyTorch • SQL • Docker • Pandas • Git/GitHub
 
 ## Contact
-- **Email:** bankolee.olamide@gmail.com  
-- **GitHub:** https://github.com/olamide-ds  
-- **LinkedIn:** https://linkedin.com/in/olamide-bankole-b68640203/
+- Portfolio: https://olamidebankole.com
+- LinkedIn: https://linkedin.com/in/olamide-bankole-b68640203/
+- GitHub: https://github.com/olamide-ds
 
 ## Credits
-Portfolio theme adapted from **Massively by HTML5 UP** (html5up.net) and uses:
-- Font Awesome icons
-- jQuery + Scrollex
-
-
-
-
-
+Portfolio theme adapted from HTML5 UP (Massively).
