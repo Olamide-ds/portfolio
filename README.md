@@ -1,4 +1,4 @@
-# Olamide Bankole - AI Product Portfolio
+# Ola Bankole - AI Product Portfolio
 
 Building AI-powered products, workflow systems, and data-driven experiences that solve real operational and user problems.
 
