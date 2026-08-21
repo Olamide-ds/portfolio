@@ -36,5 +36,4 @@ Python • FastAPI • Scikit-learn • TensorFlow • PyTorch • SQL • Docke
 ## Contact
 - Portfolio: https://olamidebankole.com
 - Linkedin: https://www.linkedin.com/in/ola-bankole-b68640203/
-- LinkedIn: https://linkedin.com/in/olamide-bankole-b68640203/
-- GitHub: https://github.com/olamide-ds
+
