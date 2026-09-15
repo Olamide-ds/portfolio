@@ -5265,3 +5265,282 @@ a {
   }
 
 }
+
+/* ==========================================
+   PHOTO STRIP — EDITORIAL OVERLAP
+========================================== */
+
+.photo-diary {
+  margin: 0 0 150px;
+}
+
+.photo-diary-heading {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto 42px;
+}
+
+.photo-diary-heading h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(3.4rem, 6vw, 6rem);
+  line-height: 0.98;
+  margin: 12px 0 20px;
+}
+
+.photo-diary-heading > p:not(.section-eyebrow) {
+  max-width: 720px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.photo-filters {
+  display: flex;
+  gap: 8px;
+  margin-top: 24px;
+}
+
+.photo-filter {
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--muted);
+
+  padding: 8px 13px;
+  border-radius: 999px;
+
+  font-family: "Space Mono", monospace;
+  font-size: 0.56rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.photo-filter:hover {
+  transform: translateY(-2px);
+}
+
+.photo-filter.active {
+  background: var(--espresso);
+  color: #fff;
+}
+
+
+/* MAIN STRIP */
+
+.travel-gallery {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: 0;
+
+  padding: 24px 30px 55px;
+
+  overflow: visible;
+}
+
+
+/* CARDS */
+
+.travel-photo {
+  flex: 0 0 25%;
+
+  max-width: 285px;
+
+  margin-left: -28px;
+
+  padding: 9px 9px 30px;
+
+  background: #fffdf9;
+
+  border: 1px solid rgba(48, 34, 29, 0.06);
+  border-radius: 5px;
+
+  box-shadow:
+    0 16px 40px rgba(56, 37, 29, 0.09);
+
+  position: relative;
+
+  transition:
+    transform 0.4s cubic-bezier(.2,.8,.2,1),
+    box-shadow 0.35s ease,
+    opacity 0.3s ease;
+
+  transform-origin: center bottom;
+}
+
+.travel-photo:first-child {
+  margin-left: 0;
+}
+
+.travel-photo:nth-child(1) {
+  transform: rotate(-3deg) translateY(12px);
+  z-index: 1;
+}
+
+.travel-photo:nth-child(2) {
+  transform: rotate(2deg) translateY(-4px);
+  z-index: 2;
+}
+
+.travel-photo:nth-child(3) {
+  transform: rotate(-1.2deg) translateY(8px);
+  z-index: 3;
+}
+
+.travel-photo:nth-child(4) {
+  transform: rotate(2.8deg) translateY(-2px);
+  z-index: 4;
+}
+
+.travel-photo:hover {
+  transform: rotate(0deg) translateY(-18px) scale(1.07);
+  z-index: 20;
+
+  box-shadow:
+    0 30px 70px rgba(56, 37, 29, 0.18);
+}
+
+
+/* IMAGE */
+
+.travel-photo-image {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 4 / 5;
+  background: #eee5df;
+}
+
+.travel-photo-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  display: block;
+
+  transition: transform 0.6s ease;
+}
+
+.travel-photo:hover img {
+  transform: scale(1.04);
+}
+
+
+/* LOCATION REVEAL */
+
+.photo-location {
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 250, 246, 0.9);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  opacity: 0;
+  transform: translateY(10px);
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.travel-photo:hover .photo-location {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-location span,
+.photo-location small {
+  display: block;
+}
+
+.photo-location span {
+  font-family: "DM Serif Display", serif;
+  font-size: 1rem;
+}
+
+.photo-location small {
+  margin-top: 2px;
+
+  font-family: "Space Mono", monospace;
+  font-size: 0.48rem;
+
+  color: var(--terracotta);
+}
+
+
+/* CAPTIONS */
+
+.travel-photo figcaption {
+  margin-top: 10px;
+
+  font-family: "Space Mono", monospace;
+  font-size: 0.5rem;
+
+  color: var(--muted);
+}
+
+
+/* FILTER STATE */
+
+.travel-photo.photo-hidden {
+  display: none;
+}
+
+
+/* MOBILE */
+
+@media (max-width: 800px) {
+
+  .travel-gallery {
+    justify-content: flex-start;
+
+    overflow-x: auto;
+    overflow-y: visible;
+
+    gap: 16px;
+
+    padding:
+      22px
+      18px
+      48px;
+
+    scroll-snap-type: x mandatory;
+
+    scrollbar-width: none;
+  }
+
+  .travel-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  .travel-photo {
+    flex: 0 0 72%;
+    max-width: 320px;
+
+    margin-left: 0;
+
+    transform: rotate(0deg) !important;
+
+    scroll-snap-align: center;
+  }
+
+  .travel-photo:hover {
+    transform: translateY(-8px) scale(1.02) !important;
+  }
+}
