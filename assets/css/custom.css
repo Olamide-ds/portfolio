@@ -4967,3 +4967,301 @@ a {
   }
 
 }
+
+/* ==========================================
+   TRAVEL / CAMERA ROLL
+========================================== */
+
+.photo-diary {
+  margin: 0 0 160px;
+}
+
+.photo-diary-heading {
+  width: min(1180px, calc(100% - 48px));
+  margin: 0 auto 48px;
+}
+
+.photo-diary-heading h2 {
+  font-family: "DM Serif Display", serif;
+  font-size: clamp(3.4rem, 6vw, 6rem);
+  line-height: 0.98;
+  margin: 12px 0 22px;
+  color: var(--espresso);
+}
+
+.photo-diary-heading > p:not(.section-eyebrow) {
+  max-width: 700px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+
+/* FILTERS */
+
+.photo-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 28px;
+}
+
+.photo-filter {
+  appearance: none;
+  border: 1px solid var(--border);
+  background: transparent;
+
+  padding: 8px 13px;
+
+  border-radius: 999px;
+
+  color: var(--muted);
+
+  font-family: "Space Mono", monospace;
+  font-size: 0.58rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+
+  cursor: pointer;
+
+  transition:
+    background 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.photo-filter:hover {
+  transform: translateY(-2px);
+}
+
+.photo-filter.active {
+  background: var(--espresso);
+  color: white;
+}
+
+
+/* GALLERY */
+
+.travel-gallery {
+  width: min(1280px, calc(100% - 28px));
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns: repeat(12, 1fr);
+
+  gap: 22px;
+
+  align-items: start;
+}
+
+
+/* PHOTO CARD */
+
+.travel-photo {
+  margin: 0;
+
+  padding: 9px 9px 31px;
+
+  background: #fffdf9;
+
+  box-shadow:
+    0 14px 40px rgba(55, 35, 28, 0.08);
+
+  border: 1px solid rgba(48, 34, 29, 0.05);
+
+  border-radius: 4px;
+
+  position: relative;
+
+  transition:
+    transform 0.42s cubic-bezier(.2,.8,.2,1),
+    opacity 0.35s ease,
+    box-shadow 0.35s ease;
+}
+
+.travel-photo:hover {
+  transform: rotate(0deg) translateY(-9px) scale(1.015);
+
+  box-shadow:
+    0 26px 60px rgba(55, 35, 28, 0.15);
+
+  z-index: 5;
+}
+
+
+/* DIFFERENT CARD WIDTHS */
+
+.travel-tall {
+  grid-column: span 3;
+}
+
+.travel-wide {
+  grid-column: span 4;
+}
+
+
+/* IMAGE */
+
+.travel-photo-image {
+  position: relative;
+  overflow: hidden;
+  background: #eee5df;
+}
+
+.travel-tall .travel-photo-image {
+  aspect-ratio: 4 / 5;
+}
+
+.travel-wide .travel-photo-image {
+  aspect-ratio: 4 / 5;
+}
+
+.travel-photo img {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  display: block;
+
+  transition:
+    transform 0.65s cubic-bezier(.2,.8,.2,1),
+    filter 0.4s ease;
+}
+
+.travel-photo:hover img {
+  transform: scale(1.045);
+}
+
+
+/* CAPTION */
+
+.travel-photo figcaption {
+  margin-top: 10px;
+
+  font-family: "Space Mono", monospace;
+
+  font-size: 0.52rem;
+
+  color: var(--muted);
+}
+
+
+/* LOCATION OVERLAY */
+
+.photo-location {
+  position: absolute;
+
+  left: 12px;
+  right: 12px;
+  bottom: 12px;
+
+  padding: 10px 12px;
+
+  border-radius: 10px;
+
+  background: rgba(255, 250, 246, 0.88);
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  transform: translateY(12px);
+
+  opacity: 0;
+
+  transition:
+    opacity 0.3s ease,
+    transform 0.3s ease;
+}
+
+.travel-photo:hover .photo-location {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.photo-location span,
+.photo-location small {
+  display: block;
+}
+
+.photo-location span {
+  font-family: "DM Serif Display", serif;
+  font-size: 1rem;
+  color: var(--espresso);
+}
+
+.photo-location small {
+  margin-top: 2px;
+
+  font-family: "Space Mono", monospace;
+  font-size: 0.48rem;
+
+  color: var(--terracotta);
+}
+
+
+/* SCRAPBOOK ROTATIONS */
+
+.rotate-left {
+  transform: rotate(-1.6deg);
+}
+
+.rotate-right {
+  transform: rotate(1.4deg);
+}
+
+.rotate-soft {
+  transform: rotate(-0.7deg);
+}
+
+.rotate-left-soft {
+  transform: rotate(0.8deg);
+}
+
+.rotate-right-soft {
+  transform: rotate(1deg);
+}
+
+
+/* FILTER STATES */
+
+.travel-photo.photo-hidden {
+  opacity: 0;
+  transform: scale(0.94);
+  pointer-events: none;
+  display: none;
+}
+
+
+/* RESPONSIVE */
+
+@media (max-width: 950px) {
+
+  .travel-tall,
+  .travel-wide {
+    grid-column: span 6;
+  }
+
+}
+
+
+@media (max-width: 620px) {
+
+  .photo-diary-heading {
+    width: calc(100% - 30px);
+  }
+
+  .travel-gallery {
+    width: calc(100% - 30px);
+    grid-template-columns: 1fr;
+  }
+
+  .travel-tall,
+  .travel-wide {
+    grid-column: auto;
+  }
+
+  .travel-photo {
+    transform: rotate(0deg);
+  }
+
+}
