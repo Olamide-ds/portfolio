@@ -15,14 +15,15 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap"
     rel="stylesheet"
   >
 
   <link rel="stylesheet" href="assets/css/custom.css" />
 
-  <!-- Google tag -->
+  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6641LZ5Z7T"></script>
+
   <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -37,15 +38,14 @@
 
 <body>
 
-  <!-- Background Effects -->
-  <div class="site-noise"></div>
-  <div class="ambient-glow glow-one"></div>
-  <div class="ambient-glow glow-two"></div>
-
   <!-- Header -->
-  <header class="site-header premium-header">
+  <header class="site-header">
+
     <a href="./" class="logo image-logo" aria-label="Ola Bankole homepage">
-      <img src="images/coffee-icon.png" alt="Ola Bankole coffee logo" />
+      <img
+        src="images/coffee-icon.png"
+        alt="Ola Bankole coffee logo"
+      />
     </a>
 
     <nav class="nav-links">
@@ -55,67 +55,89 @@
       <a href="#contact">Contact</a>
     </nav>
 
-    <a href="mailto:bankolee.olamide@gmail.com" class="header-cta">
-      Let’s talk
+    <a
+      href="mailto:bankolee.olamide@gmail.com"
+      class="nav-cta"
+    >
+      Let’s talk ↗
     </a>
+
   </header>
+
 
   <main>
 
-    <!-- Hero -->
-    <section id="home" class="hero premium-hero">
+    <!-- =========================
+         HERO
+    ========================== -->
 
-      <div class="hero-illustration">
+    <section class="new-hero">
 
-        <div class="hero-orbit orbit-one"></div>
-        <div class="hero-orbit orbit-two"></div>
+      <div class="hero-visual">
 
-        <div class="profile-wrapper">
-          <div class="profile-glow"></div>
+        <div class="profile-orbit orbit-one"></div>
+        <div class="profile-orbit orbit-two"></div>
 
-          <div class="profile-circle">
-            <span>OB</span>
-
-            <img
-              src="images/profile.jpg"
-              alt="Ola Bankole"
-              onerror="this.style.display='none'"
-            />
-          </div>
-
-          <div class="availability-pill">
-            <span class="availability-dot"></span>
-            Building with AI
-          </div>
+        <div class="profile-circle-new">
+          <img
+            src="images/profile.jpg"
+            alt="Ola Bankole"
+          />
         </div>
 
-        <div class="floating-tech-card tech-card-one">
-          <span class="tech-card-icon">✦</span>
-          <div>
-            <strong>AI Products</strong>
-            <small>From idea → prototype</small>
-          </div>
-        </div>
+        <!-- Floating personality icons -->
 
-        <div class="floating-tech-card tech-card-two">
-          <span class="tech-card-icon">↗</span>
-          <div>
-            <strong>Product Builder</strong>
-            <small>Ship. Test. Iterate.</small>
-          </div>
-        </div>
+        <button
+          class="floating-icon icon-ai"
+          data-label="AI products"
+          aria-label="AI products"
+        >
+          🤖
+        </button>
+
+        <button
+          class="floating-icon icon-data"
+          data-label="Product + data"
+          aria-label="Product and data"
+        >
+          📊
+        </button>
+
+        <button
+          class="floating-icon icon-music"
+          data-label="Music"
+          aria-label="Music"
+        >
+          🎧
+        </button>
+
+        <button
+          class="floating-icon icon-football"
+          data-label="Football"
+          aria-label="Football"
+        >
+          ⚽
+        </button>
+
+        <button
+          class="floating-icon icon-sparkle"
+          data-label="Ideas"
+          aria-label="Ideas"
+        >
+          ✨
+        </button>
 
       </div>
 
-      <div class="hero-text">
 
-        <div class="hero-eyebrow">
-          <span class="eyebrow-dot"></span>
+      <div class="hero-copy">
+
+        <p class="hero-label">
           AI PRODUCT MANAGER
-        </div>
+        </p>
 
         <h1>
-          Hi, I’m <span class="highlight-name">Ola.</span>
+          Hi, I’m Ola.
         </h1>
 
         <h2>
@@ -123,138 +145,246 @@
           <span>product, AI, and data.</span>
         </h2>
 
-        <p class="hero-intro">
+        <p class="hero-description">
           I turn technical capabilities and real user problems into
           products people can actually use.
         </p>
 
         <div class="hero-buttons">
+
           <a
-            href="mailto:bankolee.olamide@gmail.com"
-            class="btn primary premium-button"
+            href="work/"
+            class="btn-primary"
           >
-            Let’s talk
+            See my work
             <span>↗</span>
           </a>
 
-          <a href="work/" class="btn secondary">
-            See my work
+          <a
+            href="about/"
+            class="btn-secondary"
+          >
+            More about me
           </a>
+
         </div>
 
-        <div class="hero-skills">
-          <span>AI Product Strategy</span>
-          <span>Agentic Workflows</span>
-          <span>Rapid Prototyping</span>
-          <span>Product Analytics</span>
+
+        <div class="hero-mini-status">
+
+          <span>
+            📍 Houston, TX
+          </span>
+
+          <span>
+            💻 Building Portfolio Pulse
+          </span>
+
+          <span>
+            🎧 Usually listening to something
+          </span>
+
         </div>
 
       </div>
+
     </section>
 
-    <!-- About Preview -->
-    <section class="home-about-polliana premium-about">
 
-      <div class="home-about-copy">
+    <!-- =========================
+         RIGHT NOW
+    ========================== -->
 
-        <p class="small-label">About me</p>
+    <section class="right-now">
 
-        <h2 class="section-display">
-          Product thinking with
-          <span>technical depth.</span>
-        </h2>
+      <div class="section-heading-small">
 
-        <p>
-          I’m a Product Manager with a strong technical background in AI and data.
-          I enjoy working between users, business needs, and technical teams to
-          figure out what should be built, why it matters, and how we know it’s working.
+        <p class="section-eyebrow">
+          RIGHT NOW
         </p>
 
-        <a href="about/" class="text-link">
-          More about me
-          <span>↗</span>
-        </a>
+        <h2>
+          A little snapshot of my world.
+        </h2>
 
       </div>
 
-      <div class="home-about-visual about-image-card">
-        <div class="image-card-glow"></div>
 
-        <img
-          src="images/girly-icon.png"
-          alt="3D illustration of Ola working"
-        />
+      <div class="right-now-grid">
 
-        <div class="mini-stat mini-stat-one">
-          <strong>AI + Data</strong>
-          <span>Technical foundation</span>
-        </div>
+        <article class="now-card">
 
-        <div class="mini-stat mini-stat-two">
-          <strong>Product</strong>
-          <span>Discovery → launch</span>
-        </div>
+          <span class="now-icon">💻</span>
+
+          <p class="now-label">
+            Currently building
+          </p>
+
+          <h3>
+            Portfolio Pulse
+          </h3>
+
+          <p>
+            Exploring how AI can help investors surface
+            the signals that actually need their attention.
+          </p>
+
+          <a
+            href="https://portfolio-pulse-prototype.vercel.app/company/nova-robotics"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Open prototype ↗
+          </a>
+
+        </article>
+
+
+        <article class="now-card music-card">
+
+          <span class="now-icon">🎧</span>
+
+          <p class="now-label">
+            On repeat
+          </p>
+
+          <div class="album-placeholder">
+            ♪
+          </div>
+
+          <h3>
+            Currently listening
+          </h3>
+
+          <p class="music-placeholder">
+            We’ll plug your Apple Music here next.
+          </p>
+
+          <button
+            type="button"
+            class="mini-button"
+          >
+            Play something ♫
+          </button>
+
+        </article>
+
+
+        <article class="now-card">
+
+          <span class="now-icon">⚽</span>
+
+          <p class="now-label">
+            Currently watching
+          </p>
+
+          <h3>
+            Chelsea
+          </h3>
+
+          <p>
+            Occasionally stressful. Never boring.
+          </p>
+
+        </article>
+
+
+        <article class="now-card">
+
+          <span class="now-icon">🧠</span>
+
+          <p class="now-label">
+            Currently thinking about
+          </p>
+
+          <h3>
+            What comes after “AI feature”?
+          </h3>
+
+          <p>
+            Agents, product builders, useful automation
+            and what genuinely changes how people work.
+          </p>
+
+        </article>
+
       </div>
 
     </section>
 
-    <!-- Selected Work -->
-    <section class="home-work-preview premium-work">
 
-      <div class="work-section-heading">
+    <!-- =========================
+         FEATURED WORK
+    ========================== -->
+
+    <section class="featured-work-home">
+
+      <div class="featured-work-heading">
 
         <div>
-          <p class="small-label">Selected work</p>
+
+          <p class="section-eyebrow">
+            SELECTED WORK
+          </p>
 
           <h2>
-            Things I’ve
-            <span>built.</span>
+            Things I’ve built.
           </h2>
+
         </div>
 
-        <a href="work/" class="text-link">
-          View all projects
-          <span>↗</span>
+        <a
+          href="work/"
+          class="section-link"
+        >
+          View all work ↗
         </a>
 
       </div>
 
-      <div class="home-project-grid">
+
+      <div class="featured-projects-grid">
 
         <!-- Portfolio Pulse -->
-        <a
-          href="https://portfolio-pulse-prototype.vercel.app/company/nova-robotics"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="home-project-card featured-project"
-        >
 
-          <div class="project-card-image">
+        <article class="featured-project-card">
+
+          <a
+            href="https://portfolio-pulse-prototype.vercel.app/company/nova-robotics"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="featured-image-wrap"
+          >
+
             <img
-              src="images/portfolio-pulse.png"
-              alt="Portfolio Pulse AI portfolio intelligence platform"
+              src="images/portfolio-pulse-banner.png"
+              alt="Portfolio Pulse dashboard"
             />
 
-            <div class="project-overlay">
-              <span>Open live prototype ↗</span>
+            <span class="project-hover-action">
+              Open prototype ↗
+            </span>
+
+          </a>
+
+          <div class="featured-project-copy">
+
+            <div class="project-meta-line">
+              <span>AI PRODUCT</span>
+              <span>01</span>
             </div>
-          </div>
 
-          <div class="home-project-copy">
-
-            <div class="project-topline">
-              <span>AI Product</span>
-              <span>2026</span>
-            </div>
-
-            <h3>Portfolio Pulse</h3>
+            <h3>
+              Portfolio Pulse
+            </h3>
 
             <p>
               AI-powered portfolio intelligence designed to help investors
-              surface market signals and focus attention where it matters.
+              bring fragmented company information together and surface
+              what deserves attention.
             </p>
 
-            <div class="project-tags">
+            <div class="project-tags-home">
               <span>Cursor</span>
               <span>v0</span>
               <span>AI</span>
@@ -262,42 +392,50 @@
             </div>
 
           </div>
-        </a>
+
+        </article>
+
 
         <!-- Operational Intelligence -->
-        <a
-          href="https://operational-intelligence-five.vercel.app/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="home-project-card"
-        >
 
-          <div class="project-card-image">
+        <article class="featured-project-card">
+
+          <a
+            href="https://operational-intelligence-five.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="featured-image-wrap"
+          >
+
             <img
-              src="images/operational-intelligence.png"
-              alt="Operational Intelligence Platform"
+              src="images/operational-intelligence-banner.png"
+              alt="Operational Intelligence Platform dashboard"
             />
 
-            <div class="project-overlay">
-              <span>Open live product ↗</span>
+            <span class="project-hover-action">
+              Open live product ↗
+            </span>
+
+          </a>
+
+          <div class="featured-project-copy">
+
+            <div class="project-meta-line">
+              <span>AI / ML PRODUCT</span>
+              <span>02</span>
             </div>
-          </div>
 
-          <div class="home-project-copy">
-
-            <div class="project-topline">
-              <span>AI / ML Product</span>
-              <span>2026</span>
-            </div>
-
-            <h3>Operational Intelligence</h3>
+            <h3>
+              Operational Intelligence
+            </h3>
 
             <p>
-              AI-assisted anomaly detection and investigation for technical
-              teams working with operational data.
+              An AI-assisted operational intelligence product that detects
+              anomalies and gives technical teams more context when
+              investigating issues.
             </p>
 
-            <div class="project-tags">
+            <div class="project-tags-home">
               <span>React</span>
               <span>FastAPI</span>
               <span>OpenAI</span>
@@ -305,96 +443,213 @@
             </div>
 
           </div>
-        </a>
+
+        </article>
 
       </div>
 
     </section>
 
-    <!-- Contact -->
-    <section id="contact" class="contact contact-polished premium-contact">
 
-      <div class="contact-glow"></div>
+    <!-- =========================
+         ABOUT PREVIEW
+    ========================== -->
 
-      <div class="contact-text">
+    <section class="about-home-new">
 
-        <p class="small-label">Let’s build something</p>
+      <div class="about-home-copy">
+
+        <p class="section-eyebrow">
+          ABOUT ME
+        </p>
 
         <h2>
-          Have an AI product idea or
-          something worth building?
+          Product brain.
+          <br>
+          Technical foundation.
+          <br>
+          Very curious human.
         </h2>
 
         <p>
-          I’m always interested in conversations around AI products,
-          intelligent automation, LLM workflows, product strategy,
-          and turning complex technology into useful experiences.
+          I started in data science and found my sweet spot in product,
+          somewhere between business problems, AI systems, and the people
+          who actually have to use them.
         </p>
 
         <a
-          href="mailto:bankolee.olamide@gmail.com"
-          class="btn primary premium-button"
+          href="about/"
+          class="section-link"
         >
-          Say hello
-          <span>↗</span>
+          Read my story ↗
         </a>
 
       </div>
 
-      <div class="contact-visual contact-terminal">
 
-        <div class="terminal-top">
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
+      <div class="about-home-image">
 
-        <div class="terminal-body">
-          <p>
-            <span class="terminal-symbol">›</span>
-            currently_exploring
-          </p>
+        <img
+          src="images/girly-icon.png"
+          alt="Illustration of Ola working"
+        />
 
-          <p class="terminal-response">
-            agentic products / AI workflows / product building
-          </p>
+      </div>
 
-          <p>
-            <span class="terminal-symbol">›</span>
-            status
-          </p>
+    </section>
 
-          <p class="terminal-response">
-            open_to_interesting_problems ✦
-          </p>
-        </div>
 
+    <!-- =========================
+         PERSONAL PHOTO SECTION
+    ========================== -->
+
+    <section class="photo-diary">
+
+      <div class="photo-diary-heading">
+
+        <p class="section-eyebrow">
+          A LITTLE MORE ME
+        </p>
+
+        <h2>
+          Life outside the roadmap.
+        </h2>
+
+        <p>
+          A few things, places and moments I liked enough
+          to keep.
+        </p>
+
+      </div>
+
+
+      <div class="photo-strip">
+
+        <figure class="personal-photo photo-one">
+          <img
+            src="images/personal-1.jpg"
+            alt="A favorite photo taken by Ola"
+          />
+          <figcaption>
+            somewhere worth remembering
+          </figcaption>
+        </figure>
+
+
+        <figure class="personal-photo photo-two">
+          <img
+            src="images/personal-2.jpg"
+            alt="A favorite photo taken by Ola"
+          />
+          <figcaption>
+            little things
+          </figcaption>
+        </figure>
+
+
+        <figure class="personal-photo photo-three">
+          <img
+            src="images/personal-3.jpg"
+            alt="A favorite photo taken by Ola"
+          />
+          <figcaption>
+            through my camera
+          </figcaption>
+        </figure>
+
+
+        <figure class="personal-photo photo-four">
+          <img
+            src="images/personal-4.jpg"
+            alt="A favorite photo taken by Ola"
+          />
+          <figcaption>
+            lately
+          </figcaption>
+        </figure>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section
+      id="contact"
+      class="home-contact-new"
+    >
+
+      <p class="section-eyebrow">
+        CONTACT
+      </p>
+
+      <h2>
+        Have something interesting
+        worth building?
+      </h2>
+
+      <p>
+        I’m always interested in conversations around AI products,
+        product building, agentic workflows and problems that could
+        probably be solved better.
+      </p>
+
+      <a
+        href="mailto:bankolee.olamide@gmail.com"
+        class="btn-primary contact-button"
+      >
+        Say hello
+        <span>↗</span>
+      </a>
+
+      <div class="contact-decoration">
+        ✦
       </div>
 
     </section>
 
   </main>
 
+
   <!-- Footer -->
-  <footer class="footer premium-footer">
 
-    <div class="footer-brand">
-      <img src="images/coffee-icon.png" alt="Coffee icon" />
+  <footer class="footer-new">
 
-      <div>
-        <h3>Ola Bankole</h3>
-        <p>AI Product Manager</p>
-      </div>
+    <div>
+
+      <h3>
+        Ola Bankole
+      </h3>
+
+      <p>
+        AI Product Manager
+      </p>
+
     </div>
 
-    <div class="footer-nav">
-      <a href="./">Home</a>
-      <a href="about/">About</a>
-      <a href="work/">Work</a>
-      <a href="#contact">Contact</a>
+
+    <div class="footer-links">
+
+      <a href="./">
+        Home
+      </a>
+
+      <a href="about/">
+        About
+      </a>
+
+      <a href="work/">
+        Work
+      </a>
+
     </div>
 
-    <div class="socials">
+
+    <div class="footer-socials">
+
       <a
         href="https://github.com/Olamide-ds"
         target="_blank"
@@ -411,16 +666,21 @@
         LinkedIn ↗
       </a>
 
-      <a href="mailto:bankolee.olamide@gmail.com">
+      <a
+        href="mailto:bankolee.olamide@gmail.com"
+      >
         Email ↗
       </a>
+
     </div>
 
-    <p class="copyright">
+
+    <p class="footer-copy">
       © Ola Bankole 2026
     </p>
 
   </footer>
+
 
 </body>
 </html>
