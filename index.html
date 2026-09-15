@@ -499,79 +499,168 @@
     </section>
 
 
-    <!-- =========================
-         PERSONAL PHOTO SECTION
-    ========================== -->
+<!-- =========================
+     LIFE OUTSIDE THE ROADMAP
+========================== -->
 
-    <section class="photo-diary">
+<section class="photo-diary" id="life">
 
-      <div class="photo-diary-heading">
+  <div class="photo-diary-heading">
 
-        <p class="section-eyebrow">
-          A LITTLE MORE ME
-        </p>
+    <p class="section-eyebrow">
+      A LITTLE MORE ME
+    </p>
 
-        <h2>
-          Life outside the roadmap.
-        </h2>
+    <h2>
+      Life outside the roadmap.
+    </h2>
 
-        <p>
-          A few things, places and moments I liked enough
-          to keep.
-        </p>
+    <p>
+      A few frames from places I’ve lived, visited, and liked enough
+      to photograph — from England to Montenegro to Florida.
+    </p>
+
+    <div class="photo-filters" aria-label="Filter photos by location">
+
+  <button
+    class="photo-filter active"
+    data-filter="all"
+    type="button"
+  >
+    All
+  </button>
+
+  <button
+    class="photo-filter"
+    data-filter="england"
+    type="button"
+  >
+    England
+  </button>
+
+  <button
+    class="photo-filter"
+    data-filter="montenegro"
+    type="button"
+  >
+    Montenegro
+  </button>
+
+</div>
+
+
+  <div class="travel-gallery">
+
+    <!-- Montenegro 1 -->
+    <figure
+      class="travel-photo travel-tall rotate-left"
+      data-location="montenegro"
+    >
+
+      <div class="travel-photo-image">
+
+        <img
+          src="images/MNE 1.jpg"
+          alt="A favorite photograph from Montenegro"
+        />
+
+        <div class="photo-location">
+          <span>Montenegro</span>
+          <small>little things</small>
+        </div>
 
       </div>
 
+      <figcaption>
+        somewhere worth remembering
+      </figcaption>
 
-      <div class="photo-strip">
-
-        <figure class="personal-photo photo-one">
-          <img
-            src="images/MNE 1.jpg"
-            alt="A favorite photo taken by Ola"
-          />
-          <figcaption>
-            somewhere worth remembering
-          </figcaption>
-        </figure>
+    </figure>
 
 
-        <figure class="personal-photo photo-two">
-          <img
-            src="images/MNE 2.jpg"
-            alt="A favorite photo taken by Ola"
-          />
-          <figcaption>
-            little things
-          </figcaption>
-        </figure>
+    <!-- Montenegro 2 -->
+    <figure
+      class="travel-photo travel-wide rotate-right"
+      data-location="montenegro"
+    >
 
+      <div class="travel-photo-image">
 
-        <figure class="personal-photo photo-three">
-          <img
-            src="images/MNE 3.jpg"
-            alt="A favorite photo taken by Ola"
-          />
-          <figcaption>
-            through my camera
-          </figcaption>
-        </figure>
+        <img
+          src="images/MNE 2.jpg"
+          alt="A favorite photograph from Montenegro"
+        />
 
-
-        <figure class="personal-photo photo-four">
-          <img
-            src="images/ENG 2.jpg"
-            alt="A favorite photo taken by Ola"
-          />
-          <figcaption>
-            lately
-          </figcaption>
-        </figure>
+        <div class="photo-location">
+          <span>Montenegro</span>
+          <small>by the water</small>
+        </div>
 
       </div>
 
-    </section>
+      <figcaption>
+        little things
+      </figcaption>
 
+    </figure>
+
+
+    <!-- Montenegro 3 -->
+    <figure
+      class="travel-photo travel-tall rotate-soft"
+      data-location="montenegro"
+    >
+
+      <div class="travel-photo-image">
+
+        <img
+          src="images/MNE 3.jpg"
+          alt="A favorite photograph from Montenegro"
+        />
+
+        <div class="photo-location">
+          <span>Montenegro</span>
+          <small>caught my eye</small>
+        </div>
+
+      </div>
+
+      <figcaption>
+        through my camera
+      </figcaption>
+
+    </figure>
+
+
+    <!-- England -->
+    <figure
+      class="travel-photo travel-wide rotate-left-soft"
+      data-location="england"
+    >
+
+      <div class="travel-photo-image">
+
+        <img
+          src="images/ENG 2.jpg"
+          alt="A favorite photograph from England"
+        />
+
+        <div class="photo-location">
+          <span>England</span>
+          <small>one evening</small>
+        </div>
+
+      </div>
+
+      <figcaption>
+        lately
+      </figcaption>
+
+    </figure>
+
+  </div>
+
+</section>
 
     <!-- =========================
          CONTACT
@@ -681,6 +770,31 @@
 
   </footer>
 
+<script>
+  const photoFilters = document.querySelectorAll(".photo-filter");
+  const travelPhotos = document.querySelectorAll(".travel-photo");
 
+  photoFilters.forEach((button) => {
+    button.addEventListener("click", () => {
+      const filter = button.dataset.filter;
+
+      photoFilters.forEach((item) => {
+        item.classList.remove("active");
+      });
+
+      button.classList.add("active");
+
+      travelPhotos.forEach((photo) => {
+        const location = photo.dataset.location;
+
+        if (filter === "all" || location === filter) {
+          photo.classList.remove("photo-hidden");
+        } else {
+          photo.classList.add("photo-hidden");
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
