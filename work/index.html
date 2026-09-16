@@ -13,7 +13,7 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="../assets/css/custom.css?v=20260916-26" />
+  <link rel="stylesheet" href="../assets/css/custom.css?v=20260916-27" />
   <link rel="icon" href="../images/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../images/favicon.png" />
 
@@ -89,13 +89,18 @@
 
     <div class="project-stories">
 
-      <article class="project-detail-card" id="portfolio-pulse" data-project-index="01">
+      <article
+        class="project-detail-card project-detail-card--pulse"
+        id="portfolio-pulse"
+        data-project-index="01"
+      >
         <a
-          class="featured-image-wrap"
+          class="featured-image-wrap featured-image-wrap--pulse"
           href="https://portfolio-pulse-prototype.vercel.app/"
           target="_blank"
           rel="noopener noreferrer"
         >
+          <span class="project-frame-badge">Live prototype</span>
           <img
             src="../images/PP.avif"
             alt="Portfolio Pulse portfolio intelligence prototype"
@@ -105,32 +110,62 @@
           <span class="project-hover-action">Open prototype ↗</span>
         </a>
 
-        <div class="featured-project-copy project-info">
+        <div class="featured-project-copy project-info project-info--pulse">
           <div class="project-meta-line">
             <span>AI PRODUCT</span>
             <span>01</span>
           </div>
 
+          <p class="project-flag">Investor intelligence prototype</p>
           <h3>Portfolio Pulse</h3>
 
           <p class="project-lede">
-            AI that helps investors see what needs attention.
+            AI that helps investors see what needs attention—portfolio monitoring,
+            market signals, and an attention queue in one workspace.
           </p>
 
-          <p class="project-problem">
-            <strong>Problem:</strong>
-            Investors often have portfolio updates, market signals, and company
-            information spread across different places, making it difficult to
-            quickly understand what needs their attention.
-          </p>
+          <div class="project-pulse-stats" aria-label="Product scope">
+            <div class="project-pulse-stat">
+              <strong>6</strong>
+              <span>Core modules</span>
+            </div>
+            <div class="project-pulse-stat">
+              <strong>1</strong>
+              <span>Decision queue</span>
+            </div>
+            <div class="project-pulse-stat">
+              <strong>AI</strong>
+              <span>Signal summaries</span>
+            </div>
+          </div>
 
-          <p>
-            I designed and built Portfolio Pulse, an AI-powered portfolio intelligence
-            prototype that helps investors bring company updates, market signals,
-            and internal context into one place. The experience includes portfolio
-            monitoring, company views, an attention queue, market signals, forecasts,
-            and reporting.
-          </p>
+          <ul class="project-module-chips project-module-chips--full" aria-label="Modules in the prototype">
+            <li>Portfolio overview</li>
+            <li>Attention queue</li>
+            <li>Company views</li>
+            <li>Market signals</li>
+            <li>Forecasts</li>
+            <li>Reporting</li>
+          </ul>
+
+          <div class="project-story-panels">
+            <div class="project-story-panel project-story-panel--problem">
+              <p class="project-panel-label">Problem</p>
+              <p>
+                Investors often have portfolio updates, market signals, and company
+                information spread across different places, making it difficult to
+                quickly understand what needs their attention.
+              </p>
+            </div>
+            <div class="project-story-panel project-story-panel--build">
+              <p class="project-panel-label">What I built</p>
+              <p>
+                An AI-powered portfolio intelligence prototype that brings company
+                updates, market signals, and internal context into one place—with
+                clear prioritization instead of another dashboard of noise.
+              </p>
+            </div>
+          </div>
 
           <p class="project-takeaway">
             <strong>Product takeaway:</strong>
@@ -151,11 +186,12 @@
 
           <div class="project-links">
             <a
+              class="project-cta project-cta--pulse"
               href="https://portfolio-pulse-prototype.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Live Prototype
+              Explore live prototype ↗
             </a>
           </div>
 

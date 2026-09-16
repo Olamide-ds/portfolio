@@ -3249,6 +3249,206 @@ a.featured-project-card {
   font-size: 1.15rem;
 }
 
+/* Portfolio Pulse — investor product treatment */
+.featured-project-card--pulse,
+.project-detail-card--pulse {
+  background:
+    linear-gradient(
+      118deg,
+      rgba(255, 170, 104, 0.22) 0%,
+      rgba(255, 233, 210, 0.04) 48%,
+      rgba(111, 147, 216, 0.08) 100%
+    ) !important;
+}
+
+.featured-image-wrap--pulse {
+  border: 1px solid rgba(232, 180, 92, 0.45);
+  box-shadow:
+    0 22px 54px rgba(0, 0, 0, 0.34),
+    0 0 0 1px rgba(255, 236, 214, 0.06) inset,
+    0 0 48px rgba(255, 170, 104, 0.12);
+}
+
+.featured-image-wrap--pulse::after {
+  background: linear-gradient(
+    105deg,
+    transparent 28%,
+    rgba(255, 214, 140, 0.28) 46%,
+    transparent 64%
+  );
+}
+
+.project-frame-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  padding: 6px 10px;
+  border: 1px solid rgba(255, 236, 214, 0.22);
+  border-radius: 999px;
+  background: rgba(45, 33, 30, 0.82);
+  color: #ffe8c8;
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.project-flag {
+  margin: 8px 0 0;
+  color: var(--bloom-yellow);
+  font-family: var(--mono);
+  font-size: 0.58rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.featured-project-card--pulse h3,
+.project-detail-card--pulse h3 {
+  background: linear-gradient(120deg, #fff8ef 10%, #ffd6a8 55%, #f0a08f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.project-module-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0 0 18px;
+  padding: 0;
+  list-style: none;
+}
+
+.project-module-chips li {
+  padding: 7px 11px;
+  border: 1px solid rgba(255, 214, 140, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--ink);
+  font-family: var(--mono);
+  font-size: 0.56rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.project-module-chips--full {
+  margin-bottom: 24px;
+}
+
+.project-pulse-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 0 0 22px;
+  max-width: 420px;
+}
+
+.project-pulse-stat {
+  padding: 12px 10px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.05);
+  text-align: center;
+}
+
+.project-pulse-stat strong {
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--serif);
+  font-size: 1.35rem;
+  line-height: 1;
+  color: var(--bloom-yellow);
+}
+
+.project-pulse-stat span {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.5rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.project-story-panels {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 0 0 20px;
+  max-width: 620px;
+}
+
+.project-story-panel {
+  padding: 16px 16px 14px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.project-story-panel--problem {
+  border-color: rgba(255, 122, 85, 0.35);
+  background: linear-gradient(160deg, rgba(255, 122, 85, 0.12), transparent 70%);
+}
+
+.project-story-panel--build {
+  border-color: rgba(111, 147, 216, 0.35);
+  background: linear-gradient(160deg, rgba(111, 147, 216, 0.14), transparent 70%);
+}
+
+.project-panel-label {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 0.52rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-story-panel p:last-child {
+  margin: 0;
+  font-size: 0.88rem;
+  line-height: 1.55;
+}
+
+.project-detail-card--pulse .project-takeaway {
+  max-width: 620px;
+  padding: 14px 16px;
+  border-left: 0;
+  border-radius: 14px;
+  background: rgba(196, 180, 240, 0.12);
+  border: 1px solid rgba(196, 180, 240, 0.28);
+}
+
+.project-cta--pulse {
+  min-height: 44px;
+  padding: 11px 18px;
+  border-radius: 999px;
+  background: linear-gradient(135deg, #ffb347 0%, #ff7a55 52%, #c4b4f0 100%);
+  box-shadow: 0 12px 28px rgba(255, 122, 85, 0.28);
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+}
+
+.project-cta--pulse:hover {
+  filter: brightness(1.06);
+  transform: translateY(-1px);
+}
+
+.project-info--pulse .project-links a:not(.project-cta--pulse) {
+  background: transparent;
+  border: 1px solid var(--line);
+  color: var(--ink);
+}
+
+@media (max-width: 720px) {
+  .project-pulse-stats {
+    max-width: none;
+  }
+
+  .project-story-panels {
+    grid-template-columns: 1fr;
+  }
+}
+
 /* Legacy project-card (unused on work page) */
 .project-card {
   position: relative;
