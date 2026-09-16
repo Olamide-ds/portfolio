@@ -5855,3 +5855,152 @@ body.lightbox-open {
   }
 
 }
+
+/* ==========================================
+   FINAL RIGHT NOW CARD SIZING
+   Music card is the featured card
+========================================== */
+
+@media screen and (min-width: 951px) {
+
+  .right-now {
+    width: min(1220px, calc(100% - 48px)) !important;
+  }
+
+  .right-now-grid {
+    display: grid !important;
+
+    /* music card gets extra room */
+    grid-template-columns:
+      0.95fr
+      1.45fr
+      0.95fr
+      1.05fr !important;
+
+    gap: 18px !important;
+
+    align-items: stretch !important;
+  }
+
+  .right-now-grid .now-card {
+    width: auto !important;
+    min-width: 0 !important;
+    min-height: 310px !important;
+
+    padding: 28px !important;
+  }
+
+  /* FEATURED MUSIC CARD */
+
+  .right-now-grid .live-music-card {
+    grid-column: auto !important;
+
+    padding: 30px !important;
+
+    min-height: 310px !important;
+  }
+
+  .live-music-card .music-main {
+    display: grid !important;
+
+    grid-template-columns: 145px minmax(0, 1fr) !important;
+
+    gap: 22px !important;
+
+    align-items: center !important;
+
+    margin-top: 20px !important;
+  }
+
+  .live-music-card .music-art-wrap {
+    width: 145px !important;
+    height: 145px !important;
+
+    flex: none !important;
+
+    border-radius: 20px !important;
+  }
+
+  .live-music-card .music-details {
+    min-width: 0 !important;
+    width: 100% !important;
+  }
+
+  .live-music-card .music-details h3 {
+    font-family: "DM Serif Display", serif !important;
+
+    font-size: 1.9rem !important;
+
+    line-height: 1.02 !important;
+
+    margin: 0 0 8px !important;
+
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+
+    overflow: hidden !important;
+  }
+
+  .live-music-card .music-details p {
+    font-size: 0.82rem !important;
+
+    line-height: 1.4 !important;
+
+    margin: 0 0 14px !important;
+  }
+
+  .live-music-card .music-open-link {
+    font-size: 0.6rem !important;
+  }
+
+  .live-music-card .music-live-status {
+    font-size: 0.52rem !important;
+  }
+
+}
+
+
+/* TABLET */
+
+@media screen and (max-width: 950px) {
+
+  .right-now-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+
+  .live-music-card {
+    grid-column: span 1 !important;
+  }
+
+}
+
+
+/* MOBILE */
+
+@media screen and (max-width: 650px) {
+
+  .right-now-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .live-music-card {
+    grid-column: auto !important;
+  }
+
+  .live-music-card .music-main {
+    display: grid !important;
+    grid-template-columns: 110px minmax(0, 1fr) !important;
+    gap: 16px !important;
+  }
+
+  .live-music-card .music-art-wrap {
+    width: 110px !important;
+    height: 110px !important;
+  }
+
+  .live-music-card .music-details h3 {
+    font-size: 1.45rem !important;
+  }
+
+}
