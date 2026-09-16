@@ -6733,3 +6733,85 @@ body.lightbox-open {
   }
 
 }
+
+/* ==========================================
+   COMPACT LISTENING PANEL
+   Closer to the music reference layout
+========================================== */
+
+@media screen and (min-width: 901px) {
+
+  .music-feature-panel {
+    min-height: 360px !important;
+    padding: 38px 42px !important;
+
+    grid-template-columns:
+      minmax(0, 1.15fr)
+      260px !important;
+
+    gap: 42px !important;
+  }
+
+  .music-feature-panel .right-now-panel-copy {
+    align-self: center !important;
+  }
+
+  .music-feature-panel .music-feature-status {
+    margin-bottom: 12px !important;
+  }
+
+  .music-feature-panel .music-feature-status .now-label {
+    margin: 0 !important;
+  }
+
+  .music-feature-panel #musicTrack {
+    font-size: 2.35rem !important;
+    line-height: 1.04 !important;
+
+    margin: 10px 0 8px !important;
+
+    max-width: 520px !important;
+
+    display: -webkit-box !important;
+    -webkit-line-clamp: 2 !important;
+    -webkit-box-orient: vertical !important;
+
+    overflow: hidden !important;
+  }
+
+  .music-feature-panel #musicArtist {
+    font-size: 0.92rem !important;
+    margin: 0 0 14px !important;
+  }
+
+  .music-feature-art {
+    width: 260px !important;
+    height: 260px !important;
+
+    justify-self: end !important;
+
+    border-radius: 22px !important;
+  }
+
+  .music-feature-art img {
+    width: 100% !important;
+    height: 100% !important;
+
+    object-fit: cover !important;
+  }
+
+  .music-feature-equalizer {
+    height: 18px !important;
+    margin-top: 14px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .music-feature-equalizer span {
+    width: 3px !important;
+  }
+
+  .music-feature-panel .right-now-action {
+    margin-top: 10px !important;
+  }
+
+}
