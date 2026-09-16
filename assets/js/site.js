@@ -2,16 +2,19 @@ document.addEventListener("DOMContentLoaded", () => {
   const header = document.querySelector(".site-header");
   const toggle = document.querySelector(".nav-toggle");
   const navigation = document.getElementById("siteNav");
-  const timeEl = document.getElementById("localTime");
+  const timeEls = document.querySelectorAll("[data-local-time]");
 
-  if (timeEl) {
+  if (timeEls.length) {
     const tick = () => {
-      timeEl.textContent = new Intl.DateTimeFormat("en-GB", {
+      const label = new Intl.DateTimeFormat("en-GB", {
         timeZone: "America/Chicago",
         hour: "2-digit",
         minute: "2-digit",
         hour12: false,
       }).format(new Date());
+      timeEls.forEach((el) => {
+        el.textContent = label;
+      });
     };
 
     tick();

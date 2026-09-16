@@ -48,8 +48,8 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="assets/css/custom.css?v=20260916-28" />
-  <link rel="stylesheet" href="assets/css/operational-intelligence-showcase.css?v=20260916-27" />
+  <link rel="stylesheet" href="assets/css/custom.css?v=20260916-29" />
+  <link rel="stylesheet" href="assets/css/operational-intelligence-showcase.css?v=20260916-29" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6641LZ5Z7T"></script>
@@ -176,12 +176,12 @@
         <a href="https://www.linkedin.com/in/Ola-bankole-b68640203/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:bankolee.olamide@gmail.com">Email</a>
       </div>
-
-      <div class="rail-foot">
-        <p><span id="localTime">--:--</span> local time</p>
-        <p>Houston, Texas, USA</p>
-      </div>
     </nav>
+
+    <div class="rail-foot rail-foot--sidebar">
+      <p><span data-local-time>--:--</span> local time</p>
+      <p>Houston, Texas, USA</p>
+    </div>
   </header>
 
 
@@ -299,13 +299,12 @@
           </div>
         </a>
 
-        <article class="featured-project-card featured-project-card--ops" data-project-index="02">
-          <a
-            class="featured-image-wrap featured-image-wrap--ops"
-            href="https://operational-intelligence-five.vercel.app/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+        <a
+          class="featured-project-card featured-project-card--ops"
+          href="work/#operational-intelligence"
+          data-project-index="02"
+        >
+          <div class="featured-image-wrap featured-image-wrap--ops">
             <span class="project-frame-badge">Live product</span>
             <img
               src="images/operational-intelligence-dashboard.png"
@@ -313,8 +312,8 @@
               loading="lazy"
               decoding="async"
             />
-            <span class="project-hover-action">Open product ↗</span>
-          </a>
+            <span class="project-hover-action">Read the story ↗</span>
+          </div>
           <div class="featured-project-copy">
             <div class="project-meta-line">
               <span>AI / ML PRODUCT</span>
@@ -328,9 +327,8 @@
               <span>Investigations</span>
               <span>AI assistant</span>
             </div>
-            <a class="section-link" href="work/#operational-intelligence">Read the story ↗</a>
           </div>
-        </article>
+        </a>
 
       </div>
 
@@ -640,6 +638,11 @@
 
 </div>
 
+  <div class="mobile-local-foot" aria-label="Local time">
+    <p><span data-local-time>--:--</span> local time</p>
+    <p>Houston, Texas, USA</p>
+  </div>
+
   
   <!-- Footer -->
 
@@ -700,7 +703,7 @@
 
   </footer>
 
-  <script src="assets/js/site.js?v=20260916-22"></script>
+  <script src="assets/js/site.js?v=20260916-29"></script>
   <script src="assets/js/page-intro.js?v=20260916-22"></script>
   <script src="assets/js/home.js?v=20260916-26"></script>
 
