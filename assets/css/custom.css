@@ -2302,7 +2302,25 @@ section:hover > * > .section-eyebrow::after {
   transition: background 0.3s ease;
 }
 
-.featured-project-card::before {
+a.featured-project-card {
+  text-decoration: none;
+  color: inherit;
+}
+
+.featured-image-wrap {
+  position: relative;
+  display: block;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+  border-radius: 10px;
+  background: var(--paper-raised);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
+  color: inherit;
+  text-decoration: none;
+}
+
+.featured-project-card::before,
+.project-detail-card::before {
   position: absolute;
   top: 50%;
   left: -58px;
@@ -2326,13 +2344,15 @@ section:hover > * > .section-eyebrow::after {
     transform 0.3s var(--ease);
 }
 
-.featured-project-card:hover::before {
+.featured-project-card:hover::before,
+.project-detail-card:hover::before {
   background: linear-gradient(135deg, var(--coral), var(--lilac));
   color: #fff;
   transform: translateY(-50%) rotate(8deg) scale(1.08);
 }
 
-.featured-project-card:nth-child(1) {
+.featured-project-card:nth-child(1),
+.project-detail-card:nth-child(1) {
   padding-inline: clamp(18px, 3vw, 38px);
   background: linear-gradient(
     110deg,
@@ -2341,7 +2361,8 @@ section:hover > * > .section-eyebrow::after {
   );
 }
 
-.featured-project-card:nth-child(2) {
+.featured-project-card:nth-child(2),
+.project-detail-card:nth-child(2) {
   padding-inline: clamp(18px, 3vw, 38px);
   background: linear-gradient(
     250deg,
@@ -2350,26 +2371,19 @@ section:hover > * > .section-eyebrow::after {
   );
 }
 
-.featured-project-card:hover {
+.featured-project-card:hover,
+.project-detail-card:hover {
   background-color: rgba(255, 255, 255, 0.035);
 }
 
-.featured-project-card:nth-child(even) .featured-image-wrap {
+.featured-project-card:nth-child(even) .featured-image-wrap,
+.project-detail-card:nth-child(even) .featured-image-wrap {
   order: 2;
 }
 
-.featured-project-card:nth-child(even) .featured-project-copy {
+.featured-project-card:nth-child(even) .featured-project-copy,
+.project-detail-card:nth-child(even) .featured-project-copy {
   order: 1;
-}
-
-.featured-image-wrap {
-  position: relative;
-  display: block;
-  aspect-ratio: 16 / 10;
-  overflow: hidden;
-  border-radius: 10px;
-  background: var(--paper-raised);
-  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.28);
 }
 
 .featured-image-wrap::after {
@@ -2391,7 +2405,8 @@ section:hover > * > .section-eyebrow::after {
   animation: banner-drift 16s ease-in-out infinite alternate;
 }
 
-.featured-project-card:hover .featured-image-wrap img {
+.featured-project-card:hover .featured-image-wrap img,
+.project-detail-card:hover .featured-image-wrap img {
   animation-play-state: paused;
   transform: scale(1.08);
 }
@@ -2435,6 +2450,11 @@ section:hover > * > .section-eyebrow::after {
   margin-bottom: 20px;
   max-width: 500px;
   font-size: 0.94rem;
+}
+
+.featured-project-copy .section-link {
+  margin-bottom: 0;
+  font-size: 0.72rem;
 }
 
 .featured-project-copy .project-note-home {
@@ -3116,6 +3136,8 @@ section:hover > * > .section-eyebrow::after {
 
 /* Work page */
 .work {
+  width: min(var(--content), calc(100% - 48px));
+  margin: 0 auto;
   padding-bottom: 30px;
 }
 
@@ -3123,6 +3145,38 @@ section:hover > * > .section-eyebrow::after {
   display: grid;
   gap: 32px;
   counter-reset: project;
+}
+
+.project-stories {
+  position: relative;
+  padding-left: 58px;
+  border-top: 1px solid var(--line);
+  gap: 0;
+}
+
+.project-stories::before {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 18px;
+  width: 1px;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      var(--line) 0 8px,
+      transparent 8px 14px
+    );
+  content: "";
+}
+
+.project-detail-card {
+  position: relative;
+  padding: 34px 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(300px, 0.92fr);
+  gap: clamp(38px, 6vw, 78px);
+  align-items: start;
+  border-bottom: 1px solid var(--line);
 }
 
 .work-section-title {
@@ -3139,6 +3193,63 @@ section:hover > * > .section-eyebrow::after {
   margin-bottom: 18px;
 }
 
+#portfolio-pulse,
+#operational-intelligence {
+  scroll-margin-top: 88px;
+}
+
+.work .featured-project-copy h3 {
+  margin: 23px 0 12px;
+}
+
+.project-lede {
+  max-width: 520px;
+  margin: 0 0 22px;
+  font-size: 0.98rem;
+  color: var(--muted);
+}
+
+.work .featured-project-copy .section-link {
+  display: inline-block;
+  margin-top: 4px;
+}
+
+.work .project-info > p {
+  max-width: 560px;
+  font-size: 0.91rem;
+}
+
+.work .project-problem,
+.work .project-takeaway {
+  max-width: 560px;
+  padding: 0 0 0 14px;
+  border-radius: 0;
+  border-left: 2px solid rgba(255, 118, 92, 0.55);
+  background: transparent;
+}
+
+.work .project-takeaway {
+  border-left-color: rgba(154, 140, 255, 0.55);
+}
+
+.work .project-meta {
+  margin: 22px 0 18px;
+}
+
+.work .project-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.work .project-note {
+  margin: 14px 0 0;
+  color: var(--coral);
+  font-family: var(--hand);
+  font-size: 1.15rem;
+}
+
+/* Legacy project-card (unused on work page) */
 .project-card {
   position: relative;
   counter-increment: project;
@@ -3405,12 +3516,15 @@ section:hover > * > .section-eyebrow::after {
   }
 
   .project-card,
-  .project-card.reverse {
+  .project-card.reverse,
+  .project-detail-card {
     grid-template-columns: 1fr;
   }
 
   .project-card.reverse .project-image,
-  .project-card.reverse .project-info {
+  .project-card.reverse .project-info,
+  .project-detail-card:nth-child(even) .featured-image-wrap,
+  .project-detail-card:nth-child(even) .featured-project-copy {
     order: initial;
   }
 }
@@ -3712,12 +3826,21 @@ section:hover > * > .section-eyebrow::after {
   }
 
   .featured-projects-grid::before,
-  .featured-project-card::before {
+  .featured-project-card::before,
+  .project-stories::before,
+  .project-detail-card::before {
     display: none;
   }
 
+  .featured-projects-grid,
+  .project-stories {
+    padding-left: 0;
+  }
+
   .featured-project-card,
-  .featured-project-card:nth-child(even) {
+  .featured-project-card:nth-child(even),
+  .project-detail-card,
+  .project-detail-card:nth-child(even) {
     grid-template-columns: 1fr;
     gap: 24px;
   }
@@ -3839,10 +3962,11 @@ section:hover > * > .section-eyebrow::after {
     border-radius: 26px;
   }
 
-  .project-card {
-    padding: 24px;
-    gap: 32px;
-    border-radius: 24px;
+  .project-card,
+  .project-detail-card {
+    padding: 24px 16px;
+    gap: 28px;
+    border-radius: 0;
   }
 
   .work-section-title {

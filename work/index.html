@@ -13,7 +13,7 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="../assets/css/custom.css?v=20260916-22" />
+  <link rel="stylesheet" href="../assets/css/custom.css?v=20260916-26" />
   <link rel="icon" href="../images/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../images/favicon.png" />
 
@@ -72,7 +72,6 @@
     </div>
   </header>
 
-  <!-- Hero -->
   <section class="page-hero work-hero">
     <p class="small-label">Selected Work</p>
 
@@ -85,28 +84,38 @@
     </p>
   </section>
 
-  <!-- Work -->
   <section class="work">
-    <div class="project-list">
+    <h2 class="work-section-title">Featured Products</h2>
 
-      <h2 class="work-section-title">Featured Products</h2>
+    <div class="project-stories">
 
-      <!-- Portfolio Pulse -->
-      <article class="project-card reverse" id="portfolio-pulse">
-        <div class="project-image">
+      <article class="project-detail-card" id="portfolio-pulse" data-project-index="01">
+        <a
+          class="featured-image-wrap"
+          href="https://portfolio-pulse-prototype.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src="../images/PP.avif"
             alt="Portfolio Pulse portfolio intelligence prototype"
-            class="live-banner"
             loading="lazy"
             decoding="async"
           />
-        </div>
+          <span class="project-hover-action">Open prototype ↗</span>
+        </a>
 
-        <div class="project-info">
-          <p class="project-category">📈 AI Product / Product Builder</p>
+        <div class="featured-project-copy project-info">
+          <div class="project-meta-line">
+            <span>AI PRODUCT</span>
+            <span>01</span>
+          </div>
 
           <h3>Portfolio Pulse</h3>
+
+          <p class="project-lede">
+            AI that helps investors see what needs attention.
+          </p>
 
           <p class="project-problem">
             <strong>Problem:</strong>
@@ -156,22 +165,33 @@
         </div>
       </article>
 
-      <!-- Operational Intelligence Platform -->
-      <article class="project-card" id="operational-intelligence">
-        <div class="project-image">
+      <article class="project-detail-card" id="operational-intelligence" data-project-index="02">
+        <a
+          class="featured-image-wrap"
+          href="https://operational-intelligence-five.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <img
             src="../images/OP.avif"
             alt="Operational Intelligence Platform"
-            class="live-banner"
             loading="lazy"
             decoding="async"
           />
-        </div>
+          <span class="project-hover-action">Open product ↗</span>
+        </a>
 
-        <div class="project-info">
-          <p class="project-category">🚨 Featured AI Product</p>
+        <div class="featured-project-copy project-info">
+          <div class="project-meta-line">
+            <span>AI / ML PRODUCT</span>
+            <span>02</span>
+          </div>
 
-          <h3>Operational Intelligence Platform</h3>
+          <h3>Operational Intelligence</h3>
+
+          <p class="project-lede">
+            AI that helps teams catch issues before they spread.
+          </p>
 
           <p class="project-problem">
             <strong>Problem:</strong>
@@ -229,7 +249,6 @@
     </div>
   </section>
 
-  <!-- Contact -->
   <section id="contact" class="work-cta-section">
     <div class="work-cta-visual">
       <img
@@ -255,7 +274,6 @@
     </div>
   </section>
 
-  <!-- Footer -->
   <footer class="footer">
     <div>
       <h3>Ola Bankole</h3>
