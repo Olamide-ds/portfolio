@@ -240,34 +240,63 @@
         </article>
 
 
-        <article class="now-card music-card">
+ <article class="now-card music-card live-music-card">
 
-          <span class="now-icon">🎧</span>
+  <div class="music-card-top">
+    <span class="now-icon">🎧</span>
 
-          <p class="now-label">
-            On repeat
-          </p>
+    <div class="music-live-status">
+      <span class="music-status-dot"></span>
+      <span id="musicStatusText">Recently played</span>
+    </div>
+  </div>
 
-          <div class="album-placeholder">
-            ♪
-          </div>
+  <p class="now-label">
+    On repeat
+  </p>
 
-          <h3>
-            Currently listening
-          </h3>
+  <div class="music-main">
 
-          <p class="music-placeholder">
-            We’ll plug your Apple Music here next.
-          </p>
+    <div class="music-art-wrap">
+      <img
+        id="musicArtwork"
+        src=""
+        alt="Album artwork"
+      />
 
-          <button
-            type="button"
-            class="mini-button"
-          >
-            Play something ♫
-          </button>
+      <div class="music-equalizer">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
 
-        </article>
+    <div class="music-details">
+
+      <h3 id="musicTrack">
+        Loading...
+      </h3>
+
+      <p id="musicArtist">
+        Fetching my latest track
+      </p>
+
+      <a
+        id="musicLink"
+        href="#"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="music-open-link"
+      >
+        View track ↗
+      </a>
+
+    </div>
+
+  </div>
+
+</article>
 
 
         <article class="now-card">
@@ -817,6 +846,10 @@
   </footer>
 
 <script>
+  /* =========================
+     PHOTO FILTERS
+  ========================== */
+
   const photoFilters = document.querySelectorAll(".photo-filter");
   const travelPhotos = document.querySelectorAll(".travel-photo");
 
@@ -841,6 +874,199 @@
       });
     });
   });
+
+
+  /* =========================
+     PHOTO LIGHTBOX
+  ========================== */
+
+  const lightbox = document.getElementById("photoLightbox");
+  const lightboxImage = document.getElementById("lightboxImage");
+  const lightboxLocation = document.getElementById("lightboxLocation");
+  const lightboxCaption = document.getElementById("lightboxCaption");
+
+  const closeButton = document.querySelector(".lightbox-close");
+  const prevButton = document.querySelector(".lightbox-prev");
+  const nextButton = document.querySelector(".lightbox-next");
+
+  let currentPhotoIndex = 0;
+
+  function getVisiblePhotos() {
+    return Array.from(travelPhotos).filter((photo) => {
+      return !photo.classList.contains("photo-hidden");
+    });
+  }
+
+  function showPhoto(index) {
+    const visiblePhotos = getVisiblePhotos();
+
+    if (!visiblePhotos.length) return;
+
+    if (index < 0) {
+      index = visiblePhotos.length - 1;
+    }
+
+    if (index >= visiblePhotos.length) {
+      index = 0;
+    }
+
+    currentPhotoIndex = index;
+
+    const selectedPhoto = visiblePhotos[index];
+
+    const image = selectedPhoto.querySelector("img");
+    const location = selectedPhoto.querySelector(".photo-location span");
+    const caption = selectedPhoto.querySelector("figcaption");
+
+    lightboxImage.src = image.src;
+    lightboxImage.alt = image.alt;
+
+    lightboxLocation.textContent =
+      location ? location.textContent : "";
+
+    lightboxCaption.textContent =
+      caption ? caption.textContent : "";
+  }
+
+  travelPhotos.forEach((photo) => {
+    photo.addEventListener("click", () => {
+      const visiblePhotos = getVisiblePhotos();
+
+      currentPhotoIndex = visiblePhotos.indexOf(photo);
+
+      showPhoto(currentPhotoIndex);
+
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+
+      document.body.classList.add("lightbox-open");
+    });
+  });
+
+  function closeLightbox() {
+    lightbox.classList.remove("open");
+    lightbox.setAttribute("aria-hidden", "true");
+
+    document.body.classList.remove("lightbox-open");
+  }
+
+  closeButton.addEventListener("click", closeLightbox);
+
+  prevButton.addEventListener("click", () => {
+    showPhoto(currentPhotoIndex - 1);
+  });
+
+  nextButton.addEventListener("click", () => {
+    showPhoto(currentPhotoIndex + 1);
+  });
+
+  lightbox.addEventListener("click", (event) => {
+    if (event.target === lightbox) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (!lightbox.classList.contains("open")) return;
+
+    if (event.key === "Escape") {
+      closeLightbox();
+    }
+
+    if (event.key === "ArrowLeft") {
+      showPhoto(currentPhotoIndex - 1);
+    }
+
+    if (event.key === "ArrowRight") {
+      showPhoto(currentPhotoIndex + 1);
+    }
+  });
+
+
+  /* =========================
+     LIVE LAST.FM MUSIC
+  ========================== */
+
+  const LASTFM_API_KEY = "3ae8552b3253e17384123295925b43ed";
+  const LASTFM_USERNAME = "Truemide";
+
+  const musicCard = document.querySelector(".live-music-card");
+  const musicArtwork = document.getElementById("musicArtwork");
+  const musicTrack = document.getElementById("musicTrack");
+  const musicArtist = document.getElementById("musicArtist");
+  const musicLink = document.getElementById("musicLink");
+  const musicStatusText = document.getElementById("musicStatusText");
+
+  async function loadRecentTrack() {
+    try {
+      const endpoint =
+        "https://ws.audioscrobbler.com/2.0/" +
+        "?method=user.getrecenttracks" +
+        `&user=${encodeURIComponent(LASTFM_USERNAME)}` +
+        `&api_key=${encodeURIComponent(LASTFM_API_KEY)}` +
+        "&format=json" +
+        "&limit=1";
+
+      const response = await fetch(endpoint);
+
+      if (!response.ok) {
+        throw new Error("Could not load Last.fm data");
+      }
+
+      const data = await response.json();
+      const track = data?.recenttracks?.track?.[0];
+
+      if (!track) {
+        throw new Error("No recent track found");
+      }
+
+      const isPlaying =
+        track["@attr"]?.nowplaying === "true";
+
+      const trackName = track.name || "Unknown track";
+      const artistName =
+        track.artist?.["#text"] || "Unknown artist";
+
+      const artwork =
+        track.image?.find((image) => image.size === "extralarge")?.["#text"] ||
+        track.image?.find((image) => image.size === "large")?.["#text"] ||
+        "";
+
+      const trackUrl = track.url || "#";
+
+      musicTrack.textContent = trackName;
+      musicArtist.textContent = artistName;
+      musicLink.href = trackUrl;
+
+      if (artwork) {
+        musicArtwork.src = artwork;
+        musicArtwork.style.display = "block";
+      } else {
+        musicArtwork.style.display = "none";
+      }
+
+      if (isPlaying) {
+        musicCard.classList.add("is-playing");
+        musicStatusText.textContent = "Listening now";
+      } else {
+        musicCard.classList.remove("is-playing");
+        musicStatusText.textContent = "Recently played";
+      }
+
+    } catch (error) {
+      console.error(error);
+
+      musicTrack.textContent = "Music unavailable";
+      musicArtist.textContent = "Check back later";
+
+      musicCard.classList.remove("is-playing");
+      musicStatusText.textContent = "Recently played";
+    }
+  }
+
+  loadRecentTrack();
+
+  setInterval(loadRecentTrack, 60000);
 </script>
 </body>
 </html>
