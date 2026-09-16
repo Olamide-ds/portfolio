@@ -333,75 +333,89 @@ document.addEventListener("DOMContentLoaded", () => {
   const watchingBlurb = document.getElementById("watchingBlurb");
   const watchingPoster = document.getElementById("watchingPoster");
   const watchingCardArt = document.getElementById("watchingCardArt");
+  const WATCHING_API_FALLBACK = "https://portfolio-gh-one.vercel.app/api/watching";
 
-  function resolveWatchingApiUrl() {
-    const host = location.hostname;
-    const useSameOrigin =
-      host === "localhost" ||
-      host === "127.0.0.1" ||
-      host.endsWith(".vercel.app");
-
-    if (useSameOrigin) {
-      return "/api/watching";
-    }
-
-    const origin = document
+  function watchingApiUrls() {
+    const urls = [];
+    const metaOrigin = document
       .querySelector('meta[name="watching-api-origin"]')
       ?.getAttribute("content")
       ?.trim();
-    if (origin) {
-      return `${origin.replace(/\/$/, "")}/api/watching`;
+    if (metaOrigin) {
+      urls.push(`${metaOrigin.replace(/\/$/, "")}/api/watching`);
+    }
+    urls.push(WATCHING_API_FALLBACK);
+    urls.push("/api/watching");
+    return [...new Set(urls)];
+  }
+
+  async function fetchWatchingData() {
+    for (const url of watchingApiUrls()) {
+      try {
+        const response = await fetch(url);
+        if (!response.ok) continue;
+        const contentType = response.headers.get("content-type") || "";
+        if (!contentType.includes("json")) continue;
+        const data = await response.json();
+        if (data.fallback || data.error || !data.title) continue;
+        return data;
+      } catch {
+        // Try the next endpoint.
+      }
+    }
+    return null;
+  }
+
+  function applyWatchingData(data) {
+    watchingTitle.textContent = data.title;
+
+    if (watchingPoster && data.poster) {
+      watchingPoster.src = data.poster;
+      watchingPoster.alt = `Poster for ${data.title}`;
     }
 
-    return "/api/watching";
+    const metaParts = [];
+    if (data.season != null && data.episode != null) {
+      metaParts.push(`S${data.season} · E${data.episode}`);
+    }
+    if (data.episodeTitle) {
+      metaParts.push(data.episodeTitle);
+    }
+    if (data.progress?.total > 0) {
+      metaParts.push(`${data.progress.watched} of ${data.progress.total} episodes`);
+    }
+
+    if (watchingMeta && metaParts.length) {
+      watchingMeta.textContent = metaParts.join(" · ");
+      watchingMeta.hidden = false;
+    }
+
+    if (watchingBlurb) {
+      watchingBlurb.hidden = metaParts.length > 0;
+    }
+
+    if (watchingCardArt) {
+      watchingCardArt.href =
+        "https://simkl.com/search?q=" + encodeURIComponent(data.title);
+    }
   }
 
   async function loadWatching() {
     if (!watchingTitle) return;
 
     try {
-      const response = await fetch(resolveWatchingApiUrl());
-      if (!response.ok) return;
-      const data = await response.json();
-      if (data.fallback || data.error || !data.title) return;
-
-      watchingTitle.textContent = data.title;
-
-      if (watchingPoster && data.poster) {
-        watchingPoster.src = data.poster;
-        watchingPoster.alt = `Poster for ${data.title}`;
-      }
-
-      const metaParts = [];
-      if (data.season != null && data.episode != null) {
-        metaParts.push(`S${data.season} · E${data.episode}`);
-      }
-      if (data.episodeTitle) {
-        metaParts.push(data.episodeTitle);
-      }
-      if (data.progress?.total > 0) {
-        metaParts.push(`${data.progress.watched} of ${data.progress.total} episodes`);
-      }
-
-      if (watchingMeta && metaParts.length) {
-        watchingMeta.textContent = metaParts.join(" · ");
-        watchingMeta.hidden = false;
-      }
-
-      if (watchingBlurb) {
-        watchingBlurb.hidden = metaParts.length > 0;
-      }
-
-      if (watchingCardArt) {
-        watchingCardArt.href =
-          "https://simkl.com/search?q=" + encodeURIComponent(data.title);
-      }
+      const data = await fetchWatchingData();
+      if (!data) return;
+      applyWatchingData(data);
     } catch (error) {
       console.error("Watching API error:", error);
     }
   }
 
   loadWatching();
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) loadWatching();
+  });
 
   const stage = document.getElementById("gameStage");
   const timeEl = document.getElementById("gameTime");
