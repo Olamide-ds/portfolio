@@ -6815,3 +6815,680 @@ body.lightbox-open {
   }
 
 }
+/* ==========================================
+   MUSIC FINAL POLISH
+========================================== */
+
+/* Keep long song titles under control */
+.music-feature-panel #musicTrack {
+  font-size: 2.15rem !important;
+  line-height: 1.05 !important;
+  max-width: 500px !important;
+
+  display: -webkit-box !important;
+  -webkit-line-clamp: 2 !important;
+  -webkit-box-orient: vertical !important;
+  overflow: hidden !important;
+}
+
+/* Slightly stronger equalizer */
+.music-feature-equalizer {
+  display: flex !important;
+  align-items: flex-end !important;
+  gap: 4px !important;
+  height: 22px !important;
+  margin: 18px 0 8px !important;
+}
+
+.music-feature-equalizer span {
+  display: block !important;
+  width: 4px !important;
+  border-radius: 10px !important;
+  background: currentColor !important;
+  opacity: 0.65 !important;
+}
+
+.music-feature-equalizer span:nth-child(1) {
+  height: 8px !important;
+}
+
+.music-feature-equalizer span:nth-child(2) {
+  height: 14px !important;
+}
+
+.music-feature-equalizer span:nth-child(3) {
+  height: 20px !important;
+}
+
+.music-feature-equalizer span:nth-child(4) {
+  height: 11px !important;
+}
+
+.music-feature-equalizer span:nth-child(5) {
+  height: 16px !important;
+}
+
+/* Animate only while Last.fm says you're currently listening */
+.music-feature-panel.is-playing .music-feature-equalizer span {
+  animation: musicBounce 0.8s ease-in-out infinite alternate;
+}
+
+.music-feature-panel.is-playing .music-feature-equalizer span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.music-feature-panel.is-playing .music-feature-equalizer span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+.music-feature-panel.is-playing .music-feature-equalizer span:nth-child(4) {
+  animation-delay: 0.45s;
+}
+
+.music-feature-panel.is-playing .music-feature-equalizer span:nth-child(5) {
+  animation-delay: 0.6s;
+}
+
+@keyframes musicBounce {
+  from {
+    transform: scaleY(0.45);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+/* =========================================================
+   OLA — TECH COLOR SYSTEM + BOOT SCREEN + MOTION POLISH
+========================================================= */
+
+:root {
+  --bg: #f7f5f2;
+  --paper: #fffdfb;
+
+  --ink: #16141a;
+  --espresso: #2a2026;
+  --muted: #756b74;
+
+  --electric: #7775ff;
+  --electric-soft: #dddfff;
+
+  --ice: #dff3ff;
+  --ice-strong: #8bd7ff;
+
+  --coral: #d97964;
+  --coral-soft: #f5d7cf;
+
+  --violet: #bca8ff;
+
+  --border: rgba(22, 20, 26, 0.09);
+
+  --shadow:
+    0 24px 70px rgba(28, 22, 35, 0.08);
+
+  --glow:
+    0 0 40px rgba(119, 117, 255, 0.18);
+}
+
+
+/* =========================================================
+   GLOBAL TECH REFINEMENT
+========================================================= */
+
+body {
+  background:
+    radial-gradient(
+      circle at 10% 10%,
+      rgba(188, 168, 255, 0.10),
+      transparent 26%
+    ),
+    radial-gradient(
+      circle at 90% 30%,
+      rgba(139, 215, 255, 0.10),
+      transparent 30%
+    ),
+    var(--bg);
+
+  color: var(--ink);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+}
+
+p {
+  color: var(--muted);
+}
+
+::selection {
+  background: var(--electric-soft);
+  color: var(--ink);
+}
+
+
+/* =========================================================
+   SECTION EYEBROWS
+========================================================= */
+
+.hero-label,
+.section-eyebrow,
+.now-label,
+.project-meta-line {
+  color: var(--coral) !important;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.btn-primary {
+  background:
+    linear-gradient(
+      135deg,
+      var(--ink),
+      #2f2540
+    ) !important;
+
+  color: white !important;
+
+  box-shadow:
+    0 12px 30px rgba(22, 20, 26, 0.14);
+}
+
+.btn-primary:hover {
+  box-shadow:
+    0 16px 36px rgba(22, 20, 26, 0.20),
+    0 0 0 4px rgba(119, 117, 255, 0.08);
+}
+
+.btn-secondary {
+  background: rgba(255,255,255,0.55) !important;
+
+  border:
+    1px solid rgba(22,20,26,0.10) !important;
+
+  backdrop-filter: blur(14px);
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.profile-circle-new {
+  box-shadow:
+    0 28px 70px rgba(25, 18, 31, 0.12),
+    0 0 0 1px rgba(119, 117, 255, 0.08),
+    0 0 60px rgba(119, 117, 255, 0.12);
+}
+
+.profile-orbit {
+  border-color:
+    rgba(119, 117, 255, 0.16) !important;
+}
+
+.orbit-two {
+  border-color:
+    rgba(217, 121, 100, 0.18) !important;
+}
+
+.floating-icon {
+  background:
+    rgba(255,255,255,0.72) !important;
+
+  border:
+    1px solid rgba(119,117,255,0.11) !important;
+
+  backdrop-filter: blur(16px);
+
+  box-shadow:
+    0 18px 40px rgba(39, 30, 49, 0.08);
+}
+
+.floating-icon:hover {
+  box-shadow:
+    0 22px 46px rgba(39, 30, 49, 0.15),
+    0 0 24px rgba(119, 117, 255, 0.15);
+}
+
+
+/* =========================================================
+   HERO ACCENT
+========================================================= */
+
+.hero-copy h2 span {
+  background:
+    linear-gradient(
+      90deg,
+      var(--coral),
+      var(--electric)
+    );
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent !important;
+}
+
+
+/* =========================================================
+   HERO MINI STATUS
+========================================================= */
+
+.hero-mini-status span {
+  background:
+    rgba(255,255,255,0.55) !important;
+
+  border:
+    1px solid rgba(22,20,26,0.08) !important;
+
+  backdrop-filter: blur(12px);
+}
+
+
+/* =========================================================
+   RIGHT NOW PANEL
+========================================================= */
+
+.right-now-panel {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,255,255,0.82),
+      rgba(248,246,252,0.88)
+    ) !important;
+
+  border:
+    1px solid rgba(119,117,255,0.10) !important;
+
+  box-shadow:
+    0 26px 70px rgba(28,22,35,0.07) !important;
+
+  backdrop-filter: blur(18px);
+}
+
+
+/* =========================================================
+   RIGHT NOW SIDE TABS
+========================================================= */
+
+.right-now-tab {
+  color: #847983 !important;
+}
+
+.right-now-tab.active {
+  color: var(--ink) !important;
+}
+
+.right-now-tab.active::before {
+  content: "";
+
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: var(--electric);
+
+  box-shadow:
+    0 0 0 5px rgba(119,117,255,0.08);
+
+  margin-right: 4px;
+}
+
+
+/* =========================================================
+   MUSIC PANEL
+========================================================= */
+
+.music-feature-panel {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255,253,251,0.96),
+      rgba(238,236,255,0.96)
+    ) !important;
+}
+
+.music-feature-art {
+  box-shadow:
+    0 28px 65px rgba(20,16,25,0.18),
+    0 0 45px rgba(119,117,255,0.10) !important;
+}
+
+.music-status-dot {
+  background: #aaa1a9;
+}
+
+.music-feature-panel.is-playing .music-status-dot {
+  background: #61d39c !important;
+
+  box-shadow:
+    0 0 0 5px rgba(97,211,156,0.12),
+    0 0 16px rgba(97,211,156,0.28);
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+========================================================= */
+
+.featured-project-card {
+  background:
+    rgba(255,255,255,0.72) !important;
+
+  border:
+    1px solid rgba(119,117,255,0.08) !important;
+
+  backdrop-filter: blur(14px);
+}
+
+.featured-project-card:hover {
+  box-shadow:
+    0 30px 70px rgba(34,28,44,0.12),
+    0 0 35px rgba(119,117,255,0.10) !important;
+}
+
+
+/* =========================================================
+   ABOUT SECTION
+========================================================= */
+
+.about-home-new {
+  background:
+    linear-gradient(
+      135deg,
+      #f1e7e3,
+      #eeeafa,
+      #e8f5fb
+    ) !important;
+}
+
+
+/* =========================================================
+   CONTACT
+========================================================= */
+
+.home-contact-new {
+  background:
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(119,117,255,0.22),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 10% 90%,
+      rgba(217,121,100,0.12),
+      transparent 30%
+    ),
+    #15131a !important;
+}
+
+
+/* =========================================================
+   PAGE BOOT / INTRO
+========================================================= */
+
+.site-intro {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 99999;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(119,117,255,0.16),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 70% 70%,
+      rgba(217,121,100,0.10),
+      transparent 32%
+    ),
+    #111015;
+
+  transition:
+    opacity 0.7s ease,
+    visibility 0.7s ease,
+    transform 0.7s ease;
+}
+
+.site-intro.intro-hidden {
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(-10px)
+    scale(1.015);
+
+  pointer-events: none;
+}
+
+
+.site-intro-inner {
+  width:
+    min(
+      540px,
+      calc(100% - 40px)
+    );
+}
+
+
+.intro-terminal {
+  border:
+    1px solid
+    rgba(255,255,255,0.10);
+
+  border-radius: 18px;
+
+  overflow: hidden;
+
+  background:
+    rgba(20,18,24,0.90);
+
+  backdrop-filter: blur(20px);
+
+  box-shadow:
+    0 30px 90px rgba(0,0,0,0.35),
+    0 0 50px rgba(119,117,255,0.12);
+}
+
+
+.intro-terminal-top {
+  display: flex;
+  gap: 7px;
+
+  padding:
+    13px 15px;
+
+  border-bottom:
+    1px solid
+    rgba(255,255,255,0.07);
+}
+
+
+.intro-terminal-top span {
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.22);
+}
+
+
+.intro-terminal-top span:nth-child(1) {
+  background: #ff6d67;
+}
+
+.intro-terminal-top span:nth-child(2) {
+  background: #f3c969;
+}
+
+.intro-terminal-top span:nth-child(3) {
+  background: #63d58d;
+}
+
+
+.intro-terminal-body {
+  min-height: 150px;
+
+  padding:
+    30px 28px;
+
+  display: flex;
+  align-items: center;
+}
+
+
+.intro-line {
+  margin: 0;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size:
+    clamp(
+      0.78rem,
+      2vw,
+      0.95rem
+    );
+
+  color:
+    rgba(255,255,255,0.88);
+
+  line-height: 1.7;
+}
+
+
+.intro-prompt {
+  color:
+    var(--electric);
+
+  margin-right:
+    10px;
+}
+
+
+.intro-cursor {
+  color:
+    var(--coral);
+
+  animation:
+    introBlink
+    0.75s
+    steps(1)
+    infinite;
+}
+
+
+@keyframes introBlink {
+
+  0%,
+  50% {
+    opacity: 1;
+  }
+
+  51%,
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* =========================================================
+   SCROLL REVEAL
+========================================================= */
+
+.reveal-on-scroll {
+  opacity: 0;
+
+  transform:
+    translateY(32px);
+
+  transition:
+    opacity
+    0.75s
+    cubic-bezier(.2,.8,.2,1),
+
+    transform
+    0.75s
+    cubic-bezier(.2,.8,.2,1);
+}
+
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+
+  transform:
+    translateY(0);
+}
+
+
+/* =========================================================
+   SUBTLE TECH GRID
+========================================================= */
+
+body::before {
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  z-index: -1;
+
+  background-image:
+    linear-gradient(
+      rgba(119,117,255,0.025) 1px,
+      transparent 1px
+    ),
+
+    linear-gradient(
+      90deg,
+      rgba(119,117,255,0.025) 1px,
+      transparent 1px
+    );
+
+  background-size:
+    40px 40px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      rgba(0,0,0,0.35),
+      transparent 80%
+    );
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  .site-intro,
+  .intro-cursor,
+  .reveal-on-scroll,
+  .floating-icon {
+    animation: none !important;
+    transition: none !important;
+  }
+
+}
