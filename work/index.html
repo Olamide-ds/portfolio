@@ -9,11 +9,13 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Inter:wght@300;400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Caveat:wght@500;600&family=IBM+Plex+Mono:wght@400;500;600&family=Manrope:wght@400;500;600;700&display=swap"
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="../assets/css/custom.css" />
+  <link rel="stylesheet" href="../assets/css/custom.css?v=20260916-11" />
+  <link rel="icon" href="../images/favicon.png" type="image/png" />
+  <link rel="apple-touch-icon" href="../images/favicon.png" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6641LZ5Z7T"></script>
@@ -29,18 +31,45 @@
   </script>
 </head>
 
-<body>
+<body class="has-rail">
 
-  <!-- Header -->
   <header class="site-header">
-    <a href="../" class="logo">☕</a>
+    <a href="../" class="rail-brand" aria-label="Ola Bankole homepage">
+      <img src="../images/coffee-icon.png" alt="" />
+      <span>ola.studio</span>
+    </a>
 
-    <nav class="nav-links">
-      <a href="../">Home</a>
-      <a href="../about/">About me</a>
-      <a href="../work/">My work</a>
-      <a href="#contact">Contact me</a>
+    <button
+      class="nav-toggle"
+      type="button"
+      aria-expanded="false"
+      aria-controls="siteNav"
+      aria-label="Open navigation"
+    >
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="nav-links" id="siteNav">
+      <div class="nav-group">
+        <p class="rail-label">In the room</p>
+        <a href="../#home">Home</a>
+        <a href="../work/" aria-current="page">Work</a>
+        <a href="../#about">About</a>
+        <a href="../#contact">Contact</a>
+      </div>
+
+      <div class="nav-group">
+        <p class="rail-label">Around</p>
+        <a href="https://github.com/Olamide-ds" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://www.linkedin.com/in/Ola-bankole-b68640203/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a href="mailto:bankolee.olamide@gmail.com">Email</a>
+      </div>
     </nav>
+
+    <div class="rail-foot">
+      <p><span id="localTime">--:--</span> local time</p>
+      <p>Houston, TX</p>
+    </div>
   </header>
 
   <!-- Hero -->
@@ -63,11 +92,14 @@
       <h2 class="work-section-title">Featured Products</h2>
 
       <!-- Portfolio Pulse -->
-      <article class="project-card reverse">
+      <article class="project-card reverse" id="portfolio-pulse">
         <div class="project-image">
           <img
-            src="../images/PP.png"
+            src="../images/PP.avif"
             alt="Portfolio Pulse portfolio intelligence prototype"
+            class="live-banner"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -110,7 +142,7 @@
 
           <div class="project-links">
             <a
-              href="https://portfolio-pulse-prototype.vercel.app/company/nova-robotics"
+              href="https://portfolio-pulse-prototype.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
             >
@@ -125,11 +157,14 @@
       </article>
 
       <!-- Operational Intelligence Platform -->
-      <article class="project-card">
+      <article class="project-card" id="operational-intelligence">
         <div class="project-image">
           <img
-            src="../images/OP.png"
+            src="../images/OP.avif"
             alt="Operational Intelligence Platform"
+            class="live-banner"
+            loading="lazy"
+            decoding="async"
           />
         </div>
 
@@ -191,172 +226,6 @@
         </div>
       </article>
 
-      <!-- AI & Machine Learning Projects -->
-      <h2 class="work-section-title">AI & Machine Learning Projects</h2>
-
-      <p class="work-section-description">
-        These projects demonstrate my background in machine learning, deep learning,
-        and applied AI. While they are technical implementations rather than end-user
-        products, they shaped how I think about explainability, trustworthy AI,
-        and building products powered by machine learning.
-      </p>
-
-      <!-- Skin Cancer Survival Prediction -->
-      <article class="project-card reverse">
-        <div class="project-image">
-          <img
-            src="../images/pexels-tara-winstead-8384513.jpg"
-            alt="Skin Cancer Survival Prediction"
-          />
-        </div>
-
-        <div class="project-info">
-          <p class="project-category">🩺 AI / Healthcare</p>
-
-          <h3>Multi-Modal Survival Prediction for Skin Cancer</h3>
-
-          <p class="project-problem">
-            <strong>Problem:</strong>
-            Healthcare prediction is only useful when AI is understandable,
-            not just accurate.
-          </p>
-
-          <p>
-            I developed survival prediction models using clinical, genomic,
-            and imaging data, combining survival analysis, deep learning,
-            and SHAP explainability to improve prediction transparency.
-          </p>
-
-          <p class="project-takeaway">
-            <strong>Technical takeaway:</strong>
-            This project strengthened my understanding of multimodal learning,
-            explainable AI, and the importance of building models that clinicians
-            can understand and trust.
-          </p>
-
-          <div class="project-meta">
-            <span>Survival Analysis</span>
-            <span>Deep Learning</span>
-            <span>SHAP</span>
-            <span>Healthcare AI</span>
-          </div>
-
-          <div class="project-links">
-            <a
-              href="https://github.com/Olamide-ds/Explainable-Multimodal-Survival-Model-Skin-Cancer-Prognosis"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Source Code
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Emergency Vehicle Classification -->
-      <article class="project-card">
-        <div class="project-image">
-          <img
-            src="../images/Emergency.png"
-            alt="Emergency Vehicle Classification"
-          />
-        </div>
-
-        <div class="project-info">
-          <p class="project-category">🚑 Computer Vision</p>
-
-          <h3>Emergency Vehicle Image Classification</h3>
-
-          <p class="project-problem">
-            <strong>Problem:</strong>
-            Visual classification can help teams identify critical objects
-            faster in high-volume environments.
-          </p>
-
-          <p>
-            I trained a convolutional neural network to distinguish emergency
-            and non-emergency vehicles while evaluating model performance,
-            accuracy, and generalization.
-          </p>
-
-          <p class="project-takeaway">
-            <strong>Technical takeaway:</strong>
-            This project deepened my understanding of computer vision,
-            CNN architectures, and deploying image classification models
-            for practical decision support.
-          </p>
-
-          <div class="project-meta">
-            <span>Computer Vision</span>
-            <span>CNN</span>
-            <span>Image Classification</span>
-            <span>Model Evaluation</span>
-          </div>
-
-          <div class="project-links">
-            <a
-              href="https://github.com/Olamide-ds/Emergency-Non-Emergency-Classification-CNN-Model"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Source Code
-            </a>
-          </div>
-        </div>
-      </article>
-
-      <!-- Disaster Tweet Classification -->
-      <article class="project-card reverse">
-        <div class="project-image">
-          <img
-            src="../images/viktor-hesse-L139Wt_mr9g-unsplash.jpg"
-            alt="Disaster Tweet Classification"
-          />
-        </div>
-
-        <div class="project-info">
-          <p class="project-category">🌍 NLP / Crisis Intelligence</p>
-
-          <h3>Disaster Tweet Classification</h3>
-
-          <p class="project-problem">
-            <strong>Problem:</strong>
-            During emergencies, critical information is often hidden within
-            large volumes of noisy social media data.
-          </p>
-
-          <p>
-            I built an NLP classification pipeline using BiLSTM and GRU models
-            to identify disaster-related tweets and improve signal detection
-            from unstructured text.
-          </p>
-
-          <p class="project-takeaway">
-            <strong>Technical takeaway:</strong>
-            This project expanded my understanding of NLP pipelines,
-            sequence models, and using AI to surface meaningful information
-            from unstructured data.
-          </p>
-
-          <div class="project-meta">
-            <span>NLP</span>
-            <span>BiLSTM</span>
-            <span>GRU</span>
-            <span>Text Classification</span>
-          </div>
-
-          <div class="project-links">
-            <a
-              href="https://github.com/Olamide-ds/Disaster-Tweets-Classification-NLP-BiLSTM-GRU"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Source Code
-            </a>
-          </div>
-        </div>
-      </article>
-
     </div>
   </section>
 
@@ -367,6 +236,8 @@
         src="../images/contact-envelope.png"
         alt="3D contact envelope illustration"
         class="work-cta-image"
+        loading="lazy"
+        decoding="async"
       />
     </div>
 
@@ -392,8 +263,8 @@
     </div>
 
     <div class="footer-nav">
-      <a href="../">Homepage</a>
-      <a href="../about/">About me</a>
+      <a href="../#home">Homepage</a>
+      <a href="../#about">About me</a>
       <a href="../work/">Featured work</a>
       <a href="#contact">Contact me</a>
     </div>
@@ -425,5 +296,6 @@
     </p>
   </footer>
 
+  <script src="../assets/js/site.js?v=20260916-11"></script>
 </body>
 </html>
