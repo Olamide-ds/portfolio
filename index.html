@@ -191,30 +191,90 @@
     </section>
 
 
-    <!-- =========================
-         RIGHT NOW
-    ========================== -->
+<!-- =========================
+     RIGHT NOW
+========================== -->
 
-    <section class="right-now">
+<section class="right-now interactive-right-now">
 
-      <div class="section-heading-small">
+  <div class="section-heading-small">
 
-        <p class="section-eyebrow">
-          RIGHT NOW
-        </p>
+    <p class="section-eyebrow">
+      RIGHT NOW
+    </p>
 
-        <h2>
-          A little snapshot of my world.
-        </h2>
+    <h2>
+      A little snapshot of my world.
+    </h2>
 
-      </div>
+  </div>
+
+  <div class="right-now-experience">
+
+    <!-- SIDE MENU -->
+    <div class="right-now-menu" role="tablist" aria-label="Right now">
+
+      <button
+        class="right-now-tab active"
+        type="button"
+        data-panel="building"
+        role="tab"
+        aria-selected="true"
+      >
+        <span>01</span>
+        Building
+        <b>→</b>
+      </button>
+
+      <button
+        class="right-now-tab"
+        type="button"
+        data-panel="listening"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>02</span>
+        Listening
+        <b>→</b>
+      </button>
+
+      <button
+        class="right-now-tab"
+        type="button"
+        data-panel="watching"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>03</span>
+        Watching
+        <b>→</b>
+      </button>
+
+      <button
+        class="right-now-tab"
+        type="button"
+        data-panel="thinking"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>04</span>
+        Thinking
+        <b>→</b>
+      </button>
+
+    </div>
 
 
-      <div class="right-now-grid">
+    <!-- PANELS -->
+    <div class="right-now-panels">
 
-        <article class="now-card">
+      <!-- BUILDING -->
+      <article
+        class="right-now-panel active"
+        data-panel-content="building"
+      >
 
-          <span class="now-icon">💻</span>
+        <div class="right-now-panel-copy">
 
           <p class="now-label">
             Currently building
@@ -225,102 +285,143 @@
           </h3>
 
           <p>
-            Exploring how AI can help investors surface
-            the signals that actually need their attention.
+            An AI-powered portfolio intelligence prototype designed to help
+            investors bring fragmented company information together, surface
+            market signals, and focus attention where it matters.
           </p>
 
           <a
             href="https://portfolio-pulse-prototype.vercel.app/company/nova-robotics"
             target="_blank"
             rel="noopener noreferrer"
+            class="right-now-action"
           >
             Open prototype ↗
           </a>
 
-        </article>
+        </div>
+
+        <div class="right-now-visual product-panel-visual">
+
+          <img
+            src="images/PP.png"
+            alt="Portfolio Pulse product dashboard"
+          />
+
+        </div>
+
+      </article>
 
 
- <article class="now-card music-card live-music-card">
-
-  <div class="music-card-top">
-    <span class="now-icon">🎧</span>
-
-    <div class="music-live-status">
-      <span class="music-status-dot"></span>
-      <span id="musicStatusText">Recently played</span>
-    </div>
-  </div>
-
-  <p class="now-label">
-    On repeat
-  </p>
-
-  <div class="music-main">
-
-    <div class="music-art-wrap">
-      <img
-        id="musicArtwork"
-        src=""
-        alt="Album artwork"
-      />
-
-      <div class="music-equalizer">
-        <span></span>
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
-
-    <div class="music-details">
-
-      <h3 id="musicTrack">
-        Loading...
-      </h3>
-
-      <p id="musicArtist">
-        Fetching my latest track
-      </p>
-
-      <a
-        id="musicLink"
-        href="#"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="music-open-link"
+      <!-- LISTENING -->
+      <article
+        class="right-now-panel music-feature-panel"
+        data-panel-content="listening"
       >
-        View track ↗
-      </a>
 
-    </div>
+        <div class="right-now-panel-copy">
 
-  </div>
+          <div class="music-feature-status">
 
-</article>
+            <p class="now-label">
+              On repeat
+            </p>
+
+            <div class="music-live-status">
+              <span class="music-status-dot"></span>
+              <span id="musicStatusText">Recently played</span>
+            </div>
+
+          </div>
+
+          <h3 id="musicTrack">
+            Loading...
+          </h3>
+
+          <p id="musicArtist" class="music-feature-artist">
+            Fetching my latest track
+          </p>
+
+          <div class="music-feature-equalizer">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <a
+            id="musicLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="right-now-action"
+          >
+            View track ↗
+          </a>
+
+        </div>
+
+        <div class="right-now-visual music-feature-art">
+
+          <img
+            id="musicArtwork"
+            src=""
+            alt="Album artwork"
+          />
+
+          <div class="music-record-ring"></div>
+
+        </div>
+
+      </article>
 
 
-        <article class="now-card">
+      <!-- WATCHING -->
+      <article
+        class="right-now-panel"
+        data-panel-content="watching"
+      >
 
-  <span class="now-icon">📺</span>
+        <div class="right-now-panel-copy">
 
-  <p class="now-label">
-    Currently watching
-  </p>
+          <p class="now-label">
+            Currently watching
+          </p>
 
-  <h3>
-    Severance
-  </h3>
+          <h3>
+            Severance
+          </h3>
 
-  <p>
-    Slowly making my way through Apple TV’s weirdest workplace.
-  </p>
+          <p>
+            Slowly making my way through Apple TV’s weirdest workplace.
+          </p>
 
-</article>
+          <span class="right-now-small-note">
+            📺 current obsession
+          </span>
+
+        </div>
+
+        <div class="right-now-visual watching-visual">
+
+          <div class="watching-title-card">
+            <span>SEVERANCE</span>
+            <small>Apple TV+</small>
+          </div>
+
+        </div>
+
+      </article>
 
 
-        <article class="now-card">
+      <!-- THINKING -->
+      <article
+        class="right-now-panel"
+        data-panel-content="thinking"
+      >
 
-          <span class="now-icon">🧠</span>
+        <div class="right-now-panel-copy">
 
           <p class="now-label">
             Currently thinking about
@@ -331,15 +432,33 @@
           </h3>
 
           <p>
-            Agents, product builders, useful automation
-            and what genuinely changes how people work.
+            Agents, product builders, useful automation, and what genuinely
+            changes how people work once AI becomes part of the product itself.
           </p>
 
-        </article>
+          <span class="right-now-small-note">
+            🧠 notes from my brain
+          </span>
 
-      </div>
+        </div>
 
-    </section>
+        <div class="right-now-visual thinking-visual">
+
+          <span>AI</span>
+          <span>→</span>
+          <span>WORKFLOWS</span>
+          <span>→</span>
+          <span>PRODUCTS</span>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
 
 
     <!-- =========================
@@ -983,22 +1102,79 @@
   });
 
 
+<script>
   /* =========================
-     LIVE LAST.FM MUSIC
+     RIGHT NOW TABS
   ========================== */
 
-  const LASTFM_API_KEY = "3ae8552b3253e17384123295925b43ed";
+  const rightNowTabs =
+    document.querySelectorAll(".right-now-tab");
+
+  const rightNowPanels =
+    document.querySelectorAll(".right-now-panel");
+
+  rightNowTabs.forEach((tab) => {
+
+    tab.addEventListener("click", () => {
+
+      const target = tab.dataset.panel;
+
+      rightNowTabs.forEach((item) => {
+        item.classList.remove("active");
+        item.setAttribute("aria-selected", "false");
+      });
+
+      rightNowPanels.forEach((panel) => {
+        panel.classList.remove("active");
+      });
+
+      tab.classList.add("active");
+      tab.setAttribute("aria-selected", "true");
+
+      const targetPanel =
+        document.querySelector(
+          `[data-panel-content="${target}"]`
+        );
+
+      if (targetPanel) {
+        targetPanel.classList.add("active");
+      }
+
+    });
+
+  });
+
+
+  /* =========================
+     LAST.FM
+  ========================== */
+
+  const LASTFM_API_KEY = "YOUR_EXISTING_API_KEY";
   const LASTFM_USERNAME = "Truemide";
 
-  const musicCard = document.querySelector(".live-music-card");
-  const musicArtwork = document.getElementById("musicArtwork");
-  const musicTrack = document.getElementById("musicTrack");
-  const musicArtist = document.getElementById("musicArtist");
-  const musicLink = document.getElementById("musicLink");
-  const musicStatusText = document.getElementById("musicStatusText");
+  const musicPanel =
+    document.querySelector(".music-feature-panel");
+
+  const musicArtwork =
+    document.getElementById("musicArtwork");
+
+  const musicTrack =
+    document.getElementById("musicTrack");
+
+  const musicArtist =
+    document.getElementById("musicArtist");
+
+  const musicLink =
+    document.getElementById("musicLink");
+
+  const musicStatusText =
+    document.getElementById("musicStatusText");
+
 
   async function loadRecentTrack() {
+
     try {
+
       const endpoint =
         "https://ws.audioscrobbler.com/2.0/" +
         "?method=user.getrecenttracks" +
@@ -1014,7 +1190,9 @@
       }
 
       const data = await response.json();
-      const track = data?.recenttracks?.track?.[0];
+
+      const track =
+        data?.recenttracks?.track?.[0];
 
       if (!track) {
         throw new Error("No recent track found");
@@ -1023,20 +1201,24 @@
       const isPlaying =
         track["@attr"]?.nowplaying === "true";
 
-      const trackName = track.name || "Unknown track";
+      const trackName =
+        track.name || "Unknown track";
+
       const artistName =
         track.artist?.["#text"] || "Unknown artist";
 
       const artwork =
-        track.image?.find((image) => image.size === "extralarge")?.["#text"] ||
-        track.image?.find((image) => image.size === "large")?.["#text"] ||
+        track.image?.find(
+          (image) => image.size === "extralarge"
+        )?.["#text"] ||
+        track.image?.find(
+          (image) => image.size === "large"
+        )?.["#text"] ||
         "";
-
-      const trackUrl = track.url || "#";
 
       musicTrack.textContent = trackName;
       musicArtist.textContent = artistName;
-      musicLink.href = trackUrl;
+      musicLink.href = track.url || "#";
 
       if (artwork) {
         musicArtwork.src = artwork;
@@ -1046,22 +1228,38 @@
       }
 
       if (isPlaying) {
-        musicCard.classList.add("is-playing");
-        musicStatusText.textContent = "Listening now";
+
+        musicPanel.classList.add("is-playing");
+
+        musicStatusText.textContent =
+          "Listening now";
+
       } else {
-        musicCard.classList.remove("is-playing");
-        musicStatusText.textContent = "Recently played";
+
+        musicPanel.classList.remove("is-playing");
+
+        musicStatusText.textContent =
+          "Recently played";
+
       }
 
     } catch (error) {
+
       console.error(error);
 
-      musicTrack.textContent = "Music unavailable";
-      musicArtist.textContent = "Check back later";
+      musicTrack.textContent =
+        "Music unavailable";
 
-      musicCard.classList.remove("is-playing");
-      musicStatusText.textContent = "Recently played";
+      musicArtist.textContent =
+        "Check back later";
+
+      musicStatusText.textContent =
+        "Recently played";
+
+      musicPanel.classList.remove("is-playing");
+
     }
+
   }
 
   loadRecentTrack();
