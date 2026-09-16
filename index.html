@@ -1266,5 +1266,46 @@
 
   setInterval(loadRecentTrack, 60000);
 </script>
+
+  <script>
+  /* =========================
+     RIGHT NOW TABS
+  ========================== */
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const tabs = document.querySelectorAll(".right-now-tab");
+    const panels = document.querySelectorAll(".right-now-panel");
+
+    tabs.forEach((tab) => {
+      tab.addEventListener("click", () => {
+        const target = tab.getAttribute("data-panel");
+
+        /* reset tabs */
+        tabs.forEach((item) => {
+          item.classList.remove("active");
+          item.setAttribute("aria-selected", "false");
+        });
+
+        /* hide panels */
+        panels.forEach((panel) => {
+          panel.classList.remove("active");
+        });
+
+        /* activate clicked tab */
+        tab.classList.add("active");
+        tab.setAttribute("aria-selected", "true");
+
+        /* show matching panel */
+        const targetPanel = document.querySelector(
+          `.right-now-panel[data-panel-content="${target}"]`
+        );
+
+        if (targetPanel) {
+          targetPanel.classList.add("active");
+        }
+      });
+    });
+  });
+</script>
 </body>
 </html>
