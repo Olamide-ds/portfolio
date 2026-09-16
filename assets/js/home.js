@@ -85,45 +85,18 @@ document.addEventListener("DOMContentLoaded", () => {
   revealElements.forEach((element) => revealObserver.observe(element));
 
   const heroVisual = document.querySelector(".hero-visual");
-  const profileCircle = document.querySelector(".profile-circle-new");
-  const orbitOne = document.querySelector(".orbit-one");
-  const orbitTwo = document.querySelector(".orbit-two");
-  const floatingIcons = document.querySelectorAll(".love-chip");
+  const heroBanner = heroVisual?.querySelector("img");
 
-  if (
-    heroVisual &&
-    !reducedMotion
-  ) {
+  if (heroVisual && heroBanner && !reducedMotion) {
     heroVisual.addEventListener("mousemove", (event) => {
       const rect = heroVisual.getBoundingClientRect();
       const x = (event.clientX - rect.left) / rect.width - 0.5;
       const y = (event.clientY - rect.top) / rect.height - 0.5;
-
-      if (profileCircle) {
-        profileCircle.style.transform = `translate(${x * 10}px, ${y * 10}px)`;
-      }
-      if (orbitOne) {
-        orbitOne.style.transform = `translate(${x * -8}px, ${y * -8}px)`;
-      }
-      if (orbitTwo) {
-        orbitTwo.style.transform = `translate(${x * -14}px, ${y * -14}px)`;
-      }
-
-      floatingIcons.forEach((icon, index) => {
-        const strength = 10 + index * 3;
-        icon.style.setProperty("--mx", `${x * strength}px`);
-        icon.style.setProperty("--my", `${y * strength}px`);
-      });
+      heroBanner.style.transform = `translate(${x * 8}px, ${y * 8}px)`;
     });
 
     heroVisual.addEventListener("mouseleave", () => {
-      if (profileCircle) profileCircle.style.transform = "";
-      if (orbitOne) orbitOne.style.transform = "";
-      if (orbitTwo) orbitTwo.style.transform = "";
-      floatingIcons.forEach((icon) => {
-        icon.style.setProperty("--mx", "0px");
-        icon.style.setProperty("--my", "0px");
-      });
+      heroBanner.style.transform = "";
     });
   }
 
@@ -240,32 +213,82 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadRecentTracks() {
     if (!trackGrid) return;
 
-    try {
+    const artistName = (track) =>
+      track.artist?.["#text"] || track.artist?.name || "Unknown artist";
+
+    const trackKey = (track) =>
+      `${(track.name || "").trim()}::${artistName(track)}`.toLowerCase();
+
+    const fetchLastfm = async (method, extra = "") => {
       const endpoint =
         "https://ws.audioscrobbler.com/2.0/" +
-        "?method=user.getrecenttracks" +
+        `?method=${method}` +
         `&user=${encodeURIComponent(LASTFM_USERNAME)}` +
         `&api_key=${encodeURIComponent(LASTFM_API_KEY)}` +
         "&format=json" +
-        "&limit=6";
-
+        extra;
       const response = await fetch(endpoint);
       if (!response.ok) throw new Error("Could not load Last.fm data");
+      return response.json();
+    };
 
-      const data = await response.json();
-      const tracks = [].concat(data?.recenttracks?.track || []).slice(0, 6);
-      if (!tracks.length) throw new Error("No recent tracks");
+    const collectUnique = (source, limit, seen) => {
+      const unique = [];
+      for (const track of source) {
+        const name = (track.name || "").trim();
+        if (!name) continue;
+        const key = trackKey(track);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        unique.push(track);
+        if (unique.length >= limit) break;
+      }
+      return unique;
+    };
 
-      const anyLive = tracks.some((track) => track["@attr"]?.nowplaying === "true");
+    try {
+      const data = await fetchLastfm("user.getrecenttracks", "&limit=30");
+      const recent = [].concat(data?.recenttracks?.track || []);
+      if (!recent.length) throw new Error("No recent tracks");
+
+      const seen = new Set();
+      let tracks = collectUnique(recent, 4, seen);
+
+      if (tracks.length < 4) {
+        const topData = await fetchLastfm(
+          "user.gettoptracks",
+          "&period=7day&limit=20"
+        );
+        const top = [].concat(topData?.toptracks?.track || []);
+        tracks = tracks.concat(collectUnique(top, 4 - tracks.length, seen));
+      }
+
+      const anyLive = recent.some((track) => track["@attr"]?.nowplaying === "true");
       if (musicStatusText) {
         musicStatusText.textContent = anyLive ? "Listening now" : "Recently played";
       }
+
+      const signature = tracks
+        .map((track) => {
+          const live = track["@attr"]?.nowplaying === "true" ? "1" : "0";
+          return `${live}::${trackKey(track)}`;
+        })
+        .join("|");
+
+      if (trackGrid.dataset.signature === signature) {
+        if (musicStatusText) {
+          musicStatusText.textContent = anyLive ? "Listening now" : "Recently played";
+        }
+        return;
+      }
+
+      trackGrid.dataset.signature = signature;
 
       trackGrid.innerHTML = tracks
         .map((track) => {
           const live = track["@attr"]?.nowplaying === "true";
           const name = track.name || "Unknown track";
-          const artist = track.artist?.["#text"] || "Unknown artist";
+          const artist = artistName(track);
           const artwork =
             track.image?.find((image) => image.size === "extralarge")?.["#text"] ||
             track.image?.find((image) => image.size === "large")?.["#text"] ||
@@ -294,8 +317,69 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   }
 
+  const refreshMusic = () => {
+    if (document.hidden) return;
+    loadRecentTracks();
+  };
+
   loadRecentTracks();
-  window.setInterval(loadRecentTracks, 60000);
+  window.setInterval(refreshMusic, 15000);
+  document.addEventListener("visibilitychange", () => {
+    if (!document.hidden) loadRecentTracks();
+  });
+
+  const watchingTitle = document.getElementById("watchingTitle");
+  const watchingMeta = document.getElementById("watchingMeta");
+  const watchingBlurb = document.getElementById("watchingBlurb");
+  const watchingPoster = document.getElementById("watchingPoster");
+  const watchingCardArt = document.getElementById("watchingCardArt");
+
+  async function loadWatching() {
+    if (!watchingTitle) return;
+
+    try {
+      const response = await fetch("/api/watching");
+      if (!response.ok) return;
+      const data = await response.json();
+      if (data.fallback || data.error || !data.title) return;
+
+      watchingTitle.textContent = data.title;
+
+      if (watchingPoster && data.poster) {
+        watchingPoster.src = data.poster;
+        watchingPoster.alt = `Poster for ${data.title}`;
+      }
+
+      const metaParts = [];
+      if (data.season != null && data.episode != null) {
+        metaParts.push(`S${data.season} · E${data.episode}`);
+      }
+      if (data.episodeTitle) {
+        metaParts.push(data.episodeTitle);
+      }
+      if (data.progress?.total > 0) {
+        metaParts.push(`${data.progress.watched} of ${data.progress.total} episodes`);
+      }
+
+      if (watchingMeta && metaParts.length) {
+        watchingMeta.textContent = metaParts.join(" · ");
+        watchingMeta.hidden = false;
+      }
+
+      if (watchingBlurb) {
+        watchingBlurb.hidden = metaParts.length > 0;
+      }
+
+      if (watchingCardArt) {
+        watchingCardArt.href =
+          "https://simkl.com/search?q=" + encodeURIComponent(data.title);
+      }
+    } catch (error) {
+      console.error("Watching API error:", error);
+    }
+  }
+
+  loadWatching();
 
   const stage = document.getElementById("gameStage");
   const timeEl = document.getElementById("gameTime");
@@ -303,8 +387,14 @@ document.addEventListener("DOMContentLoaded", () => {
   const feedbackEl = document.getElementById("gameFeedback");
   const startBtn = document.getElementById("gameStart");
   const againBtn = document.getElementById("gameAgain");
-  const coffee = "☕";
-  const decoys = ["🎧", "⚽", "✨", "📦", "🌙", "📎"];
+  const coffeeSrc = "images/game-coffee.jpg";
+  const decoySrcs = [
+    "images/love-camera.jpg",
+    "images/love-gym.jpg",
+    "images/love-fashion.jpg",
+    "images/love-tech.jpg",
+    "images/love-chelsea.png"
+  ];
   let score = 0;
   let remaining = 20;
   let playing = false;
@@ -321,6 +411,7 @@ document.addEventListener("DOMContentLoaded", () => {
     playing = false;
     window.clearInterval(spawnTimer);
     window.clearInterval(clockTimer);
+    clearBits();
     if (feedbackEl) feedbackEl.textContent = message;
     if (startBtn) startBtn.hidden = true;
     if (againBtn) againBtn.hidden = false;
@@ -329,19 +420,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const spawnBit = () => {
     if (!playing || !stage) return;
 
+    const isCoffee = Math.random() < 0.42;
     const bit = document.createElement("button");
     bit.type = "button";
     bit.className = "game-bit";
-    bit.textContent = Math.random() < 0.42
-      ? coffee
-      : decoys[Math.floor(Math.random() * decoys.length)];
-    bit.style.left = `${8 + Math.random() * 78}%`;
-    bit.style.animationDuration = `${1.8 + Math.random() * 1.4}s`;
-    bit.addEventListener("click", (event) => {
+    bit.dataset.coffee = isCoffee ? "1" : "0";
+    bit.setAttribute("aria-label", isCoffee ? "Coffee" : "Not coffee");
+    bit.style.left = `${8 + Math.random() * 72}%`;
+    bit.style.top = "-64px";
+
+    const img = document.createElement("img");
+    img.src = isCoffee
+      ? coffeeSrc
+      : decoySrcs[Math.floor(Math.random() * decoySrcs.length)];
+    img.alt = "";
+    img.draggable = false;
+    bit.appendChild(img);
+
+    const catchBit = (event) => {
       event.preventDefault();
+      event.stopPropagation();
       if (!playing || bit.classList.contains("is-caught")) return;
       bit.classList.add("is-caught");
-      if (bit.textContent === coffee) {
+      if (bit.dataset.coffee === "1") {
         score += 1;
         if (feedbackEl) feedbackEl.textContent = "Nice catch.";
       } else {
@@ -350,11 +451,30 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       if (scoreEl) scoreEl.textContent = `${score} cup${score === 1 ? "" : "s"}`;
       window.setTimeout(() => bit.remove(), 180);
-    });
-    bit.addEventListener("animationend", () => {
-      if (!bit.classList.contains("is-caught")) bit.remove();
-    });
+    };
+
+    bit.addEventListener("pointerdown", catchBit);
+    bit.addEventListener("click", (event) => event.preventDefault());
+
+    const duration = 1800 + Math.random() * 1400;
+    const start = performance.now();
+    const travel = (stage.clientHeight || 280) + 80;
+
+    const tick = (now) => {
+      if (!bit.isConnected || bit.classList.contains("is-caught") || !playing) {
+        return;
+      }
+      const progress = (now - start) / duration;
+      if (progress >= 1) {
+        bit.remove();
+        return;
+      }
+      bit.style.top = `${-64 + travel * progress}px`;
+      window.requestAnimationFrame(tick);
+    };
+
     stage.appendChild(bit);
+    window.requestAnimationFrame(tick);
   };
 
   const startGame = () => {

@@ -2,7 +2,7 @@
   if (window.__OLA_PAGE_INTRO__) return;
   window.__OLA_PAGE_INTRO__ = true;
 
-  const STORAGE_KEY = "ola-intro-seen";
+  const STORAGE_KEY = "ola-intro-seen-v3";
   const forceIntro = new URLSearchParams(window.location.search).has("intro");
   const intro = document.getElementById("olaIntro");
   const textElement = document.getElementById("olaIntroText");
@@ -16,7 +16,7 @@
 
   const phrases = [
     "I spot the real problem.",
-    "I shape the AI product.",
+    "I shape the product.",
     "Then I build it.",
   ];
 

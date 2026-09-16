@@ -499,49 +499,122 @@ body.has-rail {
   margin: 0;
 }
 
+.watching-meta {
+  margin-top: 4px !important;
+  font-family: var(--font-mono, "IBM Plex Mono", monospace);
+  font-size: 0.82rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: rgba(255, 248, 239, 0.72);
+}
+
 /* Off the clock */
 .life-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 36px 28px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 14px;
+  padding-top: 14px;
 }
 
 .life-grid .travel-photo {
   grid-column: auto;
+  margin: 0;
   padding: 0;
+  overflow: visible;
   border: 0;
   background: transparent;
   box-shadow: none;
   cursor: zoom-in;
 }
 
+.life-grid .travel-photo:nth-child(2),
+.life-grid .travel-photo:nth-child(4) {
+  margin-top: 0;
+}
+
+.life-grid .travel-photo::before {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  z-index: 3;
+  display: block;
+  width: 52px;
+  height: 18px;
+  background: #e8d4b0;
+  box-shadow: 0 1px 3px rgba(42, 24, 18, 0.22);
+  content: "";
+  pointer-events: none;
+  transform: translateX(-50%) rotate(-7deg);
+}
+
+.life-grid .travel-photo:nth-child(even)::before {
+  transform: translateX(-50%) rotate(8deg);
+}
+
+.life-grid .travel-photo:nth-child(3)::before {
+  transform: translateX(-50%) rotate(-4deg);
+}
+
 .life-grid .travel-photo-image {
+  position: relative;
+  height: 168px;
   overflow: hidden;
-  border-radius: 8px;
+  border-radius: 10px;
   background: #2a1c18;
 }
 
 .life-grid .travel-photo img {
   width: 100%;
-  height: 280px;
+  height: 100%;
   object-fit: cover;
+  animation: none;
 }
 
 .life-grid .travel-photo:hover img {
-  animation-play-state: paused;
-  transform: scale(1.06);
+  animation: none;
+  transform: scale(1.04);
+}
+
+.life-grid .travel-photo-detail {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  overflow: hidden;
+  padding: 16px 14px 14px;
+  background: linear-gradient(180deg, transparent 12%, rgba(18, 10, 8, 0.88) 100%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
+}
+
+.life-grid .travel-photo:hover .travel-photo-detail,
+.life-grid .travel-photo:focus-visible .travel-photo-detail {
+  opacity: 1;
 }
 
 .life-grid h3 {
-  margin: 16px 0 8px;
-  font-size: 1.25rem;
+  margin: 0 0 6px;
+  color: #fff8ef;
+  font-size: 1rem;
+  line-height: 1.2;
 }
 
-.life-grid figcaption {
+.life-grid figcaption,
+.life-grid .travel-photo figcaption {
+  display: -webkit-box;
   margin: 0;
-  color: var(--muted);
-  font-size: 0.92rem;
-  line-height: 1.6;
+  overflow: hidden;
+  padding: 0;
+  color: #fff3e8;
+  font-family: var(--sans);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
 }
 
 /* While you're here */
@@ -592,17 +665,26 @@ body.has-rail {
 
 .game-bit {
   position: absolute;
-  top: 0;
-  z-index: 1;
+  z-index: 4;
+  width: 58px;
+  height: 58px;
   padding: 0;
-  border: 0;
-  background: transparent;
+  overflow: hidden;
+  border: 2px solid rgba(255, 236, 214, 0.88);
+  border-radius: 50%;
+  background: #2a1c18;
   cursor: pointer;
-  font-size: 1.85rem;
-  line-height: 1;
-  animation-name: game-fall;
-  animation-timing-function: linear;
-  animation-fill-mode: forwards;
+  touch-action: manipulation;
+  pointer-events: auto;
+}
+
+.game-bit img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  pointer-events: none;
+  user-select: none;
 }
 
 .game-bit.is-caught {
@@ -1454,8 +1536,8 @@ section:hover > * > .section-eyebrow::after {
   margin: 0 auto;
   padding-top: 28px;
   display: grid;
-  grid-template-columns: 0.9fr 1.1fr;
-  gap: clamp(56px, 8vw, 105px);
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.98fr);
+  gap: clamp(36px, 6vw, 72px);
   align-items: center;
 }
 
@@ -1486,21 +1568,31 @@ section:hover > * > .section-eyebrow::after {
 
 .hero-visual {
   position: relative;
-  width: 430px;
-  height: 430px;
+  width: min(640px, 100%);
+  height: auto;
   justify-self: center;
-  display: grid;
-  place-items: center;
+  overflow: visible;
+}
+
+.hero-visual img {
+  display: block;
+  width: 100%;
+  height: auto;
+  background: transparent;
+  filter: drop-shadow(0 18px 32px rgba(24, 12, 8, 0.28));
+  transition: transform 0.35s var(--ease);
 }
 
 .profile-circle-new {
-  position: relative;
-  z-index: 3;
-  width: 252px;
-  height: 252px;
+  position: absolute;
+  top: 78px;
+  left: 176px;
+  z-index: 4;
+  width: 268px;
+  height: 314px;
   overflow: hidden;
-  border: 10px solid #6a4e42;
-  border-radius: 18px;
+  border: 8px solid #d7ea7a;
+  border-radius: 48% 52% 42% 58% / 38% 44% 56% 62%;
   box-shadow:
     0 22px 50px rgba(24, 12, 8, 0.35),
     inset 0 0 0 2px rgba(255, 214, 176, 0.2);
@@ -1511,13 +1603,11 @@ section:hover > * > .section-eyebrow::after {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 18%;
 }
 
 .profile-orbit {
-  position: absolute;
-  border: 1px dashed rgba(255, 214, 176, 0.18);
-  border-radius: 28px;
-  transition: transform 0.35s var(--ease);
+  display: none;
 }
 
 .orbit-one {
@@ -1535,26 +1625,69 @@ section:hover > * > .section-eyebrow::after {
 .floating-icon {
   position: absolute;
   z-index: 4;
-  width: 58px;
-  height: 58px;
+  width: 96px;
+  height: 96px;
+  padding: 0;
   display: grid;
   place-items: center;
   overflow: hidden;
-  border: 1px solid rgba(255, 236, 214, 0.22);
-  border-radius: 18px;
-  background: rgba(101, 73, 61, 0.9);
-  box-shadow: var(--shadow-sm);
-  backdrop-filter: blur(14px);
+  border: 0;
+  background: transparent;
   cursor: default;
   transform: translate(var(--mx, 0px), var(--my, 0px)) rotate(var(--tilt, 0deg));
-  animation: chip-float 5.4s ease-in-out infinite;
 }
 
 .love-chip img {
+  display: block;
   width: 100%;
   height: 100%;
   object-fit: cover;
-  animation: chip-wiggle 6s ease-in-out infinite;
+}
+
+.love-chip.is-polaroid {
+  padding: 8px 8px 22px;
+  overflow: visible;
+  border-radius: 2px;
+  background: #fff8ef;
+  box-shadow:
+    0 12px 26px rgba(24, 12, 8, 0.3),
+    0 0 0 1px rgba(255, 255, 255, 0.35);
+}
+
+.love-chip.is-polaroid img {
+  border-radius: 1px;
+}
+
+.love-chip.is-polaroid::before {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  z-index: 3;
+  width: 48px;
+  height: 18px;
+  background: #e8d4b0;
+  box-shadow: 0 1px 3px rgba(42, 24, 18, 0.22);
+  content: "";
+  transform: translateX(-50%) rotate(-8deg);
+}
+
+.love-chip.is-object {
+  overflow: hidden;
+  background: #2a1c18;
+  box-shadow: 0 14px 26px rgba(24, 12, 8, 0.32);
+}
+
+.love-chip.is-cutout {
+  overflow: hidden;
+  background: #2a1c18;
+  box-shadow: 0 16px 28px rgba(24, 12, 8, 0.3);
+}
+
+.love-chip.is-badge {
+  overflow: hidden;
+  padding: 0;
+  background: #034694;
+  box-shadow: 0 10px 22px rgba(24, 12, 8, 0.28);
 }
 
 .love-chip::after,
@@ -1581,44 +1714,109 @@ section:hover > * > .section-eyebrow::after {
   opacity: 1;
 }
 
-.love-quote {
-  width: 148px;
-  height: auto;
-  min-height: 78px;
-  padding: 10px 11px 12px;
-  display: block;
-  overflow: visible;
-  border-radius: 14px;
-  background: #5b4b8a;
-  color: #f6f0ff;
-  font-family: var(--serif);
-  font-size: 0.72rem;
-  font-weight: 600;
-  line-height: 1.25;
-  letter-spacing: -0.02em;
+.icon-chelsea {
+  top: 176px;
+  left: 352px;
+  z-index: 8;
+  width: 88px;
+  height: 88px;
+  border-radius: 50%;
 }
 
-.love-quote span {
-  display: block;
-  margin-top: 7px;
-  color: rgba(246, 240, 255, 0.7);
-  font-family: var(--mono);
-  font-size: 0.48rem;
-  font-weight: 500;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
+.icon-chelsea img {
+  border-radius: 50%;
+  transform: scale(1.08);
 }
 
-.icon-chelsea { top: 8px; right: 42px; animation-delay: -0.4s; }
-.icon-camera { top: 148px; right: -18px; animation-delay: -1.5s; }
-.icon-fashion { right: 58px; bottom: 6px; animation-delay: -2.6s; }
-.icon-gym { bottom: 42px; left: 2px; animation-delay: -3.4s; }
-.icon-tech { top: 78px; left: -16px; animation-delay: -4.2s; }
-.icon-friends { top: 12px; left: -8px; animation-delay: -5s; }
+.icon-camera {
+  top: 28px;
+  left: 402px;
+  z-index: 7;
+  width: 122px;
+  height: 88px;
+  border: 5px solid #fff8ef;
+  border-radius: 22% 30% 18% 26%;
+}
+
+.icon-fashion {
+  top: 122px;
+  left: 22px;
+  z-index: 6;
+  width: 152px;
+  height: 214px;
+  border: 6px solid #e07a5f;
+  border-radius: 58% 42% 62% 38% / 42% 48% 52% 58%;
+}
+
+.icon-fashion img {
+  object-position: center 10%;
+}
+
+.icon-gym {
+  top: 312px;
+  left: 8px;
+  z-index: 6;
+  width: 108px;
+  height: 152px;
+}
+
+.icon-gym::before {
+  left: 42%;
+  transform: translateX(-50%) rotate(-12deg);
+}
+
+.icon-gym img {
+  object-fit: cover;
+  object-position: center 82%;
+}
+
+.icon-tech {
+  top: 250px;
+  left: 86px;
+  z-index: 7;
+  width: 136px;
+  height: 92px;
+  border: 5px solid #7eb6ff;
+  border-radius: 16px 22px 12px 18px;
+}
+
+.icon-friends {
+  top: 12px;
+  left: 28px;
+  z-index: 5;
+  width: 182px;
+  height: 124px;
+}
+
+.icon-friends img {
+  object-position: center 28%;
+}
+
+.icon-scene {
+  top: 318px;
+  left: 198px;
+  z-index: 10;
+  width: 198px;
+  height: 154px;
+  padding: 10px 10px 24px;
+  box-shadow:
+    0 18px 34px rgba(24, 12, 8, 0.38),
+    0 0 0 1px rgba(255, 255, 255, 0.4);
+}
+
+.icon-scene::before {
+  width: 58px;
+  height: 20px;
+  transform: translateX(-50%) rotate(7deg);
+}
+
+.icon-scene img {
+  object-position: center 42%;
+}
 
 @keyframes chip-float {
   0%, 100% { margin-top: 0; }
-  50% { margin-top: -12px; }
+  50% { margin-top: -5px; }
 }
 
 @keyframes chip-wiggle {
@@ -1641,22 +1839,20 @@ section:hover > * > .section-eyebrow::after {
 }
 
 .hero-copy h1 {
-  margin: 12px 0 24px;
-  font-size: clamp(4.3rem, 7.5vw, 7.6rem);
-  line-height: 0.88;
-  letter-spacing: -0.052em;
-}
-
-.hero-copy h2 {
   max-width: 720px;
-  margin: 0;
+  margin: 12px 0 0;
   font-family: var(--serif);
   font-weight: 500;
-  font-size: clamp(1.55rem, 2.8vw, 2.65rem);
-  line-height: 1.22;
+  font-size: clamp(2.15rem, 4vw, 3.7rem);
+  line-height: 1.1;
+  letter-spacing: -0.035em;
 }
 
-.hero-copy h2 span {
+.hero-copy h1 span {
+  display: block;
+}
+
+.hero-copy h1 span:last-child {
   color: var(--coral);
   font-weight: 700;
 }
@@ -1671,37 +1867,6 @@ section:hover > * > .section-eyebrow::after {
   display: flex;
   flex-wrap: wrap;
   gap: 12px;
-  margin-bottom: 27px;
-}
-
-.hero-mini-status {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 9px;
-}
-
-.hero-mini-status span {
-  padding: 7px 10px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
-  background: rgba(255, 250, 246, 0.62);
-  color: var(--muted);
-  font-size: 0.64rem;
-}
-
-.hero-mini-status span:nth-child(1) {
-  border-color: rgba(220, 96, 70, 0.28);
-  background: rgba(243, 183, 165, 0.38);
-}
-
-.hero-mini-status span:nth-child(2) {
-  border-color: rgba(82, 113, 232, 0.25);
-  background: rgba(217, 211, 244, 0.48);
-}
-
-.hero-mini-status span:nth-child(3) {
-  border-color: rgba(130, 182, 151, 0.3);
-  background: rgba(198, 224, 207, 0.5);
 }
 
 /* Right now */
@@ -2209,7 +2374,6 @@ section:hover > * > .section-eyebrow::after {
 
 .featured-image-wrap img,
 .live-banner,
-.life-grid .travel-photo img,
 .project-image img,
 .watching-card-art img {
   width: 100%;
@@ -2403,7 +2567,7 @@ section:hover > * > .section-eyebrow::after {
 
 .photo-diary-heading {
   max-width: 720px;
-  margin-bottom: 54px;
+  margin-bottom: 28px;
 }
 
 .photo-diary-heading > p:not(.section-eyebrow) {
@@ -2554,6 +2718,7 @@ section:hover > * > .section-eyebrow::after {
 .travel-photo.photo-hidden {
   display: none;
 }
+
 
 /* Lightbox */
 .photo-lightbox {
@@ -3154,20 +3319,20 @@ section:hover > * > .section-eyebrow::after {
     margin-inline: auto;
   }
 
-  .hero-buttons,
-  .hero-mini-status {
+  .hero-buttons {
     justify-content: center;
   }
 
   .track-grid,
-  .life-grid,
   .studio-game,
   .watching-card {
     grid-template-columns: 1fr;
   }
 
-  .life-grid .travel-photo img {
-    height: 240px;
+  .life-grid {
+    grid-template-columns: repeat(4, minmax(168px, 1fr));
+    overflow-x: auto;
+    padding-bottom: 6px;
   }
 
   .right-now-experience {
@@ -3389,17 +3554,24 @@ section:hover > * > .section-eyebrow::after {
   }
 
   .hero-copy h1 {
-    font-size: clamp(3.8rem, 17vw, 5.5rem);
+    font-size: clamp(2rem, 8.5vw, 3rem);
   }
 
   .hero-visual {
-    width: min(360px, 100%);
-    height: 360px;
+    width: min(520px, 100%);
+    height: auto;
+  }
+
+  .hero-visual img {
+    width: 100%;
+    height: auto;
   }
 
   .profile-circle-new {
-    width: 218px;
-    height: 218px;
+    top: 58px;
+    left: 126px;
+    width: 196px;
+    height: 230px;
   }
 
   .orbit-one {
@@ -3414,23 +3586,64 @@ section:hover > * > .section-eyebrow::after {
 
   .love-chip,
   .floating-icon {
-    width: 50px;
-    height: 50px;
+    width: 76px;
+    height: 76px;
+    padding: 0;
   }
 
-  .love-quote {
-    width: 120px;
-    height: auto;
-    min-height: 68px;
-    font-size: 0.62rem;
+  .love-chip.is-polaroid {
+    padding: 5px 5px 14px;
   }
 
-  .icon-chelsea { top: 4px; right: 28px; }
-  .icon-camera { top: 132px; right: -10px; }
-  .icon-fashion { right: 42px; bottom: 2px; }
-  .icon-gym { bottom: 36px; left: 0; }
-  .icon-tech { top: 70px; left: -10px; }
-  .icon-friends { top: 6px; left: -18px; }
+  .icon-chelsea {
+    top: 132px;
+    left: 252px;
+    width: 64px;
+    height: 64px;
+  }
+
+  .icon-camera {
+    top: 18px;
+    left: 286px;
+    width: 88px;
+    height: 62px;
+  }
+
+  .icon-fashion {
+    top: 92px;
+    left: 10px;
+    width: 108px;
+    height: 152px;
+  }
+
+  .icon-gym {
+    top: 232px;
+    left: 4px;
+    width: 78px;
+    height: 112px;
+  }
+
+  .icon-tech {
+    top: 186px;
+    left: 58px;
+    width: 98px;
+    height: 66px;
+  }
+
+  .icon-friends {
+    top: 8px;
+    left: 12px;
+    width: 132px;
+    height: 90px;
+  }
+
+  .icon-scene {
+    top: 236px;
+    left: 138px;
+    width: 146px;
+    height: 112px;
+    padding: 6px 6px 16px;
+  }
 
   .right-now,
   .featured-work-home,
@@ -3523,6 +3736,14 @@ section:hover > * > .section-eyebrow::after {
 
   .travel-photo-image img {
     height: min(105vw, 430px);
+  }
+
+  .life-grid .travel-photo-image {
+    height: 148px;
+  }
+
+  .life-grid .travel-photo-image img {
+    height: 100%;
   }
 
   .photo-location {
@@ -3637,6 +3858,10 @@ section:hover > * > .section-eyebrow::after {
 }
 
 @media (hover: none) {
+  .life-grid .travel-photo-detail {
+    opacity: 1;
+  }
+
   .project-hover-action {
     opacity: 1;
     transform: none;
@@ -3674,12 +3899,13 @@ section:hover > * > .section-eyebrow::after {
 
   .featured-image-wrap img,
   .live-banner,
-  .life-grid .travel-photo img,
   .project-image img,
   .watching-card-art img,
   .track-card,
   .love-chip,
-  .game-bit {
+  .game-bit,
+  .life-grid .travel-photo img {
     animation: none !important;
+    transform: none !important;
   }
 }

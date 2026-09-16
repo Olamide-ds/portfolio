@@ -34,7 +34,7 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="assets/css/custom.css?v=20260916-12" />
+  <link rel="stylesheet" href="assets/css/custom.css?v=20260916-23" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6641LZ5Z7T"></script>
@@ -147,8 +147,8 @@
       <div class="nav-group">
         <p class="rail-label">In the room</p>
         <a href="#home" data-section="home">Home</a>
-        <a href="#now" data-section="now">Listening</a>
         <a href="#work" data-section="work">Work</a>
+        <a href="#now" data-section="now">Now</a>
         <a href="#about" data-section="about">About</a>
         <a href="#life" data-section="life">Off the clock</a>
         <a href="#here" data-section="here">Play</a>
@@ -165,7 +165,7 @@
 
     <div class="rail-foot">
       <p><span id="localTime">--:--</span> local time</p>
-      <p>Houston, TX</p>
+      <p>Houston, Texas, USA</p>
     </div>
   </header>
 
@@ -179,36 +179,14 @@
     <section class="new-hero" id="home">
 
       <div class="hero-visual">
-
-        <div class="profile-orbit orbit-one"></div>
-        <div class="profile-orbit orbit-two"></div>
-
-        <div class="profile-circle-new">
-          <img
-            src="images/profile.jpg"
-            alt="Ola Bankole"
-            fetchpriority="high"
-            decoding="async"
-          />
-        </div>
-
-        <!-- Things I love -->
-        <div class="love-chip icon-camera" data-label="Camera" style="--tilt:8deg">
-          <img src="images/love-camera.jpg" alt="Polaroid camera" />
-        </div>
-        <div class="love-chip icon-fashion" data-label="Fashion" style="--tilt:-7deg">
-          <img src="images/love-fashion.jpg" alt="Fashion" />
-        </div>
-        <div class="love-chip icon-tech" data-label="Tech / AI" style="--tilt:6deg">
-          <img src="images/love-tech.jpg" alt="Laptop" />
-        </div>
-        <div class="love-chip icon-gym" data-label="Gym" style="--tilt:-9deg">
-          <img src="images/love-gym.jpg" alt="Gym" />
-        </div>
-        <div class="love-chip icon-play" data-label="Football" style="--tilt:5deg">
-          <img src="images/jeshoots-com-eCktzGjC-iU-unsplash.jpg" alt="Football on the screen" />
-        </div>
-
+        <img
+          src="images/hero-banner.png"
+          alt="Collage of Ola with polaroids from Montenegro and England, Chelsea, Friends, the gym, a camera, and the books and tools she works with"
+          fetchpriority="high"
+          decoding="async"
+          width="1024"
+          height="682"
+        />
       </div>
 
 
@@ -219,17 +197,15 @@
         </p>
 
         <h1>
-          Hi, I’m Ola.
+          <span>I spot the real problem.</span>
+          <span>I shape the product.</span>
+          <span>Then I build it.</span>
         </h1>
 
-        <h2>
-          I build at the intersection of
-          <span>product, AI, and data.</span>
-        </h2>
-
         <p class="hero-description">
-          I turn technical capabilities and real user problems into
-          products people can actually use.
+          I work end to end across product, AI, and the experience that
+          ties it together. I care about the idea, the craft, and the
+          story behind each thing I ship.
         </p>
 
         <div class="hero-buttons">
@@ -251,63 +227,9 @@
 
         </div>
 
-
-        <div class="hero-mini-status">
-
-          <span>
-            📍 Houston, TX
-          </span>
-
-          <span>
-            💻 Latest: Portfolio Pulse
-          </span>
-
-          <span>
-            🎧 Usually listening to something
-          </span>
-
-        </div>
-
       </div>
 
     </section>
-
-
-<!-- =========================
-     RIGHT NOW
-========================== -->
-
-
-<section class="listening-wall reveal-on-scroll" id="now">
-  <div class="section-heading-small">
-    <p class="section-eyebrow">Last played</p>
-    <h2>What I’ve been listening to.</h2>
-    <p class="listening-status" id="musicStatusText">Pulling the latest from Last.fm</p>
-  </div>
-
-  <div class="track-grid" id="trackGrid" aria-live="polite"></div>
-
-  <article class="watching-card">
-    <a
-      class="watching-card-art"
-      href="https://tv.apple.com/us/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx"
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      <img
-        src="images/severance-official.jpg"
-        alt="Official Apple TV key art for Severance"
-        loading="lazy"
-        decoding="async"
-      />
-    </a>
-    <div class="watching-card-copy">
-      <p class="now-label">Currently watching</p>
-      <h3>Severance</h3>
-      <p>Slowly making my way through Apple TV’s weirdest workplace.</p>
-    </div>
-  </article>
-</section>
 
 
     <!-- =========================
@@ -387,6 +309,46 @@
     </section>
 
 
+<!-- =========================
+     RIGHT NOW
+========================== -->
+
+
+<section class="listening-wall reveal-on-scroll" id="now">
+  <div class="section-heading-small">
+    <p class="section-eyebrow">Listening &amp; watching</p>
+    <h2>What’s on in the background.</h2>
+    <p class="listening-status" id="musicStatusText">Pulling the latest from Last.fm</p>
+  </div>
+
+  <div class="track-grid" id="trackGrid" aria-live="polite"></div>
+
+  <article class="watching-card" id="watchingCard">
+    <a
+      class="watching-card-art"
+      id="watchingCardArt"
+      href="https://tv.apple.com/us/show/severance/umc.cmc.1srk2goyh2q2zdxcx605w8vtx"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      <img
+        id="watchingPoster"
+        src="images/severance-official.jpg"
+        alt="Official Apple TV key art for Severance"
+        loading="lazy"
+        decoding="async"
+      />
+    </a>
+    <div class="watching-card-copy">
+      <p class="now-label">Currently watching</p>
+      <h3 id="watchingTitle">Severance</h3>
+      <p class="watching-meta" id="watchingMeta" hidden></p>
+      <p id="watchingBlurb">Slowly making my way through Apple TV’s weirdest workplace.</p>
+    </div>
+  </article>
+</section>
+
+
     <!-- =========================
          ABOUT PREVIEW
     ========================== -->
@@ -404,25 +366,26 @@
         </h2>
 
         <p>
-          I’m an AI product manager working where product, data, and the
-          people who use the thing all meet. I started in data science,
-          then realized the part I couldn’t leave alone was who it was
-          for, and whether it actually ships.
+          I’m a Product Manager working at the intersection of product, AI,
+          and data. I started in data science and found my sweet spot
+          turning user problems into products, from discovery and
+          prioritization to requirements, cross-functional delivery, launch,
+          and post-launch iteration.
         </p>
 
         <p>
-          Outside the roadmap I’m usually listening to something, watching
-          football, or photographing places I’ve lived.
+          I care about who we’re building for, what problem we’re solving,
+          how we know it’s working, and what we learn once it’s in users’
+          hands.
         </p>
 
         <p>
-          If you’re building something you care about, I’d love to hear
-          about it.
+          If you’re building something interesting, I’d love to hear about
+          it.
         </p>
 
         <p class="letter-signoff">Cheers,</p>
-        <p class="letter-name">Ola Bankole</p>
-        <p class="letter-role">AI Product Manager · Houston, TX</p>
+        <p class="letter-name">Ola</p>
 
       </div>
 
@@ -480,7 +443,7 @@
     <p class="section-eyebrow">Off the clock</p>
     <h2>What I look at when I’m not in a roadmap.</h2>
     <p>
-      A few frames from England and Montenegro. Click any of them.
+      Hover a frame to read it. Click to open.
     </p>
   </div>
 
@@ -488,34 +451,42 @@
 
     <figure class="travel-photo" data-location="montenegro" role="button" tabindex="0" aria-label="Open photo: first shop in Montenegro">
       <div class="travel-photo-image">
-        <img src="images/MNE 1.avif" alt="Fruit and pastry counter by a sunlit shop window in Montenegro" loading="lazy" decoding="async" />
+        <img src="images/mne-1.avif" alt="Fruit and pastry counter by a sunlit shop window in Montenegro" loading="lazy" decoding="async" />
+        <div class="travel-photo-detail">
+          <h3>First shop in a new country</h3>
+          <figcaption>Montenegro. We’d just landed, and this was my first stop to shop for food.</figcaption>
+        </div>
       </div>
-      <h3>First shop in a new country</h3>
-      <figcaption>Montenegro. We’d just landed, and this was my first stop to shop for food.</figcaption>
     </figure>
 
     <figure class="travel-photo" data-location="montenegro" role="button" tabindex="0" aria-label="Open photo: Kotor, waiting for the boat">
       <div class="travel-photo-image">
-        <img src="images/MNE 2.avif" alt="A white ship docked in Kotor, Montenegro" loading="lazy" decoding="async" />
+        <img src="images/mne-2.avif" alt="A white ship docked in Kotor, Montenegro" loading="lazy" decoding="async" />
+        <div class="travel-photo-detail">
+          <h3>Kotor, waiting for the boat</h3>
+          <figcaption>We wanted to catch a boat from here to the Blue Cave in Perast.</figcaption>
+        </div>
       </div>
-      <h3>Kotor, waiting for the boat</h3>
-      <figcaption>We wanted to catch a boat from here to the Blue Cave in Perast.</figcaption>
     </figure>
 
     <figure class="travel-photo" data-location="montenegro" role="button" tabindex="0" aria-label="Open photo: how high the mountains sit">
       <div class="travel-photo-image">
-        <img src="images/MNE 3.avif" alt="A cloudy mountain peak above a river in Montenegro" loading="lazy" decoding="async" />
+        <img src="images/mne-3.avif" alt="A cloudy mountain peak above a river in Montenegro" loading="lazy" decoding="async" />
+        <div class="travel-photo-detail">
+          <h3>How high the mountains sit</h3>
+          <figcaption>Montenegro again. The days were gloomy and cloudy, and I loved how far up in the sky it felt.</figcaption>
+        </div>
       </div>
-      <h3>How high the mountains sit</h3>
-      <figcaption>Montenegro again. The days were gloomy and cloudy, and I loved how far up in the sky it felt.</figcaption>
     </figure>
 
     <figure class="travel-photo" data-location="england" role="button" tabindex="0" aria-label="Open photo: on the way to work">
       <div class="travel-photo-image">
-        <img src="images/ENG 2.avif" alt="Early morning sky on a commute in England" loading="lazy" decoding="async" />
+        <img src="images/eng-2.avif" alt="Early morning sky on a commute in England" loading="lazy" decoding="async" />
+        <div class="travel-photo-detail">
+          <h3>On the way to work</h3>
+          <figcaption>A random morning while I was living in England, walking to work.</figcaption>
+        </div>
       </div>
-      <h3>On the way to work</h3>
-      <figcaption>A random morning while I was living in England, walking to work.</figcaption>
     </figure>
 
   </div>
@@ -537,7 +508,7 @@
       <span id="gameScore">0 cups</span>
     </p>
     <div class="game-stage" id="gameStage"></div>
-    <p class="game-feedback" id="gameFeedback">Hit start, then catch the ☕</p>
+    <p class="game-feedback" id="gameFeedback">Hit start, then catch the coffee.</p>
     <button type="button" class="intro-start intro-start-sound" id="gameStart">
       Start
     </button>
@@ -701,9 +672,9 @@
 
   </footer>
 
-  <script src="assets/js/site.js?v=20260916-12"></script>
-  <script src="assets/js/page-intro.js?v=20260916-12"></script>
-  <script src="assets/js/home.js?v=20260916-12"></script>
+  <script src="assets/js/site.js?v=20260916-22"></script>
+  <script src="assets/js/page-intro.js?v=20260916-22"></script>
+  <script src="assets/js/home.js?v=20260916-23"></script>
 
 </body>
 </html>

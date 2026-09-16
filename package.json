@@ -1,0 +1,8 @@
+{
+  "name": "ola-portfolio",
+  "private": true,
+  "scripts": {
+    "dev:vercel": "npx --yes vercel dev --listen 3000 --yes",
+    "simkl:auth": "node scripts/simkl-auth.mjs"
+  }
+}
