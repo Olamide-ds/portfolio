@@ -35,36 +35,161 @@
     gtag("config", "G-6641LZ5Z7T");
   </script>
 </head>
+<script>
+(() => {
 
+  /* Prevent duplicate initialization */
+  if (window.__OLA_INTRO_RUNNING__) {
+    return;
+  }
+
+  window.__OLA_INTRO_RUNNING__ = true;
+
+
+  const intro =
+    document.getElementById("olaIntro");
+
+  const textElement =
+    document.getElementById("olaIntroText");
+
+
+  if (!intro || !textElement) {
+    return;
+  }
+
+
+  const phrases = [
+    "I notice product problems.",
+    "I think through the system.",
+    "Then I build."
+  ];
+
+
+  let phraseIndex = 0;
+
+
+  const typePhrase = () => {
+
+    const phrase =
+      phrases[phraseIndex];
+
+    let characterIndex =
+      0;
+
+    textElement.textContent =
+      "";
+
+
+    const typingTimer =
+      setInterval(() => {
+
+        textElement.textContent +=
+          phrase[characterIndex];
+
+        characterIndex++;
+
+
+        if (
+          characterIndex >=
+          phrase.length
+        ) {
+
+          clearInterval(
+            typingTimer
+          );
+
+
+          setTimeout(() => {
+
+            phraseIndex++;
+
+
+            if (
+              phraseIndex <
+              phrases.length
+            ) {
+
+              typePhrase();
+
+            } else {
+
+              setTimeout(() => {
+
+                intro.classList.add(
+                  "is-gone"
+                );
+
+                intro.setAttribute(
+                  "aria-hidden",
+                  "true"
+                );
+
+              }, 600);
+
+            }
+
+          }, 420);
+
+        }
+
+      }, 38);
+
+  };
+
+
+  /* Don't make recruiters watch it again
+     every time they click back to the homepage */
+
+  const alreadySeen =
+    sessionStorage.getItem(
+      "ola-intro-seen"
+    );
+
+
+  if (alreadySeen) {
+
+    intro.classList.add(
+      "is-gone"
+    );
+
+    intro.setAttribute(
+      "aria-hidden",
+      "true"
+    );
+
+  } else {
+
+    sessionStorage.setItem(
+      "ola-intro-seen",
+      "true"
+    );
+
+    typePhrase();
+
+  }
+
+})();
+</script>
 <body>
-  <!-- =========================
-     SITE INTRO / BOOT SCREEN
+<!-- =========================
+     OLA INTRO
 ========================== -->
 
-<div class="site-intro" id="siteIntro">
+<div class="ola-intro" id="olaIntro" aria-hidden="false">
 
-  <div class="site-intro-inner">
+  <div class="ola-intro-inner">
 
-    <div class="intro-terminal">
+    <p class="ola-intro-mark">
+      OLA / PRODUCT + AI
+    </p>
 
-      <div class="intro-terminal-top">
+    <div class="ola-intro-message">
+      <span id="olaIntroText"></span>
+      <span class="ola-intro-caret"></span>
+    </div>
 
-        <span></span>
-        <span></span>
-        <span></span>
-
-      </div>
-
-      <div class="intro-terminal-body">
-
-        <p class="intro-line">
-          <span class="intro-prompt">→</span>
-          <span id="introTyping"></span>
-          <span class="intro-cursor">▋</span>
-        </p>
-
-      </div>
-
+    <div class="ola-intro-progress">
+      <span></span>
     </div>
 
   </div>
