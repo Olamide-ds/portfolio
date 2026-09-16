@@ -7492,3 +7492,648 @@ body::before {
   }
 
 }
+/* =========================================================
+   OLA FINAL VISUAL POLISH
+   Warm editorial + subtle tech
+========================================================= */
+
+:root {
+  --ola-bg: #f7f3ee;
+  --ola-paper: #fffdfa;
+
+  --ola-ink: #2c211e;
+  --ola-muted: #766964;
+
+  --ola-coral: #b96e5c;
+
+  /* Tech accent — used sparingly */
+  --ola-electric: #7774e8;
+  --ola-electric-soft: rgba(119, 116, 232, 0.08);
+
+  --ola-blue-soft: rgba(140, 205, 230, 0.07);
+
+  --ola-border: rgba(44, 33, 30, 0.10);
+
+  --ola-shadow:
+    0 24px 65px rgba(51, 37, 31, 0.07);
+}
+
+
+/* =========================================================
+   PAGE COLOR
+========================================================= */
+
+body {
+  background:
+    radial-gradient(
+      circle at 85% 8%,
+      rgba(119, 116, 232, 0.035),
+      transparent 24%
+    ),
+    radial-gradient(
+      circle at 8% 50%,
+      rgba(185, 110, 92, 0.035),
+      transparent 26%
+    ),
+    var(--ola-bg) !important;
+
+  color: var(--ola-ink) !important;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ola-ink) !important;
+}
+
+p {
+  color: var(--ola-muted);
+}
+
+
+/* =========================================================
+   SMALL TECH ACCENTS
+========================================================= */
+
+.hero-label,
+.section-eyebrow,
+.now-label {
+  color: var(--ola-coral) !important;
+}
+
+.hero-copy h2 span {
+  color: var(--ola-coral) !important;
+
+  /* remove previous rainbow gradient text */
+  background: none !important;
+  -webkit-text-fill-color: initial !important;
+}
+
+
+/* =========================================================
+   HERO — VERY LIGHT TECH GLOW
+========================================================= */
+
+.profile-circle-new {
+  box-shadow:
+    0 28px 70px rgba(50, 36, 31, 0.11),
+    0 0 0 1px rgba(119, 116, 232, 0.08),
+    0 0 40px rgba(119, 116, 232, 0.06) !important;
+}
+
+.orbit-one {
+  border-color:
+    rgba(119, 116, 232, 0.12) !important;
+}
+
+.orbit-two {
+  border-color:
+    rgba(185, 110, 92, 0.12) !important;
+}
+
+.floating-icon {
+  background:
+    rgba(255, 253, 250, 0.86) !important;
+
+  border:
+    1px solid var(--ola-border) !important;
+
+  box-shadow:
+    0 16px 38px rgba(48, 33, 28, 0.07) !important;
+}
+
+
+/* =========================================================
+   RIGHT NOW — CLEAN SIDE NAV
+========================================================= */
+
+.right-now-experience {
+  display: grid !important;
+
+  grid-template-columns:
+    185px
+    minmax(0, 1fr) !important;
+
+  gap: 28px !important;
+
+  align-items: start !important;
+}
+
+
+/* One contained menu instead of scattered rows */
+
+.right-now-menu {
+  display: flex !important;
+  flex-direction: column !important;
+
+  gap: 6px !important;
+
+  padding: 8px !important;
+
+  background:
+    rgba(255, 253, 250, 0.54);
+
+  border:
+    1px solid var(--ola-border);
+
+  border-radius: 18px;
+
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+
+/* Individual tab */
+
+.right-now-tab {
+  width: 100% !important;
+
+  min-height: 52px !important;
+
+  display: grid !important;
+
+  grid-template-columns:
+    25px
+    1fr
+    16px !important;
+
+  align-items: center !important;
+
+  gap: 8px !important;
+
+  padding:
+    0
+    12px !important;
+
+  margin: 0 !important;
+
+  border: none !important;
+
+  border-radius: 12px !important;
+
+  background: transparent !important;
+
+  color: #897a74 !important;
+
+  font-size: 0.83rem !important;
+
+  font-weight: 600 !important;
+
+  text-align: left !important;
+
+  cursor: pointer;
+
+  transform: none !important;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease !important;
+}
+
+
+/* Number */
+
+.right-now-tab span {
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size: 0.52rem !important;
+
+  color: var(--ola-coral) !important;
+}
+
+
+/* Arrow */
+
+.right-now-tab b {
+  font-weight: 400;
+
+  opacity: 0;
+
+  transform: translateX(-4px);
+
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+}
+
+
+/* Hover */
+
+.right-now-tab:hover {
+  background:
+    rgba(255,255,255,0.55) !important;
+
+  color: var(--ola-ink) !important;
+}
+
+
+/* Active */
+
+.right-now-tab.active {
+  background:
+    #fffdfa !important;
+
+  color:
+    var(--ola-ink) !important;
+
+  box-shadow:
+    0 8px 24px rgba(52, 37, 31, 0.07);
+
+  transform:
+    translateX(2px) !important;
+}
+
+.right-now-tab.active b {
+  opacity: 1;
+
+  transform:
+    translateX(0);
+}
+
+
+/* Remove the blue ugly browser-looking outline */
+
+.right-now-tab:focus {
+  outline: none !important;
+}
+
+.right-now-tab:focus-visible {
+  outline:
+    2px solid
+    rgba(119, 116, 232, 0.38) !important;
+
+  outline-offset:
+    2px;
+}
+
+
+/* =========================================================
+   RIGHT NOW MAIN PANEL
+========================================================= */
+
+.right-now-panel {
+  background:
+    rgba(255, 253, 250, 0.82) !important;
+
+  border:
+    1px solid var(--ola-border) !important;
+
+  box-shadow:
+    var(--ola-shadow) !important;
+
+  backdrop-filter:
+    blur(12px);
+
+  -webkit-backdrop-filter:
+    blur(12px);
+}
+
+
+/* Music gets just a whisper of violet */
+
+.music-feature-panel {
+  background:
+    linear-gradient(
+      135deg,
+      #fffdfa 0%,
+      rgba(243, 240, 250, 0.72) 100%
+    ) !important;
+}
+
+
+/* Portfolio panel background */
+
+.product-panel-visual {
+  background:
+    #f3ede8 !important;
+}
+
+
+/* =========================================================
+   DIM ABOUT GRADIENT
+========================================================= */
+
+.about-home-new {
+  background:
+    linear-gradient(
+      135deg,
+      #f1e7e1 0%,
+      #f3eeef 55%,
+      #edf3f4 100%
+    ) !important;
+
+  box-shadow:
+    none !important;
+}
+
+
+/* =========================================================
+   PROJECT CARDS
+========================================================= */
+
+.featured-project-card {
+  background:
+    rgba(255,253,250,0.88) !important;
+
+  border:
+    1px solid var(--ola-border) !important;
+}
+
+.featured-project-card:hover {
+  box-shadow:
+    0 28px 65px
+    rgba(48, 34, 29, 0.10) !important;
+}
+
+
+/* =========================================================
+   CONTACT — DARK TECH MOMENT
+========================================================= */
+
+.home-contact-new {
+  background:
+    radial-gradient(
+      circle at 90% 15%,
+      rgba(119,116,232,0.13),
+      transparent 28%
+    ),
+    #241b1f !important;
+}
+
+
+/* =========================================================
+   NEW INTRO
+========================================================= */
+
+.ola-intro {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 999999;
+
+  display: grid;
+  place-items: center;
+
+  background:
+    #171417;
+
+  color:
+    #fff;
+
+  transition:
+    opacity 0.65s ease,
+    visibility 0.65s ease;
+}
+
+.ola-intro.is-gone {
+  opacity: 0;
+
+  visibility: hidden;
+
+  pointer-events: none;
+}
+
+
+.ola-intro-inner {
+  width:
+    min(
+      720px,
+      calc(100% - 48px)
+    );
+
+  padding:
+    40px 0;
+}
+
+
+.ola-intro-mark {
+  margin: 0 0 22px;
+
+  font-family:
+    "Space Mono",
+    monospace;
+
+  font-size:
+    0.61rem;
+
+  letter-spacing:
+    0.18em;
+
+  color:
+    #d28270;
+}
+
+
+.ola-intro-message {
+  min-height:
+    125px;
+
+  max-width:
+    680px;
+
+  font-family:
+    "DM Serif Display",
+    serif;
+
+  font-size:
+    clamp(
+      2.8rem,
+      6vw,
+      5.5rem
+    );
+
+  line-height:
+    0.98;
+
+  letter-spacing:
+    -0.035em;
+
+  color:
+    #fffaf5;
+}
+
+
+/* Caret */
+
+.ola-intro-caret {
+  display:
+    inline-block;
+
+  width:
+    3px;
+
+  height:
+    0.88em;
+
+  margin-left:
+    7px;
+
+  vertical-align:
+    -0.03em;
+
+  background:
+    #8f8cf6;
+
+  animation:
+    olaCaret
+    0.75s
+    steps(1)
+    infinite;
+}
+
+
+@keyframes olaCaret {
+
+  0%,
+  45% {
+    opacity: 1;
+  }
+
+  46%,
+  100% {
+    opacity: 0;
+  }
+
+}
+
+
+/* Tiny progress line */
+
+.ola-intro-progress {
+  width:
+    100%;
+
+  max-width:
+    680px;
+
+  height:
+    1px;
+
+  margin-top:
+    34px;
+
+  background:
+    rgba(255,255,255,0.10);
+
+  overflow:
+    hidden;
+}
+
+
+.ola-intro-progress span {
+  display:
+    block;
+
+  width:
+    0;
+
+  height:
+    100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #c87968,
+      #8885ef
+    );
+
+  animation:
+    olaProgress
+    3.7s
+    ease
+    forwards;
+}
+
+
+@keyframes olaProgress {
+
+  from {
+    width: 0%;
+  }
+
+  to {
+    width: 100%;
+  }
+
+}
+
+
+/* =========================================================
+   MOBILE RIGHT NOW
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .right-now-experience {
+    grid-template-columns:
+      1fr !important;
+
+    gap:
+      18px !important;
+  }
+
+
+  .right-now-menu {
+    flex-direction:
+      row !important;
+
+    width:
+      100%;
+
+    overflow-x:
+      auto;
+
+    padding:
+      6px !important;
+  }
+
+
+  .right-now-tab {
+    min-width:
+      125px !important;
+
+    grid-template-columns:
+      1fr !important;
+
+    text-align:
+      center !important;
+
+    justify-items:
+      center;
+  }
+
+
+  .right-now-tab span,
+  .right-now-tab b {
+    display:
+      none !important;
+  }
+
+
+  .right-now-tab.active {
+    transform:
+      none !important;
+  }
+
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (
+  prefers-reduced-motion: reduce
+) {
+
+  .ola-intro-caret,
+  .ola-intro-progress span {
+    animation:
+      none !important;
+  }
+
+}
