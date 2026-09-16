@@ -483,11 +483,21 @@ body.has-rail {
   background: rgba(58, 40, 34, 0.45);
 }
 
+.watching-card-art {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  flex-shrink: 0;
+}
+
 .watching-card-art img {
+  display: block;
   width: 160px;
   height: 90px;
   border-radius: 10px;
   object-fit: cover;
+  animation: none;
+  transform: none;
 }
 
 .watching-card-copy h3 {
@@ -2374,8 +2384,7 @@ section:hover > * > .section-eyebrow::after {
 
 .featured-image-wrap img,
 .live-banner,
-.project-image img,
-.watching-card-art img {
+.project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -3324,9 +3333,23 @@ section:hover > * > .section-eyebrow::after {
   }
 
   .track-grid,
-  .studio-game,
-  .watching-card {
+  .studio-game {
     grid-template-columns: 1fr;
+  }
+
+  .watching-card {
+    grid-template-columns: 120px minmax(0, 1fr);
+    gap: 14px;
+    align-items: center;
+  }
+
+  .watching-card-art img {
+    width: 120px;
+    height: 68px;
+  }
+
+  .watching-card-copy h3 {
+    font-size: 1.35rem;
   }
 
   .life-grid {
@@ -3855,6 +3878,28 @@ section:hover > * > .section-eyebrow::after {
   .ola-intro-message {
     font-size: 2.25rem;
   }
+
+  .watching-card {
+    margin-top: 20px;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 10px;
+    padding: 12px;
+  }
+
+  .watching-card-art img {
+    width: 96px;
+    height: 54px;
+  }
+
+  .watching-card-copy h3 {
+    font-size: 1.1rem;
+    margin: 2px 0 6px;
+  }
+
+  .watching-meta {
+    font-size: 0.62rem;
+    line-height: 1.45;
+  }
 }
 
 @media (hover: none) {
@@ -3900,7 +3945,6 @@ section:hover > * > .section-eyebrow::after {
   .featured-image-wrap img,
   .live-banner,
   .project-image img,
-  .watching-card-art img,
   .track-card,
   .love-chip,
   .game-bit,
