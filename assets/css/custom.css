@@ -2319,6 +2319,11 @@ a.featured-project-card {
   text-decoration: none;
 }
 
+.featured-image-wrap--pulse .project-frame-badge,
+.featured-image-wrap--pulse .project-hover-action {
+  z-index: 4;
+}
+
 .featured-project-card::before,
 .project-detail-card::before {
   position: absolute;
