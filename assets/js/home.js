@@ -334,11 +334,33 @@ document.addEventListener("DOMContentLoaded", () => {
   const watchingPoster = document.getElementById("watchingPoster");
   const watchingCardArt = document.getElementById("watchingCardArt");
 
+  function resolveWatchingApiUrl() {
+    const host = location.hostname;
+    const useSameOrigin =
+      host === "localhost" ||
+      host === "127.0.0.1" ||
+      host.endsWith(".vercel.app");
+
+    if (useSameOrigin) {
+      return "/api/watching";
+    }
+
+    const origin = document
+      .querySelector('meta[name="watching-api-origin"]')
+      ?.getAttribute("content")
+      ?.trim();
+    if (origin) {
+      return `${origin.replace(/\/$/, "")}/api/watching`;
+    }
+
+    return "/api/watching";
+  }
+
   async function loadWatching() {
     if (!watchingTitle) return;
 
     try {
-      const response = await fetch("/api/watching");
+      const response = await fetch(resolveWatchingApiUrl());
       if (!response.ok) return;
       const data = await response.json();
       if (data.fallback || data.error || !data.title) return;
