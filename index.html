@@ -212,6 +212,234 @@
   <div class="right-now-experience">
 
     <!-- SIDE MENU -->
+
+    <div
+      class="right-now-menu"
+      role="tablist"
+      aria-label="Right now"
+    >
+
+      <button
+        class="right-now-tab active"
+        type="button"
+        data-panel="building"
+        role="tab"
+        aria-selected="true"
+      >
+        <span>01</span>
+        Building
+        <b>→</b>
+      </button>
+
+      <button
+        class="right-now-tab"
+        type="button"
+        data-panel="listening"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>02</span>
+        Listening
+        <b>→</b>
+      </button>
+
+      <button
+        class="right-now-tab"
+        type="button"
+        data-panel="watching"
+        role="tab"
+        aria-selected="false"
+      >
+        <span>03</span>
+        Watching
+        <b>→</b>
+      </button>
+
+    </div>
+
+
+    <!-- PANELS -->
+
+    <div class="right-now-panels">
+
+
+      <!-- BUILDING -->
+
+      <article
+        class="right-now-panel active"
+        data-panel-content="building"
+      >
+
+        <div class="right-now-panel-copy">
+
+          <p class="now-label">
+            Currently building
+          </p>
+
+          <h3>
+            Portfolio Pulse
+          </h3>
+
+          <p>
+            An AI-powered portfolio intelligence prototype designed to help
+            investors bring fragmented company information together, surface
+            market signals, and focus attention where it matters.
+          </p>
+
+          <a
+            href="https://portfolio-pulse-prototype.vercel.app/company/nova-robotics"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="right-now-action"
+          >
+            Open prototype ↗
+          </a>
+
+        </div>
+
+
+        <div class="right-now-visual product-panel-visual">
+
+          <img
+            src="images/PP.png"
+            alt="Portfolio Pulse product dashboard"
+          />
+
+        </div>
+
+      </article>
+
+
+      <!-- LISTENING -->
+
+      <article
+        class="right-now-panel music-feature-panel"
+        data-panel-content="listening"
+      >
+
+        <div class="right-now-panel-copy">
+
+          <div class="music-feature-status">
+
+            <p class="now-label">
+              On repeat
+            </p>
+
+            <div class="music-live-status">
+
+              <span class="music-status-dot"></span>
+
+              <span id="musicStatusText">
+                Recently played
+              </span>
+
+            </div>
+
+          </div>
+
+
+          <h3 id="musicTrack">
+            Loading...
+          </h3>
+
+          <p
+            id="musicArtist"
+            class="music-feature-artist"
+          >
+            Fetching my latest track
+          </p>
+
+
+          <div class="music-feature-equalizer">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+
+          <a
+            id="musicLink"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="right-now-action"
+          >
+            View track ↗
+          </a>
+
+        </div>
+
+
+        <div class="right-now-visual music-feature-art">
+
+          <img
+            id="musicArtwork"
+            src=""
+            alt="Album artwork"
+          />
+
+          <div class="music-record-ring"></div>
+
+        </div>
+
+      </article>
+
+
+      <!-- WATCHING -->
+
+      <article
+        class="right-now-panel"
+        data-panel-content="watching"
+      >
+
+        <div class="right-now-panel-copy">
+
+          <p class="now-label">
+            Currently watching
+          </p>
+
+          <h3>
+            Severance
+          </h3>
+
+          <p>
+            Slowly making my way through Apple TV’s weirdest workplace.
+          </p>
+
+          <span class="right-now-small-note">
+            📺 current obsession
+          </span>
+
+        </div>
+
+
+        <div class="right-now-visual watching-visual">
+
+          <div class="watching-title-card">
+
+            <span>
+              SEVERANCE
+            </span>
+
+            <small>
+              Apple TV+
+            </small>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </div>
+
+  </div>
+
+</section>
+
+    <!-- SIDE MENU -->
     <div class="right-now-menu" role="tablist" aria-label="Right now">
 
       <button
@@ -965,348 +1193,612 @@
   </footer>
 
 <script>
-  /* =========================
-     PHOTO FILTERS
-  ========================== */
+  document.addEventListener("DOMContentLoaded", () => {
 
-  const photoFilters = document.querySelectorAll(".photo-filter");
-  const travelPhotos = document.querySelectorAll(".travel-photo");
+    /* =========================================
+       PHOTO FILTERS
+    ========================================= */
 
-  photoFilters.forEach((button) => {
-    button.addEventListener("click", () => {
-      const filter = button.dataset.filter;
+    const photoFilters =
+      document.querySelectorAll(".photo-filter");
 
-      photoFilters.forEach((item) => {
-        item.classList.remove("active");
+    const travelPhotos =
+      document.querySelectorAll(".travel-photo");
+
+
+    photoFilters.forEach((button) => {
+
+      button.addEventListener("click", () => {
+
+        const filter = button.dataset.filter;
+
+
+        photoFilters.forEach((item) => {
+          item.classList.remove("active");
+        });
+
+
+        button.classList.add("active");
+
+
+        travelPhotos.forEach((photo) => {
+
+          const location =
+            photo.dataset.location;
+
+
+          if (
+            filter === "all" ||
+            location === filter
+          ) {
+
+            photo.classList.remove(
+              "photo-hidden"
+            );
+
+          } else {
+
+            photo.classList.add(
+              "photo-hidden"
+            );
+
+          }
+
+        });
+
       });
 
-      button.classList.add("active");
-
-      travelPhotos.forEach((photo) => {
-        const location = photo.dataset.location;
-
-        if (filter === "all" || location === filter) {
-          photo.classList.remove("photo-hidden");
-        } else {
-          photo.classList.add("photo-hidden");
-        }
-      });
     });
-  });
 
 
-  /* =========================
-     PHOTO LIGHTBOX
-  ========================== */
 
-  const lightbox = document.getElementById("photoLightbox");
-  const lightboxImage = document.getElementById("lightboxImage");
-  const lightboxLocation = document.getElementById("lightboxLocation");
-  const lightboxCaption = document.getElementById("lightboxCaption");
+    /* =========================================
+       PHOTO LIGHTBOX
+    ========================================= */
 
-  const closeButton = document.querySelector(".lightbox-close");
-  const prevButton = document.querySelector(".lightbox-prev");
-  const nextButton = document.querySelector(".lightbox-next");
+    const lightbox =
+      document.getElementById("photoLightbox");
 
-  let currentPhotoIndex = 0;
+    const lightboxImage =
+      document.getElementById("lightboxImage");
 
-  function getVisiblePhotos() {
-    return Array.from(travelPhotos).filter((photo) => {
-      return !photo.classList.contains("photo-hidden");
-    });
-  }
+    const lightboxLocation =
+      document.getElementById("lightboxLocation");
 
-  function showPhoto(index) {
-    const visiblePhotos = getVisiblePhotos();
+    const lightboxCaption =
+      document.getElementById("lightboxCaption");
 
-    if (!visiblePhotos.length) return;
+    const closeButton =
+      document.querySelector(".lightbox-close");
 
-    if (index < 0) {
-      index = visiblePhotos.length - 1;
+    const prevButton =
+      document.querySelector(".lightbox-prev");
+
+    const nextButton =
+      document.querySelector(".lightbox-next");
+
+
+    let currentPhotoIndex = 0;
+
+
+    function getVisiblePhotos() {
+
+      return Array
+        .from(travelPhotos)
+        .filter((photo) => {
+          return !photo.classList.contains(
+            "photo-hidden"
+          );
+        });
+
     }
 
-    if (index >= visiblePhotos.length) {
-      index = 0;
-    }
 
-    currentPhotoIndex = index;
+    function showPhoto(index) {
 
-    const selectedPhoto = visiblePhotos[index];
-
-    const image = selectedPhoto.querySelector("img");
-    const location = selectedPhoto.querySelector(".photo-location span");
-    const caption = selectedPhoto.querySelector("figcaption");
-
-    lightboxImage.src = image.src;
-    lightboxImage.alt = image.alt;
-
-    lightboxLocation.textContent =
-      location ? location.textContent : "";
-
-    lightboxCaption.textContent =
-      caption ? caption.textContent : "";
-  }
-
-  travelPhotos.forEach((photo) => {
-    photo.addEventListener("click", () => {
-      const visiblePhotos = getVisiblePhotos();
-
-      currentPhotoIndex = visiblePhotos.indexOf(photo);
-
-      showPhoto(currentPhotoIndex);
-
-      lightbox.classList.add("open");
-      lightbox.setAttribute("aria-hidden", "false");
-
-      document.body.classList.add("lightbox-open");
-    });
-  });
-
-  function closeLightbox() {
-    lightbox.classList.remove("open");
-    lightbox.setAttribute("aria-hidden", "true");
-
-    document.body.classList.remove("lightbox-open");
-  }
-
-  closeButton.addEventListener("click", closeLightbox);
-
-  prevButton.addEventListener("click", () => {
-    showPhoto(currentPhotoIndex - 1);
-  });
-
-  nextButton.addEventListener("click", () => {
-    showPhoto(currentPhotoIndex + 1);
-  });
-
-  lightbox.addEventListener("click", (event) => {
-    if (event.target === lightbox) {
-      closeLightbox();
-    }
-  });
-
-  document.addEventListener("keydown", (event) => {
-    if (!lightbox.classList.contains("open")) return;
-
-    if (event.key === "Escape") {
-      closeLightbox();
-    }
-
-    if (event.key === "ArrowLeft") {
-      showPhoto(currentPhotoIndex - 1);
-    }
-
-    if (event.key === "ArrowRight") {
-      showPhoto(currentPhotoIndex + 1);
-    }
-  });
+      const visiblePhotos =
+        getVisiblePhotos();
 
 
-<script>
-  /* =========================
-     RIGHT NOW TABS
-  ========================== */
-
-  const rightNowTabs =
-    document.querySelectorAll(".right-now-tab");
-
-  const rightNowPanels =
-    document.querySelectorAll(".right-now-panel");
-
-  rightNowTabs.forEach((tab) => {
-
-    tab.addEventListener("click", () => {
-
-      const target = tab.dataset.panel;
-
-      rightNowTabs.forEach((item) => {
-        item.classList.remove("active");
-        item.setAttribute("aria-selected", "false");
-      });
-
-      rightNowPanels.forEach((panel) => {
-        panel.classList.remove("active");
-      });
-
-      tab.classList.add("active");
-      tab.setAttribute("aria-selected", "true");
-
-      const targetPanel =
-        document.querySelector(
-          `[data-panel-content="${target}"]`
-        );
-
-      if (targetPanel) {
-        targetPanel.classList.add("active");
+      if (!visiblePhotos.length) {
+        return;
       }
 
+
+      if (index < 0) {
+        index = visiblePhotos.length - 1;
+      }
+
+
+      if (index >= visiblePhotos.length) {
+        index = 0;
+      }
+
+
+      currentPhotoIndex = index;
+
+
+      const selectedPhoto =
+        visiblePhotos[index];
+
+
+      const image =
+        selectedPhoto.querySelector("img");
+
+      const location =
+        selectedPhoto.querySelector(
+          ".photo-location span"
+        );
+
+      const caption =
+        selectedPhoto.querySelector(
+          "figcaption"
+        );
+
+
+      lightboxImage.src =
+        image.src;
+
+      lightboxImage.alt =
+        image.alt;
+
+
+      lightboxLocation.textContent =
+        location
+          ? location.textContent
+          : "";
+
+
+      lightboxCaption.textContent =
+        caption
+          ? caption.textContent
+          : "";
+
+    }
+
+
+    travelPhotos.forEach((photo) => {
+
+      photo.addEventListener("click", () => {
+
+        const visiblePhotos =
+          getVisiblePhotos();
+
+
+        currentPhotoIndex =
+          visiblePhotos.indexOf(photo);
+
+
+        showPhoto(
+          currentPhotoIndex
+        );
+
+
+        lightbox.classList.add(
+          "open"
+        );
+
+
+        lightbox.setAttribute(
+          "aria-hidden",
+          "false"
+        );
+
+
+        document.body.classList.add(
+          "lightbox-open"
+        );
+
+      });
+
     });
 
-  });
+
+    function closeLightbox() {
+
+      lightbox.classList.remove(
+        "open"
+      );
 
 
- 
-  <script>
-  /* =========================
-     RIGHT NOW TABS
-  ========================== */
+      lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+      );
 
-  document.addEventListener("DOMContentLoaded", () => {
-    const tabs = document.querySelectorAll(".right-now-tab");
-    const panels = document.querySelectorAll(".right-now-panel");
 
-    tabs.forEach((tab) => {
+      document.body.classList.remove(
+        "lightbox-open"
+      );
+
+    }
+
+
+    if (closeButton) {
+
+      closeButton.addEventListener(
+        "click",
+        closeLightbox
+      );
+
+    }
+
+
+    if (prevButton) {
+
+      prevButton.addEventListener(
+        "click",
+        () => {
+          showPhoto(
+            currentPhotoIndex - 1
+          );
+        }
+      );
+
+    }
+
+
+    if (nextButton) {
+
+      nextButton.addEventListener(
+        "click",
+        () => {
+          showPhoto(
+            currentPhotoIndex + 1
+          );
+        }
+      );
+
+    }
+
+
+    if (lightbox) {
+
+      lightbox.addEventListener(
+        "click",
+        (event) => {
+
+          if (
+            event.target === lightbox
+          ) {
+
+            closeLightbox();
+
+          }
+
+        }
+      );
+
+    }
+
+
+    document.addEventListener(
+      "keydown",
+      (event) => {
+
+        if (
+          !lightbox ||
+          !lightbox.classList.contains(
+            "open"
+          )
+        ) {
+          return;
+        }
+
+
+        if (event.key === "Escape") {
+          closeLightbox();
+        }
+
+
+        if (event.key === "ArrowLeft") {
+          showPhoto(
+            currentPhotoIndex - 1
+          );
+        }
+
+
+        if (event.key === "ArrowRight") {
+          showPhoto(
+            currentPhotoIndex + 1
+          );
+        }
+
+      }
+    );
+
+
+
+    /* =========================================
+       RIGHT NOW TABS
+    ========================================= */
+
+    const rightNowTabs =
+      document.querySelectorAll(
+        ".right-now-tab"
+      );
+
+    const rightNowPanels =
+      document.querySelectorAll(
+        ".right-now-panel"
+      );
+
+
+    rightNowTabs.forEach((tab) => {
+
       tab.addEventListener("click", () => {
-        const target = tab.getAttribute("data-panel");
 
-        /* reset tabs */
-        tabs.forEach((item) => {
-          item.classList.remove("active");
-          item.setAttribute("aria-selected", "false");
-        });
+        const target =
+          tab.dataset.panel;
 
-        /* hide panels */
-        panels.forEach((panel) => {
-          panel.classList.remove("active");
-        });
 
-        /* activate clicked tab */
-        tab.classList.add("active");
-        tab.setAttribute("aria-selected", "true");
+        rightNowTabs.forEach(
+          (item) => {
 
-        /* show matching panel */
-        const targetPanel = document.querySelector(
-          `.right-now-panel[data-panel-content="${target}"]`
+            item.classList.remove(
+              "active"
+            );
+
+            item.setAttribute(
+              "aria-selected",
+              "false"
+            );
+
+          }
         );
+
+
+        rightNowPanels.forEach(
+          (panel) => {
+
+            panel.classList.remove(
+              "active"
+            );
+
+          }
+        );
+
+
+        tab.classList.add(
+          "active"
+        );
+
+
+        tab.setAttribute(
+          "aria-selected",
+          "true"
+        );
+
+
+        const targetPanel =
+          document.querySelector(
+            `.right-now-panel[data-panel-content="${target}"]`
+          );
+
 
         if (targetPanel) {
-          targetPanel.classList.add("active");
+
+          targetPanel.classList.add(
+            "active"
+          );
+
         }
+
       });
+
     });
-  });
-   /* =========================
-     LAST.FM
-  ========================== */
-
-  const LASTFM_API_KEY = "3ae8552b3253e17384123295925b43ed";
-  const LASTFM_USERNAME = "Truemide";
-
-  const musicPanel =
-    document.querySelector(".music-feature-panel");
-
-  const musicArtwork =
-    document.getElementById("musicArtwork");
-
-  const musicTrack =
-    document.getElementById("musicTrack");
-
-  const musicArtist =
-    document.getElementById("musicArtist");
-
-  const musicLink =
-    document.getElementById("musicLink");
-
-  const musicStatusText =
-    document.getElementById("musicStatusText");
 
 
-  async function loadRecentTrack() {
 
-    try {
+    /* =========================================
+       LAST.FM LIVE MUSIC
+    ========================================= */
 
-      const endpoint =
-        "https://ws.audioscrobbler.com/2.0/" +
-        "?method=user.getrecenttracks" +
-        `&user=${encodeURIComponent(LASTFM_USERNAME)}` +
-        `&api_key=${encodeURIComponent(LASTFM_API_KEY)}` +
-        "&format=json" +
-        "&limit=1";
+    const LASTFM_API_KEY =
+      "3ae8552b3253e17384123295925b43ed";
 
-      const response = await fetch(endpoint);
+    const LASTFM_USERNAME =
+      "Truemide";
 
-      if (!response.ok) {
-        throw new Error("Could not load Last.fm data");
-      }
 
-      const data = await response.json();
+    const musicPanel =
+      document.querySelector(
+        ".music-feature-panel"
+      );
 
-      const track =
-        data?.recenttracks?.track?.[0];
+    const musicArtwork =
+      document.getElementById(
+        "musicArtwork"
+      );
 
-      if (!track) {
-        throw new Error("No recent track found");
-      }
+    const musicTrack =
+      document.getElementById(
+        "musicTrack"
+      );
 
-      const isPlaying =
-        track["@attr"]?.nowplaying === "true";
+    const musicArtist =
+      document.getElementById(
+        "musicArtist"
+      );
 
-      const trackName =
-        track.name || "Unknown track";
+    const musicLink =
+      document.getElementById(
+        "musicLink"
+      );
 
-      const artistName =
-        track.artist?.["#text"] || "Unknown artist";
+    const musicStatusText =
+      document.getElementById(
+        "musicStatusText"
+      );
 
-      const artwork =
-        track.image?.find(
-          (image) => image.size === "extralarge"
-        )?.["#text"] ||
-        track.image?.find(
-          (image) => image.size === "large"
-        )?.["#text"] ||
-        "";
 
-      musicTrack.textContent = trackName;
-      musicArtist.textContent = artistName;
-      musicLink.href = track.url || "#";
+    async function loadRecentTrack() {
 
-      if (artwork) {
-        musicArtwork.src = artwork;
-        musicArtwork.style.display = "block";
-      } else {
-        musicArtwork.style.display = "none";
-      }
+      try {
 
-      if (isPlaying) {
+        const endpoint =
+          "https://ws.audioscrobbler.com/2.0/" +
+          "?method=user.getrecenttracks" +
+          `&user=${encodeURIComponent(
+            LASTFM_USERNAME
+          )}` +
+          `&api_key=${encodeURIComponent(
+            LASTFM_API_KEY
+          )}` +
+          "&format=json" +
+          "&limit=1";
 
-        musicPanel.classList.add("is-playing");
 
-        musicStatusText.textContent =
-          "Listening now";
+        const response =
+          await fetch(endpoint);
 
-      } else {
 
-        musicPanel.classList.remove("is-playing");
+        if (!response.ok) {
+
+          throw new Error(
+            "Could not load Last.fm data"
+          );
+
+        }
+
+
+        const data =
+          await response.json();
+
+
+        const track =
+          data?.recenttracks?.track?.[0];
+
+
+        if (!track) {
+
+          throw new Error(
+            "No recent track found"
+          );
+
+        }
+
+
+        const isPlaying =
+          track["@attr"]?.nowplaying ===
+          "true";
+
+
+        const trackName =
+          track.name ||
+          "Unknown track";
+
+
+        const artistName =
+          track.artist?.["#text"] ||
+          "Unknown artist";
+
+
+        const artwork =
+          track.image?.find(
+            (image) =>
+              image.size ===
+              "extralarge"
+          )?.["#text"] ||
+
+          track.image?.find(
+            (image) =>
+              image.size ===
+              "large"
+          )?.["#text"] ||
+
+          "";
+
+
+        musicTrack.textContent =
+          trackName;
+
+
+        musicArtist.textContent =
+          artistName;
+
+
+        musicLink.href =
+          track.url || "#";
+
+
+        if (artwork) {
+
+          musicArtwork.src =
+            artwork;
+
+          musicArtwork.style.display =
+            "block";
+
+        } else {
+
+          musicArtwork.style.display =
+            "none";
+
+        }
+
+
+        if (isPlaying) {
+
+          musicPanel.classList.add(
+            "is-playing"
+          );
+
+
+          musicStatusText.textContent =
+            "Listening now";
+
+        } else {
+
+          musicPanel.classList.remove(
+            "is-playing"
+          );
+
+
+          musicStatusText.textContent =
+            "Recently played";
+
+        }
+
+      } catch (error) {
+
+        console.error(
+          "Last.fm error:",
+          error
+        );
+
+
+        musicTrack.textContent =
+          "Music unavailable";
+
+
+        musicArtist.textContent =
+          "Check back later";
+
 
         musicStatusText.textContent =
           "Recently played";
 
+
+        musicPanel.classList.remove(
+          "is-playing"
+        );
+
       }
-
-    } catch (error) {
-
-      console.error(error);
-
-      musicTrack.textContent =
-        "Music unavailable";
-
-      musicArtist.textContent =
-        "Check back later";
-
-      musicStatusText.textContent =
-        "Recently played";
-
-      musicPanel.classList.remove("is-playing");
 
     }
 
-  }
 
-  loadRecentTrack();
+    loadRecentTrack();
 
-  setInterval(loadRecentTrack, 60000);
+
+    setInterval(
+      loadRecentTrack,
+      60000
+    );
+
+  });
 </script>
 
-</script>
 </body>
 </html>
