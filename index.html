@@ -48,7 +48,8 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="assets/css/custom.css?v=20260916-25" />
+  <link rel="stylesheet" href="assets/css/custom.css?v=20260916-28" />
+  <link rel="stylesheet" href="assets/css/operational-intelligence-showcase.css?v=20260916-27" />
 
   <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6641LZ5Z7T"></script>
@@ -175,12 +176,12 @@
         <a href="https://www.linkedin.com/in/Ola-bankole-b68640203/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:bankolee.olamide@gmail.com">Email</a>
       </div>
-    </nav>
 
-    <div class="rail-foot">
-      <p><span id="localTime">--:--</span> local time</p>
-      <p>Houston, Texas, USA</p>
-    </div>
+      <div class="rail-foot">
+        <p><span id="localTime">--:--</span> local time</p>
+        <p>Houston, Texas, USA</p>
+      </div>
+    </nav>
   </header>
 
 
@@ -298,25 +299,38 @@
           </div>
         </a>
 
-        <a class="featured-project-card" href="work/#operational-intelligence" data-project-index="02">
-          <div class="featured-image-wrap">
+        <article class="featured-project-card featured-project-card--ops" data-project-index="02">
+          <a
+            class="featured-image-wrap featured-image-wrap--ops"
+            href="https://operational-intelligence-five.vercel.app/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span class="project-frame-badge">Live product</span>
             <img
-              src="images/OP.avif"
-              alt="Operational Intelligence Platform dashboard"
+              src="images/operational-intelligence-dashboard.png"
+              alt="OpsSignal operational intelligence dashboard with anomaly detection, service health, and an AI investigation assistant"
               loading="lazy"
               decoding="async"
             />
-            <span class="project-hover-action">Read the story ↗</span>
-          </div>
+            <span class="project-hover-action">Open product ↗</span>
+          </a>
           <div class="featured-project-copy">
             <div class="project-meta-line">
               <span>AI / ML PRODUCT</span>
               <span>02</span>
             </div>
-            <h3>Operational Intelligence</h3>
-            <p>AI that helps teams catch issues before they spread.</p>
+            <p class="ops-kicker">OpsSignal</p>
+            <h3 class="ops-title">Operational Intelligence</h3>
+            <p>Detect issues faster. Investigate with context. Keep systems running.</p>
+            <div class="ops-chips">
+              <span>Anomaly detection</span>
+              <span>Investigations</span>
+              <span>AI assistant</span>
+            </div>
+            <a class="section-link" href="work/#operational-intelligence">Read the story ↗</a>
           </div>
-        </a>
+        </article>
 
       </div>
 

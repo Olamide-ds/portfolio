@@ -13,7 +13,8 @@
     rel="stylesheet"
   >
 
-  <link rel="stylesheet" href="../assets/css/custom.css?v=20260916-22" />
+  <link rel="stylesheet" href="../assets/css/custom.css?v=20260916-28" />
+  <link rel="stylesheet" href="../assets/css/operational-intelligence-showcase.css?v=20260916-27" />
   <link rel="icon" href="../images/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../images/favicon.png" />
 
@@ -64,12 +65,12 @@
         <a href="https://www.linkedin.com/in/Ola-bankole-b68640203/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <a href="mailto:bankolee.olamide@gmail.com">Email</a>
       </div>
-    </nav>
 
-    <div class="rail-foot">
-      <p><span id="localTime">--:--</span> local time</p>
-      <p>Houston, Texas, USA</p>
-    </div>
+      <div class="rail-foot">
+        <p><span id="localTime">--:--</span> local time</p>
+        <p>Houston, Texas, USA</p>
+      </div>
+    </nav>
   </header>
 
   <!-- Hero -->
@@ -157,42 +158,74 @@
       </article>
 
       <!-- Operational Intelligence Platform -->
-      <article class="project-card" id="operational-intelligence">
-        <div class="project-image">
+      <article class="project-card project-card--ops" id="operational-intelligence">
+        <a
+          class="project-image project-image--ops"
+          href="https://operational-intelligence-five.vercel.app/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span class="project-frame-badge">Live product</span>
           <img
-            src="../images/OP.avif"
-            alt="Operational Intelligence Platform"
-            class="live-banner"
+            src="../images/operational-intelligence-dashboard.png"
+            alt="OpsSignal operational intelligence dashboard with anomaly detection, service health, and an AI investigation assistant"
             loading="lazy"
             decoding="async"
           />
-        </div>
+          <span class="project-hover-action">Open product ↗</span>
+        </a>
 
         <div class="project-info">
           <p class="project-category">🚨 Featured AI Product</p>
+          <p class="ops-kicker">OpsSignal</p>
 
-          <h3>Operational Intelligence Platform</h3>
+          <h3 class="ops-title">Operational Intelligence Platform</h3>
 
-          <p class="project-problem">
-            <strong>Problem:</strong>
-            Engineering teams often need to detect operational issues quickly
-            and investigate incidents before customer impact grows.
-          </p>
+          <div class="ops-stats">
+            <div>
+              <strong>17</strong>
+              <span>Anomalies surfaced</span>
+            </div>
+            <div>
+              <strong>92%</strong>
+              <span>System health</span>
+            </div>
+            <div>
+              <strong>AI</strong>
+              <span>Investigation assistant</span>
+            </div>
+          </div>
 
-          <p>
-            I designed and built an end-to-end operational intelligence prototype
-            that enables engineering teams to upload telemetry, detect anomalies,
-            and receive AI-assisted investigation guidance. The solution combines
-            a React frontend, FastAPI backend, Isolation Forest anomaly detection,
-            and LLM-powered operational insights to demonstrate how machine learning
-            can become a practical product.
-          </p>
+          <div class="ops-chips">
+            <span>Overview</span>
+            <span>Upload Data</span>
+            <span>Anomalies</span>
+            <span>Investigations</span>
+            <span>Services</span>
+            <span>Reports</span>
+          </div>
+
+          <div class="ops-story-grid">
+            <p class="project-problem">
+              <strong>Problem:</strong>
+              Engineering teams often need to detect operational issues quickly
+              and investigate incidents before customer impact grows.
+            </p>
+
+            <p class="ops-built">
+              <strong>What I built:</strong>
+              An operator dashboard that turns telemetry into a morning briefing:
+              upload data, detect anomalies, inspect affected services, and ask
+              an AI investigation assistant for likely causes and next steps.
+            </p>
+          </div>
 
           <p class="project-takeaway">
             <strong>Product takeaway:</strong>
-            I designed the experience around operator workflows, trustworthy outputs,
-            stable APIs, and explainable AI so engineers can confidently investigate
-            operational incidents.
+            The product stays useful only if the operator can move from signal
+            to action. I designed around that loop: what is happening, which
+            services are hit, and what to do next — with Isolation Forest
+            detection and LLM-backed investigation still doing the underlying work.
           </p>
 
           <div class="project-meta">
@@ -208,21 +241,26 @@
 
           <div class="project-links">
             <a
+              class="ops-live-cta"
+              href="https://operational-intelligence-five.vercel.app/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Explore live product ↗
+            </a>
+
+            <a
               href="https://github.com/Olamide-ds/ai-operational-intelligence-platform"
               target="_blank"
               rel="noopener noreferrer"
             >
               Source Code
             </a>
-
-            <a
-              href="https://operational-intelligence-five.vercel.app/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Live Product
-            </a>
           </div>
+
+          <p class="project-note">
+            Product UI for the live prototype. Demo telemetry until a CSV analysis is completed.
+          </p>
         </div>
       </article>
 
@@ -296,6 +334,6 @@
     </p>
   </footer>
 
-  <script src="../assets/js/site.js?v=20260916-22"></script>
+  <script src="../assets/js/site.js?v=20260916-26"></script>
 </body>
 </html>

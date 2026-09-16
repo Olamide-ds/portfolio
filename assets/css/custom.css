@@ -747,6 +747,10 @@ body.has-rail {
   text-transform: uppercase;
 }
 
+.nav-links .rail-foot {
+  margin-top: auto;
+}
+
 .rail-foot p {
   margin: 0 0 4px;
   color: inherit;
@@ -3506,8 +3510,10 @@ section:hover > * > .section-eyebrow::after {
     display: none;
   }
 
-  .rail-foot {
-    display: none;
+  .nav-links .rail-foot {
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid var(--line);
   }
 
   .site-header.nav-open .nav-links {
