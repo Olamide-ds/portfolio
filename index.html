@@ -37,6 +37,39 @@
 </head>
 
 <body>
+  <!-- =========================
+     SITE INTRO / BOOT SCREEN
+========================== -->
+
+<div class="site-intro" id="siteIntro">
+
+  <div class="site-intro-inner">
+
+    <div class="intro-terminal">
+
+      <div class="intro-terminal-top">
+
+        <span></span>
+        <span></span>
+        <span></span>
+
+      </div>
+
+      <div class="intro-terminal-body">
+
+        <p class="intro-line">
+          <span class="intro-prompt">→</span>
+          <span id="introTyping"></span>
+          <span class="intro-cursor">▋</span>
+        </p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
 
   <!-- Header -->
   <header class="site-header">
@@ -195,8 +228,8 @@
      RIGHT NOW
 ========================== -->
 
-<section class="right-now interactive-right-now">
 
+<section class="right-now interactive-right-now reveal-on-scroll">
   <div class="section-heading-small">
 
     <p class="section-eyebrow">
@@ -693,7 +726,7 @@
          FEATURED WORK
     ========================== -->
 
-    <section class="featured-work-home">
+   <section class="featured-work-home reveal-on-scroll">
 
       <div class="featured-work-heading">
 
@@ -831,7 +864,7 @@
          ABOUT PREVIEW
     ========================== -->
 
-    <section class="about-home-new">
+    <section class="about-home-new reveal-on-scroll">
 
       <div class="about-home-copy">
 
@@ -879,7 +912,7 @@
      LIFE OUTSIDE THE ROADMAP
 ========================== -->
 
-<section class="photo-diary" id="life">
+<section class="photo-diary reveal-on-scroll" id="life">
 
   <div class="photo-diary-heading">
 
@@ -1043,9 +1076,9 @@
     ========================== -->
 
     <section
-      id="contact"
-      class="home-contact-new"
-    >
+  id="contact"
+  class="home-contact-new reveal-on-scroll"
+>
 
       <p class="section-eyebrow">
         CONTACT
@@ -1247,7 +1280,298 @@
         });
 
       });
+/* =========================================
+   SITE INTRO
+========================================= */
 
+const intro =
+  document.getElementById("siteIntro");
+
+const introTyping =
+  document.getElementById("introTyping");
+
+const introMessages = [
+  "initializing ola.bankole...",
+  "loading product / ai / data...",
+  "assembling ideas...",
+  "welcome."
+];
+
+let introMessageIndex = 0;
+let introCharacterIndex = 0;
+
+
+function typeIntroMessage() {
+
+  if (!introTyping) {
+    return;
+  }
+
+  const currentMessage =
+    introMessages[introMessageIndex];
+
+
+  if (
+    introCharacterIndex <
+    currentMessage.length
+  ) {
+
+    introTyping.textContent +=
+      currentMessage.charAt(
+        introCharacterIndex
+      );
+
+    introCharacterIndex++;
+
+    setTimeout(
+      typeIntroMessage,
+      32
+    );
+
+    return;
+  }
+
+
+  setTimeout(() => {
+
+    if (
+      introMessageIndex <
+      introMessages.length - 1
+    ) {
+
+      introMessageIndex++;
+
+      introCharacterIndex = 0;
+
+      introTyping.textContent = "";
+
+      typeIntroMessage();
+
+    } else {
+
+      setTimeout(() => {
+
+        if (intro) {
+          intro.classList.add(
+            "intro-hidden"
+          );
+        }
+
+      }, 450);
+
+    }
+
+  }, 320);
+
+}
+
+
+typeIntroMessage();
+
+
+
+/* =========================================
+   SCROLL REVEAL
+========================================= */
+
+const revealElements =
+  document.querySelectorAll(
+    ".reveal-on-scroll"
+  );
+
+
+const revealObserver =
+  new IntersectionObserver(
+    (entries) => {
+
+      entries.forEach(
+        (entry) => {
+
+          if (
+            entry.isIntersecting
+          ) {
+
+            entry.target.classList.add(
+              "is-visible"
+            );
+
+            revealObserver.unobserve(
+              entry.target
+            );
+
+          }
+
+        }
+      );
+
+    },
+    {
+      threshold: 0.12
+    }
+  );
+
+
+revealElements.forEach(
+  (element) => {
+
+    revealObserver.observe(
+      element
+    );
+
+  }
+);
+
+
+
+/* =========================================
+   HERO PARALLAX
+========================================= */
+
+const heroVisual =
+  document.querySelector(
+    ".hero-visual"
+  );
+
+const profileCircle =
+  document.querySelector(
+    ".profile-circle-new"
+  );
+
+const orbitOne =
+  document.querySelector(
+    ".orbit-one"
+  );
+
+const orbitTwo =
+  document.querySelector(
+    ".orbit-two"
+  );
+
+const floatingIcons =
+  document.querySelectorAll(
+    ".floating-icon"
+  );
+
+
+if (
+  heroVisual &&
+  !window.matchMedia(
+    "(prefers-reduced-motion: reduce)"
+  ).matches
+) {
+
+  heroVisual.addEventListener(
+    "mousemove",
+    (event) => {
+
+      const rect =
+        heroVisual.getBoundingClientRect();
+
+
+      const x =
+        (
+          event.clientX -
+          rect.left
+        ) /
+        rect.width -
+        0.5;
+
+
+      const y =
+        (
+          event.clientY -
+          rect.top
+        ) /
+        rect.height -
+        0.5;
+
+
+      if (profileCircle) {
+
+        profileCircle.style.transform =
+          `translate(
+            ${x * 10}px,
+            ${y * 10}px
+          )`;
+
+      }
+
+
+      if (orbitOne) {
+
+        orbitOne.style.transform =
+          `translate(
+            ${x * -8}px,
+            ${y * -8}px
+          )`;
+
+      }
+
+
+      if (orbitTwo) {
+
+        orbitTwo.style.transform =
+          `translate(
+            ${x * -14}px,
+            ${y * -14}px
+          )`;
+
+      }
+
+
+      floatingIcons.forEach(
+        (icon, index) => {
+
+          const strength =
+            10 +
+            index * 3;
+
+
+          icon.style.transform =
+            `translate(
+              ${x * strength}px,
+              ${y * strength}px
+            )`;
+
+        }
+      );
+
+    }
+  );
+
+
+  heroVisual.addEventListener(
+    "mouseleave",
+    () => {
+
+      if (profileCircle) {
+        profileCircle.style.transform =
+          "";
+      }
+
+      if (orbitOne) {
+        orbitOne.style.transform =
+          "";
+      }
+
+      if (orbitTwo) {
+        orbitTwo.style.transform =
+          "";
+      }
+
+      floatingIcons.forEach(
+        (icon) => {
+
+          icon.style.transform =
+            "";
+
+        }
+      );
+
+    }
+  );
+
+}
     });
 
 
