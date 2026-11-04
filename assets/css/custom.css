@@ -3979,3 +3979,19 @@ section:hover > * > .section-eyebrow::after {
     transform: none !important;
   }
 }
+
+
+/* Takeon (project 03) */
+.featured-project-card:nth-child(3) {
+  padding-inline: clamp(18px, 3vw, 38px);
+  background: linear-gradient(
+    110deg,
+    rgba(205, 184, 245, 0.16),
+    rgba(255, 233, 210, 0.025) 62%
+  );
+}
+
+.project-frame-badge--dev {
+  background: rgba(46, 42, 92, 0.92);
+  color: #ffd9a8;
+}
